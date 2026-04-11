@@ -1,0 +1,19 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CH3: LE CIEL
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#ciel { background: #020208; text-align: center; padding: 30vh 5vw; overflow: hidden; }
+#vanta-clouds { position: absolute; inset: 0; z-index: 1; opacity: 0.6; mix-blend-mode: screen; }
+
+.bird-flock { position: absolute; width: 400px; z-index: 4; opacity: 0.7; }
+.fl-1 { top: 20%; right: -10%; }
+.fl-2 { top: 60%; right: 20%; width: 200px; opacity: 0.4; filter: blur(2px); }
+
+.airplane-wire { position: absolute; width: 300px; fill: none; stroke: rgba(255, 255, 255, 0.15); stroke-width: 1.5; z-index: 2; }
+.plane-1 { top: 15%; left: -20%; transform: rotate(15deg); }
+.plane-2 { bottom: 20%; right: -30%; width: 500px; stroke: rgba(255, 255, 255, 0.04); stroke-width: 3; transform: rotate(-10deg) scaleX(-1); filter: blur(5px); }
+.contrail { position: absolute; width: 400px; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.25), transparent); z-index: 2; }
+
+.geo-cloud { position: absolute; border: 1px solid rgba(255, 255, 255, 0.06); backdrop-filter: blur(8px); border-radius: 100px; z-index: 3; background: rgba(255, 255, 255, 0.01); }
+.gc-1 { width: 350px; height: 100px; top: 12%; left: 8%; }
+.gc-2 { width: 500px; height: 140px; top: 70%; right: 5%; }
+

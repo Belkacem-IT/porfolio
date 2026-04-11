@@ -1,0 +1,72 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CH2: À PROPOS — TRUST & AUTHORITY
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#about { background: var(--bg); }
+
+.about-earth-bg {
+  position: absolute; right: -15%; top: -20%;
+  width: 70vw; max-width: 900px; opacity: 0.06;
+  pointer-events: none; z-index: 0;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; }
+
+.astro-wrapper {
+  position: relative; width: 100%; height: 600px;
+  display: flex; justify-content: center; align-items: center;
+}
+.astro-img {
+  width: 80%; max-width: 450px; mix-blend-mode: screen;
+  filter: drop-shadow(0 0 60px rgba(99, 102, 241, 0.25));
+  z-index: 10; position: relative;
+  animation: astro-float 6s ease-in-out infinite;
+}
+@keyframes astro-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-18px) rotate(2deg); }
+  50% { transform: translateY(-8px) rotate(-1.5deg); }
+  75% { transform: translateY(-22px) rotate(1deg); }
+}
+.orbit-svg {
+  position: absolute; width: 140%; height: 140%;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  opacity: 0.25; pointer-events: none;
+  animation: orbit-spin 40s linear infinite;
+}
+@keyframes orbit-spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.planet-orb { position: absolute; border-radius: 50%; z-index: 5; }
+.p-1 { width: 70px; height: 70px; background: radial-gradient(circle at 30% 30%, var(--accent), #000); box-shadow: 0 0 50px var(--glow); }
+.p-2 { width: 120px; height: 120px; background: radial-gradient(circle at 30% 30%, #ef4444, #1c0000); box-shadow: 0 0 60px rgba(239, 68, 68, 0.3); }
+.p-3 { width: 35px; height: 35px; background: radial-gradient(circle at 30% 30%, #22d3ee, #000); box-shadow: 0 0 25px rgba(34, 211, 238, 0.4); }
+
+/* Trust Badges */
+.trust-badges {
+  display: flex; gap: 30px; margin-top: 50px;
+  padding: 30px 0; border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.trust-item { display: flex; flex-direction: column; gap: 6px; }
+.trust-number {
+  font-family: 'Space Grotesk'; font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, #fff, var(--accent));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.trust-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2px;
+  color: rgba(255,255,255,0.4); font-family: 'Space Grotesk';
+}
+
+.skills-list { margin-top: 40px; }
+.skills-list li {
+  font-size: clamp(16px, 1.3vw, 22px); font-family: 'Space Grotesk';
+  padding: 22px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex; justify-content: space-between; transition: 0.3s;
+}
+.skills-list li:hover { padding-left: 15px; border-color: var(--accent); }
+.skills-list li span { color: var(--accent); font-weight: 300; }
+

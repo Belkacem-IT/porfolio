@@ -1,0 +1,129 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CH6: LES ENTRAILLES (SOUS-TERRE)
+   Flashlight cursor + hidden IT secrets
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#souterrain {
+  background: #000; min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  position: relative; overflow: hidden; padding: 15vh 5vw;
+  transition: background 1.5s ease;
+  cursor: none;
+}
+#souterrain.lit { background: #12100d; cursor: auto; }
+
+.grid-roots {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px; z-index: 1;
+  transform: perspective(1200px) rotateX(65deg) translateY(-300px) scale(3.5);
+  transform-origin: top center; transition: 1.5s;
+}
+#souterrain.lit .grid-roots {
+  background-image: linear-gradient(rgba(255, 180, 100, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 180, 100, 0.06) 1px, transparent 1px);
+}
+
+.data-falling {
+  position: absolute; width: 1px; height: 100vh;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  z-index: 2; opacity: 0.3; transition: opacity 1.5s;
+}
+#souterrain.lit .data-falling { opacity: 0; }
+.df-1 { left: 15%; animation: fall 4s infinite linear; }
+.df-2 { left: 50%; animation: fall 5s infinite linear 1s; }
+.df-3 { left: 85%; animation: fall 3.5s infinite linear 2s; }
+@keyframes fall { 0% { transform: translateY(-100vh); } 100% { transform: translateY(100vh); } }
+
+.dark-content { z-index: 10; max-width: 800px; position: relative; }
+
+/* ── Flashlight Overlay ── */
+.flashlight-overlay {
+  position: absolute; inset: 0; z-index: 5;
+  background: radial-gradient(
+    circle 120px at var(--fx, 50%) var(--fy, 50%),
+    transparent 0%,
+    transparent 60%,
+    rgba(0, 0, 0, 0.97) 100%
+  );
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+/* When lights are on, hide the flashlight overlay */
+#souterrain.lit .flashlight-overlay {
+  opacity: 0;
+}
+
+/* Light Switch */
+.light-switch {
+  display: inline-flex; align-items: center; gap: 15px;
+  padding: 14px 28px; background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px; cursor: pointer; transition: 0.5s;
+  margin-top: 30px; z-index: 10; user-select: none;
+}
+.light-switch:hover { background: rgba(255, 255, 255, 0.08); }
+.switch-track { width: 50px; height: 26px; background: rgba(255, 255, 255, 0.08); border-radius: 100px; position: relative; transition: 0.4s; }
+.switch-thumb { width: 22px; height: 22px; background: #444; border-radius: 50%; position: absolute; top: 2px; left: 2px; transition: 0.4s cubic-bezier(.16, 1, .3, 1); }
+.light-switch.on .switch-track { background: rgba(74, 222, 128, 0.25); }
+.light-switch.on .switch-thumb { left: 26px; background: #4ade80; box-shadow: 0 0 20px rgba(74, 222, 128, 0.6); }
+.switch-label { font-family: 'Space Grotesk'; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255, 255, 255, 0.4); transition: 0.4s; }
+.light-switch.on .switch-label { color: #4ade80; }
+
+/* ── Underground Life (creatures + secrets) ── */
+.underground-life {
+  position: absolute; inset: 0; z-index: 4;
+  opacity: 1; pointer-events: none;
+}
+/* When lights are ON, make everything fully visible */
+#souterrain.lit .underground-life {
+  opacity: 1;
+}
+
+.insect-walk { animation: crawl 10s linear infinite; }
+@keyframes crawl { 0% { transform: translateX(-120px); } 100% { transform: translateX(calc(100vw + 120px)); } }
+.worm-wiggle { animation: wiggle 2.5s ease-in-out infinite; }
+@keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+
+/* ── Hidden IT Secrets ── */
+.hidden-secret {
+  position: absolute;
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0.85;
+  transition: transform 0.3s ease;
+}
+
+.secret-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  animation: secret-float 4s ease-in-out infinite alternate;
+}
+
+.secret-label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: rgba(255, 200, 100, 0.8);
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(255, 200, 100, 0.4);
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 200, 100, 0.15);
+}
+
+@keyframes secret-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+/* Stagger float animation for each secret */
+.hidden-secret:nth-child(3) .secret-icon { animation-delay: 0s; }
+.hidden-secret:nth-child(4) .secret-icon { animation-delay: 0.5s; }
+.hidden-secret:nth-child(5) .secret-icon { animation-delay: 1s; }
+.hidden-secret:nth-child(6) .secret-icon { animation-delay: 1.5s; }
+.hidden-secret:nth-child(7) .secret-icon { animation-delay: 2s; }
+.hidden-secret:nth-child(8) .secret-icon { animation-delay: 0.3s; }
+.hidden-secret:nth-child(9) .secret-icon { animation-delay: 0.8s; }
+.hidden-secret:nth-child(10) .secret-icon { animation-delay: 1.3s; }
+.hidden-secret:nth-child(11) .secret-icon { animation-delay: 1.8s; }
+.hidden-secret:nth-child(12) .secret-icon { animation-delay: 2.3s; }

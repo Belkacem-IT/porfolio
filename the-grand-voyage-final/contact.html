@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr" class="lenis">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Belkacem Raber</title>
+  <meta name="description" content="Contactez Belkacem Raber : devis, meeting, partenariat tech.">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { background: #030305; min-height: 100vh; overflow-x: hidden; }
+
+    .bg-grid {
+      position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px; z-index: 0; pointer-events: none;
+    }
+    .c-orb {
+      position: fixed; border-radius: 50%; filter: blur(120px);
+      pointer-events: none; z-index: 0; mix-blend-mode: screen;
+    }
+    .c-orb-1 { width: 400px; height: 400px; background: rgba(99,102,241,0.06); top: -5%; left: -5%; }
+    .c-orb-2 { width: 300px; height: 300px; background: rgba(74,222,128,0.04); bottom: 5%; right: -3%; }
+
+    /* ── Page Wrapper — single viewport ── */
+    .contact-page {
+      min-height: 100vh; display: flex; flex-direction: column;
+      padding: 80px 5vw 30px; position: relative; z-index: 10;
+      max-width: 1300px; margin: 0 auto;
+    }
+
+    /* ── Header row ── */
+    .c-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 24px; flex-shrink: 0;
+    }
+    .c-header-left h1 {
+      font-family: 'Space Grotesk'; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700; letter-spacing: -1.5px; line-height: 1;
+    }
+    .c-header-left p {
+      font-size: 13px; color: rgba(255,255,255,0.35);
+      margin-top: 6px; font-family: 'Space Grotesk';
+    }
+    .c-header-right { display: flex; gap: 8px; align-items: center; }
+    .avail-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 100px;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.15);
+      font-family: 'Space Grotesk'; font-size: 11px;
+      color: #4ade80; letter-spacing: 1.5px; text-transform: uppercase;
+      font-weight: 600;
+    }
+    .avail-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+      box-shadow: 0 0 10px #4ade80;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+    /* ── Main Grid ── */
+    .c-grid {
+      display: grid; grid-template-columns: 260px 1fr;
+      gap: 24px; flex: 1; min-height: 0;
+    }
+
+    /* ── Sidebar ── */
+    .c-sidebar { display: flex; flex-direction: column; gap: 14px; }
+    .c-side-card {
+      background: rgba(12,12,18,0.6);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px; padding: 18px 16px;
+    }
+    .c-side-card h4 {
+      font-family: 'Space Grotesk'; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: rgba(255,255,255,0.3); margin-bottom: 12px;
+    }
+    .info-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .info-row:last-child { border: none; }
+    .info-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; flex-shrink: 0;
+    }
+    .info-text { display: flex; flex-direction: column; gap: 1px; }
+    .info-label {
+      font-family: 'Space Grotesk'; font-size: 9px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.25);
+    }
+    .info-value {
+      font-family: 'Space Grotesk'; font-size: 12.5px;
+      color: rgba(255,255,255,0.8); font-weight: 500;
+    }
+
+    /* Quick links */
+    .q-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      font-family: 'Space Grotesk'; font-size: 12px;
+      color: rgba(255,255,255,0.6); font-weight: 500;
+      transition: 0.3s; cursor: pointer; text-decoration: none;
+      margin-bottom: 6px;
+    }
+    .q-link:last-child { margin-bottom: 0; }
+    .q-link:hover {
+      background: rgba(99,102,241,0.06);
+      border-color: rgba(99,102,241,0.15); color: #fff;
+    }
+    .q-link-icon {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: rgba(99,102,241,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+    }
+    .c-trust {
+      font-size: 11.5px; color: rgba(255,255,255,0.35);
+      line-height: 1.8;
+    }
+
+    /* ── Form Card ── */
+    .c-form-card {
+      background: rgba(12,12,18,0.65);
+      backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px; padding: 28px 30px;
+      display: flex; flex-direction: column;
+    }
+
+    /* Tabs */
+    .f-tabs {
+      display: flex; gap: 4px; margin-bottom: 20px;
+      padding: 3px; background: rgba(255,255,255,0.025);
+      border-radius: 10px; border: 1px solid rgba(255,255,255,0.04);
+    }
+    .f-tab {
+      flex: 1; padding: 10px 10px; border-radius: 8px;
+      font-family: 'Space Grotesk'; font-size: 11px;
+      font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); background: transparent;
+      border: none; cursor: pointer; transition: 0.3s; text-align: center;
+    }
+    .f-tab.active {
+      background: rgba(99,102,241,0.12); color: var(--accent);
+      box-shadow: 0 2px 10px rgba(99,102,241,0.08);
+    }
+    .f-tab:hover:not(.active) { color: rgba(255,255,255,0.5); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Form Elements */
+    .fg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .fg-full { grid-column: span 2; }
+    .f-group { display: flex; flex-direction: column; gap: 5px; }
+    .f-label {
+      font-family: 'Space Grotesk'; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.3);
+    }
+    .f-input, .f-select, .f-textarea {
+      padding: 11px 14px; border-radius: 10px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #fff; font-family: 'Plus Jakarta Sans'; font-size: 13px;
+      transition: 0.3s; outline: none;
+    }
+    .f-input:focus, .f-select:focus, .f-textarea:focus {
+      border-color: var(--accent);
+      background: rgba(99,102,241,0.04);
+      box-shadow: 0 0 15px rgba(99,102,241,0.06);
+    }
+    .f-input::placeholder { color: rgba(255,255,255,0.18); }
+    .f-textarea { min-height: 80px; resize: vertical; }
+    .f-select {
+      appearance: none; cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.25)' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+      padding-right: 34px;
+    }
+    .f-select option { background: #0c0c12; color: #fff; }
+
+    /* Budget */
+    .budget-val {
+      font-family: 'Space Grotesk'; font-size: 22px; font-weight: 700;
+      color: var(--accent); text-align: center; margin-bottom: 4px;
+    }
+    .budget-range {
+      width: 100%; height: 5px; border-radius: 3px;
+      background: rgba(255,255,255,0.05);
+      appearance: none; outline: none; cursor: pointer;
+    }
+    .budget-range::-webkit-slider-thumb {
+      appearance: none; width: 18px; height: 18px;
+      border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 12px var(--glow); cursor: pointer;
+    }
+    .budget-labels {
+      display: flex; justify-content: space-between;
+      font-size: 10px; color: rgba(255,255,255,0.2);
+      font-family: 'Space Grotesk'; margin-top: 3px;
+    }
+
+    /* Checkboxes */
+    .chk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+    .chk {
+      display: flex; align-items: center; gap: 7px;
+      padding: 8px 10px; border-radius: 8px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      cursor: pointer; transition: 0.25s;
+      font-size: 11px; color: rgba(255,255,255,0.5);
+      font-family: 'Space Grotesk';
+    }
+    .chk:hover { background: rgba(99,102,241,0.04); border-color: rgba(99,102,241,0.12); }
+    .chk input { display: none; }
+    .chk.on { background: rgba(99,102,241,0.08); border-color: var(--accent); color: #fff; }
+    .chk-box {
+      width: 15px; height: 15px; border-radius: 4px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      transition: 0.25s; flex-shrink: 0; font-size: 9px;
+    }
+    .chk.on .chk-box { background: var(--accent); border-color: var(--accent); }
+    .cm { display: none; color: #fff; }
+    .chk.on .cm { display: block; }
+
+    /* Submit */
+    .f-submit-row { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
+    .f-submit {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 40px;
+      background: #fff; color: #000;
+      font-family: 'Space Grotesk'; font-size: 12px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      border-radius: 100px; border: none; cursor: pointer;
+      transition: 0.4s cubic-bezier(.16,1,.3,1);
+    }
+    .f-submit:hover {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 12px 40px var(--glow); transform: translateY(-2px);
+    }
+    .f-submit-note {
+      font-size: 11px; color: rgba(255,255,255,0.18);
+      font-family: 'Space Grotesk';
+    }
+
+    /* Footer */
+    .c-footer {
+      text-align: center; padding: 20px 0 10px;
+      font-family: 'Space Grotesk'; font-size: 11px;
+      color: rgba(255,255,255,0.1); flex-shrink: 0;
+    }
+    .c-footer a { color: rgba(255,255,255,0.2); margin: 0 8px; text-decoration: none; transition: 0.3s; }
+    .c-footer a:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .c-grid { grid-template-columns: 1fr; }
+      .c-sidebar { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+      .c-side-card { flex: 1; min-width: 200px; }
+      .fg { grid-template-columns: 1fr; }
+      .fg-full { grid-column: span 1; }
+      .chk-grid { grid-template-columns: 1fr 1fr; }
+      .f-submit-row { flex-direction: column; gap: 10px; text-align: center; }
+      .contact-page { padding: 70px 4vw 20px; }
+    }
+    @media (max-width: 600px) {
+      .c-sidebar { flex-direction: column; }
+      .c-side-card { min-width: auto; }
+      .chk-grid { grid-template-columns: 1fr; }
+      .f-tabs { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grain"></div>
+  <div class="bg-grid"></div>
+  <div class="c-orb c-orb-1"></div>
+  <div class="c-orb c-orb-2"></div>
+  <div id="cursorDot"></div>
+  <div id="cursorRing"></div>
+
+  <nav>
+    <div class="logo">BR.</div>
+    <div class="nav-links">
+      <a href="index.html#hero">Cosmos</a>
+      <a href="index.html#about">À Propos</a>
+      <a href="index.html#projects">Projets</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <div class="contact-page">
+
+    <!-- Header -->
+    <div class="c-header">
+      <div class="c-header-left">
+        <h1>Parlons projet.</h1>
+        <p>Devis · Meeting · Partenariat</p>
+      </div>
+      <div class="c-header-right">
+        <div class="avail-badge"><span class="avail-dot"></span> Disponible</div>
+      </div>
+    </div>
+
+    <!-- Grid: Sidebar + Form -->
+    <div class="c-grid">
+
+      <!-- Sidebar -->
+      <div class="c-sidebar">
+        <div class="c-side-card">
+          <h4>Contact</h4>
+          <div class="info-row">
+            <div class="info-icon">✉</div>
+            <div class="info-text">
+              <span class="info-label">Email</span>
+              <span class="info-value">belkacemraber@proton.me</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <span class="info-label">Localisation</span>
+              <span class="info-value">France 🇫🇷</span>
+            </div>
+          </div>
+          <div class="info-row">
+            <div class="info-icon">⏰</div>
+            <div class="info-text">
+              <span class="info-label">Réponse</span>
+              <span class="info-value">24h max</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-side-card">
+          <h4>Liens Rapides</h4>
+          <a href="mailto:belkacemraber@proton.me" class="q-link">
+            <div class="q-link-icon">📧</div> Email direct
+          </a>
+          <a href="https://github.com/cryptobeka" target="_blank" class="q-link">
+            <div class="q-link-icon">💻</div> GitHub
+          </a>
+          <a href="#" class="q-link">
+            <div class="q-link-icon">🔗</div> LinkedIn
+          </a>
+        </div>
+
+        <div class="c-side-card">
+          <h4>Garanties</h4>
+          <div class="c-trust">
+            ✔ NDA disponible<br>
+            ✔ Devis gratuit 48h<br>
+            ✔ Code source livré<br>
+            ✔ Support post-livraison<br>
+            ✔ Méthodologie Agile
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="c-form-card">
+
+        <div class="f-tabs">
+          <button class="f-tab active" onclick="switchTab('devis',this)">💰 Devis</button>
+          <button class="f-tab" onclick="switchTab('meeting',this)">📅 Meeting</button>
+          <button class="f-tab" onclick="switchTab('partner',this)">🤝 Partenariat</button>
+          <button class="f-tab" onclick="switchTab('other',this)">💬 Autre</button>
+        </div>
+
+        <form id="cf" onsubmit="handleSubmit(event)">
+
+          <!-- Common fields -->
+          <div class="fg" style="margin-bottom: 16px;">
+            <div class="f-group">
+              <label class="f-label">Prénom *</label>
+              <input type="text" class="f-input" placeholder="John" required>
+            </div>
+            <div class="f-group">
+              <label class="f-label">Nom *</label>
+              <input type="text" class="f-input" placeholder="Doe" required>
+            </div>
+            <div class="f-group">
+              <label class="f-label">Email *</label>
+              <input type="email" class="f-input" placeholder="john@example.com" required>
+            </div>
+            <div class="f-group">
+              <label class="f-label">Entreprise</label>
+              <input type="text" class="f-input" placeholder="Nom entreprise">
+            </div>
+          </div>
+
+          <!-- TAB: DEVIS -->
+          <div class="tab-panel active" id="tab-devis">
+            <div class="fg">
+              <div class="f-group">
+                <label class="f-label">Type de Projet</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>Application Web</option>
+                  <option>Application Mobile</option>
+                  <option>E-Commerce</option>
+                  <option>SaaS</option>
+                  <option>API / Backend</option>
+                  <option>Audit Sécurité</option>
+                  <option>DevOps</option>
+                  <option>Refonte / Migration</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label class="f-label">Deadline</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>🔴 Urgent (< 2 sem.)</option>
+                  <option>🟠 1 mois</option>
+                  <option>🟡 1-3 mois</option>
+                  <option>🟢 3-6 mois</option>
+                  <option>⚪ Flexible</option>
+                </select>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Budget Estimé</label>
+                <div class="budget-val" id="bv">5 000 €</div>
+                <input type="range" class="budget-range" min="500" max="50000" value="5000" step="500"
+                  oninput="document.getElementById('bv').textContent=new Intl.NumberFormat('fr-FR').format(this.value)+' €'">
+                <div class="budget-labels"><span>500 €</span><span>50 000 €+</span></div>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Services</label>
+                <div class="chk-grid">
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Dev</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>UX/UI</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Sécurité</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>DevOps</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Consulting</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Maintenance</label>
+                </div>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Description</label>
+                <textarea class="f-textarea" placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: MEETING -->
+          <div class="tab-panel" id="tab-meeting">
+            <div class="fg">
+              <div class="f-group">
+                <label class="f-label">Type de Meeting</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>🔍 Découverte (30 min)</option>
+                  <option>⚙️ Technique (1h)</option>
+                  <option>📊 Stratégie (1h)</option>
+                  <option>🎬 Démo</option>
+                  <option>👥 Équipe</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label class="f-label">Plateforme</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>Google Meet</option>
+                  <option>Zoom</option>
+                  <option>Teams</option>
+                  <option>Téléphone</option>
+                  <option>En personne</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label class="f-label">Date</label>
+                <input type="date" class="f-input">
+              </div>
+              <div class="f-group">
+                <label class="f-label">Créneau</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>🌅 Matin (9h-12h)</option>
+                  <option>☀️ Après-midi (14h-17h)</option>
+                  <option>🌙 Soir (17h-19h)</option>
+                </select>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Sujet / Agenda</label>
+                <textarea class="f-textarea" placeholder="Points à discuter..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: PARTENARIAT -->
+          <div class="tab-panel" id="tab-partner">
+            <div class="fg">
+              <div class="f-group">
+                <label class="f-label">Type</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>🤖 Technique</option>
+                  <option>🏷️ White Label</option>
+                  <option>🏢 Agence (sous-traitance)</option>
+                  <option>🚀 Co-fondation</option>
+                  <option>🌐 Open Source</option>
+                </select>
+              </div>
+              <div class="f-group">
+                <label class="f-label">Secteur</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>Fintech</option>
+                  <option>Health Tech</option>
+                  <option>E-Commerce</option>
+                  <option>SaaS / B2B</option>
+                  <option>EdTech</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Votre Projet</label>
+                <textarea class="f-textarea" placeholder="Présentez votre entreprise et la valeur du partenariat..."></textarea>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Site Web</label>
+                <input type="url" class="f-input" placeholder="https://votre-site.com">
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB: AUTRE -->
+          <div class="tab-panel" id="tab-other">
+            <div class="fg">
+              <div class="f-group fg-full">
+                <label class="f-label">Sujet</label>
+                <select class="f-select">
+                  <option value="">— Sélectionner —</option>
+                  <option>❓ Question</option>
+                  <option>💬 Feedback</option>
+                  <option>👤 Recrutement</option>
+                  <option>📰 Presse</option>
+                  <option>📝 Autre</option>
+                </select>
+              </div>
+              <div class="f-group fg-full">
+                <label class="f-label">Message</label>
+                <textarea class="f-textarea" placeholder="Votre message..." style="min-height: 140px;"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="f-submit-row">
+            <button type="submit" class="f-submit">🚀 Envoyer</button>
+            <span class="f-submit-note">Réponse sous 24-48h</span>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="c-footer">
+      <a href="https://github.com/cryptobeka" target="_blank">GitHub</a>
+      <a href="#" target="_blank">LinkedIn</a>
+      <a href="#" target="_blank">Twitter/X</a>
+      <p style="margin-top: 8px;">© 2026 Belkacem Raber</p>
+    </div>
+
+  </div>
+
+  <script src="js/modules/security.js"></script>
+  <script>
+    function switchTab(name, el) {
+      document.querySelectorAll('.f-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('tab-' + name).classList.add('active');
+    }
+    function tgl(el) {
+      const i = el.querySelector('input');
+      i.checked = !i.checked;
+      el.classList.toggle('on', i.checked);
+    }
+    function handleSubmit(e) {
+      e.preventDefault();
+      const b = e.target.querySelector('.f-submit');
+      b.innerHTML = '✅ Envoyé !'; b.style.background = '#4ade80'; b.style.color = '#000';
+      setTimeout(() => { b.innerHTML = '🚀 Envoyer'; b.style.background = ''; b.style.color = ''; }, 3000);
+    }
+
+    // Cursor
+    const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
+    let mx=0,my=0,dx=0,dy=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    (function ac() {
+      dx+=(mx-dx)*0.15; dy+=(my-dy)*0.15;
+      dot.style.left=mx+'px'; dot.style.top=my+'px';
+      ring.style.left=dx+'px'; ring.style.top=dy+'px';
+      requestAnimationFrame(ac);
+    })();
+    document.querySelectorAll('a,button,.q-link,.chk,.f-submit,.f-tab').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('hover-state'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('hover-state'));
+    });
+  </script>
+</body>
+</html>

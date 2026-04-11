@@ -1,0 +1,14 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CLIP-PATH REVEAL
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#clip-reveal { position: relative; height: 200vh; background: var(--bg); }
+.clip-content {
+  position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: #ffffff; color: #000;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  clip-path: circle(0% at 50% 50%);
+}
+.clip-inner { text-align: center; max-width: 900px; padding: 0 5vw; }
+.clip-title { font-size: clamp(50px, 8vw, 130px); font-family: 'Space Grotesk'; font-weight: 700; line-height: 0.9; letter-spacing: -2px; color: #000; }
+.clip-p { font-size: 24px; color: rgba(0, 0, 0, 0.6); margin-top: 40px; font-weight: 500; }
+
