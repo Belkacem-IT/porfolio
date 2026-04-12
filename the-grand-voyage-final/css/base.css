@@ -306,33 +306,43 @@ html[dir="rtl"] .nav-links { flex-direction: row-reverse; }
 .webgl-canvas { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 
 .section-divider {
-  width: 100%; height: 60px;
+  width: 100%; height: 100px;
   position: relative; z-index: 10;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
+
+/* ── Atmospheric glow (halo cosmique) ── */
 .section-divider::before {
   content: '';
-  position: absolute; top: 50%; left: 15%; right: 15%;
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 50% 50%, rgba(99,102,241,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 60% at 50% 50%, rgba(139,92,246,0.05) 0%, transparent 60%);
+  animation: horizon-breathe 6s ease-in-out infinite;
+}
+
+/* ── Central light beam (ligne horizon) ── */
+.section-divider::after {
+  content: '';
+  position: absolute; top: 50%; left: 5%; right: 5%;
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    rgba(99,102,241,0.06) 15%,
-    rgba(255,255,255,0.12) 50%,
-    rgba(99,102,241,0.06) 85%,
+    rgba(99,102,241,0.05) 10%,
+    rgba(139,92,246,0.15) 30%,
+    rgba(255,255,255,0.25) 50%,
+    rgba(139,92,246,0.15) 70%,
+    rgba(99,102,241,0.05) 90%,
     transparent 100%
   );
+  box-shadow:
+    0 0 15px rgba(99,102,241,0.08),
+    0 0 40px rgba(139,92,246,0.04);
 }
-.section-divider::after {
-  content: '';
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 4px; height: 4px; border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  box-shadow: 0 0 8px rgba(255,255,255,0.3), 0 0 20px rgba(99,102,241,0.15);
-  animation: divider-pulse 4s ease-in-out infinite;
-}
-@keyframes divider-pulse {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.6); }
+
+@keyframes horizon-breathe {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
