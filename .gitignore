@@ -1,5 +1,7 @@
 node_modules/
 .DS_Store
+.vscode/
+DPI.md
 graphify-4/
 scratch_*.py
 *.log
