@@ -125,8 +125,8 @@ nav a.active { opacity: 1; border-bottom: 2px solid var(--accent); padding-botto
 h1, h2, h3, h4 { font-family: 'Space Grotesk'; }
 
 .title-hero {
-  font-size: clamp(70px, 12vw, 200px);
-  line-height: 0.85; font-weight: 700; letter-spacing: -5px;
+  font-size: clamp(60px, 10vw, 160px);
+  line-height: 0.88; font-weight: 700; letter-spacing: -4px;
 }
 
 .title-section {
@@ -153,9 +153,9 @@ h1, h2, h3, h4 { font-family: 'Space Grotesk'; }
 .text-reveal span { display: inline-block; transform: translateY(100%); }
 
 .subtitle {
-  font-size: clamp(15px, 1.2vw, 19px);
-  line-height: 1.8; color: rgba(255, 255, 255, 0.6);
-  max-width: 550px; font-weight: 300;
+  font-size: clamp(16px, 1.4vw, 22px);
+  line-height: 1.7; color: rgba(255, 255, 255, 0.6);
+  max-width: 640px; font-weight: 300;
 }
 
 /* ── LANGUAGE SWITCHER (Orbital Design) ── */
