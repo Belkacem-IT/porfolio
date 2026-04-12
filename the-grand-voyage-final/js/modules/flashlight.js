@@ -19,10 +19,10 @@ export function initFlashlight() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    // The flashlight points top-left, the beam goes from (x, y) to (x - 100, y - 100)
-    // We adjust the overlay gradient position to be centered at the end of the beam:
-    overlay.style.setProperty('--fx', (x - 80) + 'px');
-    overlay.style.setProperty('--fy', (y - 80) + 'px');
+    // The flashlight points top-left, the beam is longer now (~250px).
+    // We adjust the overlay gradient position to be centered perfectly at the end of the beam:
+    overlay.style.setProperty('--fx', (x - 140) + 'px');
+    overlay.style.setProperty('--fy', (y - 140) + 'px');
   });
 
   // Hide normal cursor elements when in this section

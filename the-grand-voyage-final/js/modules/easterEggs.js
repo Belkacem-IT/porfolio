@@ -35,6 +35,14 @@ export function initEasterEggs() {
     const label = sw?.querySelector('.switch-label');
     if (section) section.classList.toggle('lit');
     if (sw) sw.classList.toggle('on');
-    if (label) label.textContent = section?.classList.contains('lit') ? 'Éteindre' : 'Allumer';
+    if (label) {
+      if (section?.classList.contains('lit')) {
+        label.setAttribute('data-i18n', 'souterrain.switch_off');
+        label.textContent = window.i18next ? window.i18next.t('souterrain.switch_off') : 'Éteindre';
+      } else {
+        label.setAttribute('data-i18n', 'souterrain.switch');
+        label.textContent = window.i18next ? window.i18next.t('souterrain.switch') : 'Allumer';
+      }
+    }
   }
 }

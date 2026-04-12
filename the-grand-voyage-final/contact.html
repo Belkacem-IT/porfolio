@@ -296,10 +296,32 @@
   <nav>
     <div class="logo">BR.</div>
     <div class="nav-links">
-      <a href="index.html#hero">Cosmos</a>
-      <a href="index.html#about">À Propos</a>
-      <a href="index.html#projects">Projets</a>
-      <a href="contact.html" class="active">Contact</a>
+      <a href="index.html#hero" data-i18n="nav.cosmos">Cosmos</a>
+      <a href="index.html#about" data-i18n="nav.about">À Propos</a>
+      <a href="index.html#projects" data-i18n="nav.projects">Projets</a>
+      <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
+      
+      <div class="lang-orbit" aria-label="Language Switcher">
+        <div class="orb-trigger">
+          <div class="orb-ring"></div>
+          <div class="orb-ring orb-ring-2"></div>
+          <span class="orb-center-flag">🇫🇷</span>
+        </div>
+        <div class="orb-options">
+          <button class="lang-orb-option active" data-lang="fr" style="--i:0">
+            <span class="orb-flag">🇫🇷</span>
+            <span class="orb-label">FR</span>
+          </button>
+          <button class="lang-orb-option" data-lang="en" style="--i:1">
+            <span class="orb-flag">🇬🇧</span>
+            <span class="orb-label">EN</span>
+          </button>
+          <button class="lang-orb-option" data-lang="ar" style="--i:2">
+            <span class="orb-flag">🇸🇦</span>
+            <span class="orb-label">AR</span>
+          </button>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -308,8 +330,8 @@
     <!-- Header -->
     <div class="c-header">
       <div class="c-header-left">
-        <h1>Parlons projet.</h1>
-        <p>Devis · Meeting · Partenariat</p>
+        <h1 data-i18n="cpage.title">Parlons projet.</h1>
+        <p data-i18n="cpage.subtitle">Devis · Meeting · Partenariat</p>
       </div>
       <div class="c-header-right">
         <div class="avail-badge"><span class="avail-dot"></span> Disponible</div>
@@ -322,51 +344,51 @@
       <!-- Sidebar -->
       <div class="c-sidebar">
         <div class="c-side-card">
-          <h4>Contact</h4>
+          <h4 data-i18n="cpage.sb_contact">Contact</h4>
           <div class="info-row">
             <div class="info-icon">✉</div>
             <div class="info-text">
-              <span class="info-label">Email</span>
+              <span class="info-label" data-i18n="cpage.sb_email">Email</span>
               <span class="info-value">belkacemraber@proton.me</span>
             </div>
           </div>
           <div class="info-row">
             <div class="info-icon">📍</div>
             <div class="info-text">
-              <span class="info-label">Localisation</span>
-              <span class="info-value">France 🇫🇷</span>
+              <span class="info-label" data-i18n="cpage.sb_loc_lbl">Localisation</span>
+              <span class="info-value" data-i18n="cpage.sb_loc_val">France 🇫🇷</span>
             </div>
           </div>
           <div class="info-row">
             <div class="info-icon">⏰</div>
             <div class="info-text">
-              <span class="info-label">Réponse</span>
-              <span class="info-value">24h max</span>
+              <span class="info-label" data-i18n="cpage.sb_resp_lbl">Réponse</span>
+              <span class="info-value" data-i18n="cpage.sb_resp_val">24h max</span>
             </div>
           </div>
         </div>
 
         <div class="c-side-card">
-          <h4>Liens Rapides</h4>
+          <h4 data-i18n="cpage.sb_links">Liens Rapides</h4>
           <a href="mailto:belkacemraber@proton.me" class="q-link">
-            <div class="q-link-icon">📧</div> Email direct
+            <div class="q-link-icon">📧</div> <span data-i18n="cpage.sb_email_lbl">Email direct</span>
           </a>
           <a href="https://github.com/cryptobeka" target="_blank" class="q-link">
-            <div class="q-link-icon">💻</div> GitHub
+            <div class="q-link-icon">💻</div> <span data-i18n="cpage.sb_git">GitHub</span>
           </a>
           <a href="https://www.linkedin.com/in/raber-belkacem-2811b723b" target="_blank" class="q-link">
-            <div class="q-link-icon">🔗</div> LinkedIn
+            <div class="q-link-icon">🔗</div> <span data-i18n="cpage.sb_in">LinkedIn</span>
           </a>
         </div>
 
         <div class="c-side-card">
-          <h4>Garanties</h4>
+          <h4 data-i18n="cpage.sb_trust">Garanties</h4>
           <div class="c-trust">
-            ✔ NDA disponible<br>
-            ✔ Devis gratuit 48h<br>
-            ✔ Code source livré<br>
-            ✔ Support post-livraison<br>
-            ✔ Méthodologie Agile
+            <span data-i18n="cpage.trust1">✔ NDA disponible</span><br>
+            <span data-i18n="cpage.trust2">✔ Devis gratuit 48h</span><br>
+            <span data-i18n="cpage.trust3">✔ Code source livré</span><br>
+            <span data-i18n="cpage.trust4">✔ Support post-livraison</span><br>
+            <span data-i18n="cpage.trust5">✔ Méthodologie Agile</span>
           </div>
         </div>
       </div>
@@ -375,10 +397,10 @@
       <div class="c-form-card">
 
         <div class="f-tabs">
-          <button class="f-tab active" onclick="switchTab('devis',this)">💰 Devis</button>
-          <button class="f-tab" onclick="switchTab('meeting',this)">📅 Meeting</button>
-          <button class="f-tab" onclick="switchTab('partner',this)">🤝 Partenariat</button>
-          <button class="f-tab" onclick="switchTab('other',this)">💬 Autre</button>
+          <button class="f-tab active" onclick="switchTab('devis',this)"><span data-i18n="cpage.tab_devis">💰 Devis</span></button>
+          <button class="f-tab" onclick="switchTab('meeting',this)"><span data-i18n="cpage.tab_meet">📅 Meeting</span></button>
+          <button class="f-tab" onclick="switchTab('partner',this)"><span data-i18n="cpage.tab_part">🤝 Partenariat</span></button>
+          <button class="f-tab" onclick="switchTab('other',this)"><span data-i18n="cpage.tab_other">💬 Autre</span></button>
         </div>
 
         <form id="cf" onsubmit="handleSubmit(event)">
@@ -386,20 +408,20 @@
           <!-- Common fields -->
           <div class="fg" style="margin-bottom: 16px;">
             <div class="f-group">
-              <label class="f-label">Prénom *</label>
-              <input type="text" class="f-input" placeholder="John" required>
+              <label class="f-label" data-i18n="cpage.form_fn">Prénom *</label>
+              <input type="text" class="f-input" placeholder="John" data-i18n="[placeholder]cpage.ph_fn" required>
             </div>
             <div class="f-group">
-              <label class="f-label">Nom *</label>
-              <input type="text" class="f-input" placeholder="Doe" required>
+              <label class="f-label" data-i18n="cpage.form_ln">Nom *</label>
+              <input type="text" class="f-input" placeholder="Doe" data-i18n="[placeholder]cpage.ph_ln" required>
             </div>
             <div class="f-group">
-              <label class="f-label">Email *</label>
+              <label class="f-label" data-i18n="cpage.form_em">Email *</label>
               <input type="email" class="f-input" placeholder="john@example.com" required>
             </div>
             <div class="f-group">
-              <label class="f-label">Entreprise</label>
-              <input type="text" class="f-input" placeholder="Nom entreprise">
+              <label class="f-label" data-i18n="cpage.form_comp">Entreprise</label>
+              <input type="text" class="f-input" placeholder="Nom entreprise" data-i18n="[placeholder]cpage.ph_comp">
             </div>
           </div>
 
@@ -407,39 +429,39 @@
           <div class="tab-panel active" id="tab-devis">
             <div class="fg">
               <div class="f-group">
-                <label class="f-label">Type de Projet</label>
+                <label class="f-label" data-i18n="cpage.dev_type_lbl">Type de Projet</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>Application Web</option>
-                  <option>Application Mobile</option>
-                  <option>E-Commerce</option>
-                  <option>SaaS</option>
-                  <option>API / Backend</option>
-                  <option>Audit Sécurité</option>
-                  <option>DevOps</option>
-                  <option>Refonte / Migration</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.dev_type_1">Application Web</option>
+                  <option data-i18n="cpage.dev_type_2">Application Mobile</option>
+                  <option data-i18n="cpage.dev_type_3">E-Commerce</option>
+                  <option data-i18n="cpage.dev_type_4">SaaS</option>
+                  <option data-i18n="cpage.dev_type_5">API / Backend</option>
+                  <option data-i18n="cpage.dev_type_6">Audit Sécurité</option>
+                  <option data-i18n="cpage.dev_type_7">DevOps</option>
+                  <option data-i18n="cpage.dev_type_8">Refonte / Migration</option>
                 </select>
               </div>
               <div class="f-group">
-                <label class="f-label">Deadline</label>
+                <label class="f-label" data-i18n="cpage.dev_dead_lbl">Deadline</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>🔴 Urgent (< 2 sem.)</option>
-                  <option>🟠 1 mois</option>
-                  <option>🟡 1-3 mois</option>
-                  <option>🟢 3-6 mois</option>
-                  <option>⚪ Flexible</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.dev_dead_1">🔴 Urgent (< 2 sem.)</option>
+                  <option data-i18n="cpage.dev_dead_2">🟠 1 mois</option>
+                  <option data-i18n="cpage.dev_dead_3">🟡 1-3 mois</option>
+                  <option data-i18n="cpage.dev_dead_4">🟢 3-6 mois</option>
+                  <option data-i18n="cpage.dev_dead_5">⚪ Flexible</option>
                 </select>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Budget Estimé</label>
+                <label class="f-label" data-i18n="cpage.dev_budg">Budget Estimé</label>
                 <div class="budget-val" id="bv">5 000 €</div>
                 <input type="range" class="budget-range" min="500" max="50000" value="5000" step="500"
                   oninput="document.getElementById('bv').textContent=new Intl.NumberFormat('fr-FR').format(this.value)+' €'">
                 <div class="budget-labels"><span>500 €</span><span>50 000 €+</span></div>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Services</label>
+                <label class="f-label" data-i18n="cpage.dev_serv">Services</label>
                 <div class="chk-grid">
                   <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Dev</label>
                   <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>UX/UI</label>
@@ -450,8 +472,8 @@
                 </div>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Description</label>
-                <textarea class="f-textarea" placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..."></textarea>
+                <label class="f-label" data-i18n="cpage.dev_desc">Description</label>
+                <textarea class="f-textarea" placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..." data-i18n="[placeholder]cpage.dev_desc_ph"></textarea>
               </div>
             </div>
           </div>
@@ -460,43 +482,43 @@
           <div class="tab-panel" id="tab-meeting">
             <div class="fg">
               <div class="f-group">
-                <label class="f-label">Type de Meeting</label>
+                <label class="f-label" data-i18n="cpage.meet_type">Type de Meeting</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>🔍 Découverte (30 min)</option>
-                  <option>⚙️ Technique (1h)</option>
-                  <option>📊 Stratégie (1h)</option>
-                  <option>🎬 Démo</option>
-                  <option>👥 Équipe</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.meet_type_1">🔍 Découverte (30 min)</option>
+                  <option data-i18n="cpage.meet_type_2">⚙️ Technique (1h)</option>
+                  <option data-i18n="cpage.meet_type_3">📊 Stratégie (1h)</option>
+                  <option data-i18n="cpage.meet_type_4">🎬 Démo</option>
+                  <option data-i18n="cpage.meet_type_5">👥 Équipe</option>
                 </select>
               </div>
               <div class="f-group">
-                <label class="f-label">Plateforme</label>
+                <label class="f-label" data-i18n="cpage.meet_plat">Plateforme</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>Google Meet</option>
-                  <option>Zoom</option>
-                  <option>Teams</option>
-                  <option>Téléphone</option>
-                  <option>En personne</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.meet_plat_1">Google Meet</option>
+                  <option data-i18n="cpage.meet_plat_2">Zoom</option>
+                  <option data-i18n="cpage.meet_plat_3">Teams</option>
+                  <option data-i18n="cpage.meet_plat_4">Téléphone</option>
+                  <option data-i18n="cpage.meet_plat_5">En personne</option>
                 </select>
               </div>
               <div class="f-group">
-                <label class="f-label">Date</label>
+                <label class="f-label" data-i18n="cpage.meet_date">Date</label>
                 <input type="date" class="f-input">
               </div>
               <div class="f-group">
-                <label class="f-label">Créneau</label>
+                <label class="f-label" data-i18n="cpage.meet_slot">Créneau</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>🌅 Matin (9h-12h)</option>
-                  <option>☀️ Après-midi (14h-17h)</option>
-                  <option>🌙 Soir (17h-19h)</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.meet_slot_1">🌅 Matin (9h-12h)</option>
+                  <option data-i18n="cpage.meet_slot_2">☀️ Après-midi (14h-17h)</option>
+                  <option data-i18n="cpage.meet_slot_3">🌙 Soir (17h-19h)</option>
                 </select>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Sujet / Agenda</label>
-                <textarea class="f-textarea" placeholder="Points à discuter..."></textarea>
+                <label class="f-label" data-i18n="cpage.meet_agenda">Sujet / Agenda</label>
+                <textarea class="f-textarea" placeholder="Points à discuter..." data-i18n="[placeholder]cpage.meet_agenda_ph"></textarea>
               </div>
             </div>
           </div>
@@ -505,34 +527,34 @@
           <div class="tab-panel" id="tab-partner">
             <div class="fg">
               <div class="f-group">
-                <label class="f-label">Type</label>
+                <label class="f-label" data-i18n="cpage.part_type">Type</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>🤖 Technique</option>
-                  <option>🏷️ White Label</option>
-                  <option>🏢 Agence (sous-traitance)</option>
-                  <option>🚀 Co-fondation</option>
-                  <option>🌐 Open Source</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.part_type_1">🤖 Technique</option>
+                  <option data-i18n="cpage.part_type_2">🏷️ White Label</option>
+                  <option data-i18n="cpage.part_type_3">🏢 Agence (sous-traitance)</option>
+                  <option data-i18n="cpage.part_type_4">🚀 Co-fondation</option>
+                  <option data-i18n="cpage.part_type_5">🌐 Open Source</option>
                 </select>
               </div>
               <div class="f-group">
-                <label class="f-label">Secteur</label>
+                <label class="f-label" data-i18n="cpage.part_sect">Secteur</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>Fintech</option>
-                  <option>Health Tech</option>
-                  <option>E-Commerce</option>
-                  <option>SaaS / B2B</option>
-                  <option>EdTech</option>
-                  <option>Autre</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.part_sect_1">Fintech</option>
+                  <option data-i18n="cpage.part_sect_2">Health Tech</option>
+                  <option data-i18n="cpage.dev_type_3">E-Commerce</option>
+                  <option data-i18n="cpage.part_sect_4">SaaS / B2B</option>
+                  <option data-i18n="cpage.part_sect_5">EdTech</option>
+                  <option data-i18n="cpage.part_sect_6">Autre</option>
                 </select>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Votre Projet</label>
-                <textarea class="f-textarea" placeholder="Présentez votre entreprise et la valeur du partenariat..."></textarea>
+                <label class="f-label" data-i18n="cpage.part_proj">Votre Projet</label>
+                <textarea class="f-textarea" placeholder="Présentez votre entreprise et la valeur du partenariat..." data-i18n="[placeholder]cpage.part_proj_ph"></textarea>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Site Web</label>
+                <label class="f-label" data-i18n="cpage.part_web">Site Web</label>
                 <input type="url" class="f-input" placeholder="https://votre-site.com">
               </div>
             </div>
@@ -542,26 +564,26 @@
           <div class="tab-panel" id="tab-other">
             <div class="fg">
               <div class="f-group fg-full">
-                <label class="f-label">Sujet</label>
+                <label class="f-label" data-i18n="cpage.oth_subj">Sujet</label>
                 <select class="f-select">
-                  <option value="">— Sélectionner —</option>
-                  <option>❓ Question</option>
-                  <option>💬 Feedback</option>
-                  <option>👤 Recrutement</option>
-                  <option>📰 Presse</option>
-                  <option>📝 Autre</option>
+                  <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
+                  <option data-i18n="cpage.oth_subj_1">❓ Question</option>
+                  <option data-i18n="cpage.oth_subj_2">💬 Feedback</option>
+                  <option data-i18n="cpage.oth_subj_3">👤 Recrutement</option>
+                  <option data-i18n="cpage.oth_subj_4">📰 Presse</option>
+                  <option data-i18n="cpage.oth_subj_5">📝 Autre</option>
                 </select>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label">Message</label>
+                <label class="f-label" data-i18n="cpage.oth_msg">Message</label>
                 <textarea class="f-textarea" placeholder="Votre message..." style="min-height: 140px;"></textarea>
               </div>
             </div>
           </div>
 
           <div class="f-submit-row">
-            <button type="submit" class="f-submit">🚀 Envoyer</button>
-            <span class="f-submit-note">Réponse sous 24-48h</span>
+            <button type="submit" class="f-submit" data-i18n="cpage.submit">🚀 Envoyer</button>
+            <span class="f-submit-note" data-i18n="cpage.submit_note">Réponse sous 24-48h</span>
           </div>
 
         </form>
@@ -609,9 +631,18 @@
       requestAnimationFrame(ac);
     })();
     document.querySelectorAll('a,button,.q-link,.chk,.f-submit,.f-tab').forEach(el => {
+      if (el.closest('.lang-orbit')) return;
       el.addEventListener('mouseenter', () => ring.classList.add('hover-state'));
       el.addEventListener('mouseleave', () => ring.classList.remove('hover-state'));
     });
+  </script>
+  <!-- i18next CDNs -->
+  <script src="https://unpkg.com/i18next@23.6.0/i18next.min.js"></script>
+  <script src="https://unpkg.com/i18next-http-backend@2.3.1/i18nextHttpBackend.min.js"></script>
+  <script src="https://unpkg.com/i18next-browser-languagedetector@7.1.0/i18nextBrowserLanguageDetector.min.js"></script>
+  <script type="module">
+    import { initI18n } from './js/modules/i18n.js';
+    initI18n();
   </script>
 </body>
 </html>

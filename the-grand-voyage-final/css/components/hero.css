@@ -86,9 +86,13 @@
   border-radius: 2px; opacity: 0; z-index: 4;
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));
 }
-.ss-1 { top: 15%; left: 60%; transform: rotate(-30deg); animation: shoot-1 4s ease-out infinite 1s; }
-.ss-2 { top: 30%; left: 80%; transform: rotate(-45deg); animation: shoot-2 5s ease-out infinite 1.5s; }
-.ss-3 { top: 8%; left: 30%; transform: rotate(-20deg); animation: shoot-3 6s ease-out infinite 2s; }
+.ss-1 { top: 15%; left: 60%; transform: rotate(-30deg); animation: none; }
+.ss-2 { top: 30%; left: 80%; transform: rotate(-45deg); animation: none; }
+.ss-3 { top: 8%; left: 30%; transform: rotate(-20deg); animation: none; }
+
+.ss-1.fire { animation: shoot-1 3s ease-out forwards 0.2s; }
+.ss-2.fire { animation: shoot-2 3.5s ease-out forwards 0.5s; }
+.ss-3.fire { animation: shoot-3 4s ease-out forwards 0.8s; }
 
 @keyframes shoot-1 {
   0% { opacity: 0; transform: translateX(0) rotate(-30deg); width: 0; }

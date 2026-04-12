@@ -25,6 +25,9 @@ export function initCursor() {
   animCursor();
 
   document.querySelectorAll('a, button, .light-switch, .project-card, .cyber-btn, .f-tab, .f-submit, .chk').forEach(el => {
+    // Ne pas appliquer l'effet de gros curseur sur le dropdown de traduction
+    if (el.closest('.lang-orbit')) return;
+    
     el.addEventListener('mouseenter', () => ring.classList.add('hover-state'));
     el.addEventListener('mouseleave', () => ring.classList.remove('hover-state'));
   });
