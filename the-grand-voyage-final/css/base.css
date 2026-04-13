@@ -298,53 +298,167 @@ html[dir="rtl"] .nav-links { flex-direction: row-reverse; }
 .section {
   position: relative; width: 100%; min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  overflow: hidden; padding: 15vh 5vw; z-index: 10;
 }
 
 .container { width: 100%; max-width: 1400px; margin: 0 auto; position: relative; z-index: 10; }
 
 .webgl-canvas { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 
+/* ═══════════════════════════════════════════════════════
+   SECTION DIVIDER — Warp Streak (version douce)
+   Lignes de lumière en vitesse + halo nébuleux
+   ═══════════════════════════════════════════════════════ */
 .section-divider {
-  width: 100%; height: 120px;
-  position: relative; z-index: 10;
-  display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  height: 160px;
+  position: relative;
+  z-index: 10;
   overflow: hidden;
 }
 
-/* ── Smooth Track (Piste fantôme très discrète) ── */
+/* Halo nébuleux de fond */
 .section-divider::before {
   content: '';
-  position: absolute; top: 50%; left: 5%; right: 5%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.05);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%; height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    rgba(99, 102, 241, 0.08) 0%,
+    rgba(139, 92, 246, 0.04) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  animation: div-breathe 7s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-/* ── Animated Shooting Light (Lumière fluide voyageuse) ── */
-.section-divider::after {
-  content: '';
-  position: absolute; top: 50%; left: 0;
-  width: 20%;
+/* Conteneur des lignes warp */
+.div-warp-lines {
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+
+/* Chaque ligne en vitesse */
+.div-wl {
+  position: absolute;
+  left: 50%; width: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(139, 92, 246, 0.6) 50%, 
-    rgba(255, 255, 255, 0.9) 80%,
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(99, 102, 241, 0.35) 20%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(99, 102, 241, 0.35) 80%,
     transparent 100%
   );
-  box-shadow: 
-    0 0 10px rgba(139, 92, 246, 0.4),
-    0 0 20px rgba(99, 102, 241, 0.2);
-  transform: translateY(-50%);
-  animation: scanning-light 5s ease-in-out infinite;
-  pointer-events: none;
+  border-radius: 2px;
+  filter: blur(0.4px);
+  animation: div-warp 6s ease-in-out infinite;
 }
 
-@keyframes scanning-light {
-  0% { left: -20%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: 100%; opacity: 0; }
+.div-wl:nth-child(1) { top: 18%; transform: rotate(-3deg);   animation-delay: 0s;   animation-duration: 5s; }
+.div-wl:nth-child(2) { top: 32%; transform: rotate(2.5deg);  animation-delay: 1.2s; animation-duration: 7s; }
+.div-wl:nth-child(3) { top: 50%; transform: rotate(-1deg);   animation-delay: 2.4s; animation-duration: 5.5s; }
+.div-wl:nth-child(4) { top: 67%; transform: rotate(4deg);    animation-delay: 0.6s; animation-duration: 6.5s; }
+.div-wl:nth-child(5) { top: 82%; transform: rotate(-2.5deg); animation-delay: 1.8s; animation-duration: 6s; }
+
+@keyframes div-warp {
+  0%   { width: 0;    left: 50%;  opacity: 0; }
+  8%   { opacity: 0.9; }
+  50%  { width: 90%;  left: 5%;   opacity: 0.5; }
+  92%  { opacity: 0.1; }
+  100% { width: 0;    left: -5%;  opacity: 0; }
+}
+
+@keyframes div-breathe {
+  0%   { opacity: 0.4; transform: translate(-50%, -50%) scale(0.85); }
+  100% { opacity: 1;   transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* ─────────────────────────────────────────────────────
+   DIVIDER 2 — Pulse Rings (ondes radar)
+───────────────────────────────────────────────────── */
+.sd-pulse { display: flex; align-items: center; justify-content: center; }
+
+.pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  animation: ring-expand 4s ease-out infinite;
+}
+.pr-1 { width: 60px;  height: 60px;  animation-delay: 0s; }
+.pr-2 { width: 60px;  height: 60px;  animation-delay: 1.3s; }
+.pr-3 { width: 60px;  height: 60px;  animation-delay: 2.6s; }
+
+@keyframes ring-expand {
+  0%   { width: 40px;  height: 40px;  opacity: 0.8; border-color: rgba(139,92,246,0.5); }
+  100% { width: 400px; height: 160px; opacity: 0;   border-color: rgba(99,102,241,0); }
+}
+
+/* ─────────────────────────────────────────────────────
+   DIVIDER 3 — Comet (comète traversante)
+───────────────────────────────────────────────────── */
+.comet {
+  position: absolute;
+  top: 45%; left: -10%;
+  width: 120px; height: 1.5px;
+  border-radius: 100%;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.9) 0%,
+    rgba(139,92,246,0.6) 40%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px rgba(255,255,255,0.6), 0 0 20px rgba(139,92,246,0.4);
+  animation: comet-fly 6s ease-in-out infinite;
+}
+.comet.c2 {
+  top: 58%;
+  animation-delay: 2.5s;
+  animation-duration: 8s;
+  width: 70px;
+  opacity: 0.6;
+}
+
+@keyframes comet-fly {
+  0%   { left: -15%;  opacity: 0; }
+  5%   { opacity: 1; }
+  90%  { opacity: 0.8; }
+  100% { left: 110%; opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────────────
+   DIVIDER 4 — Aurora (aurore boréale)
+───────────────────────────────────────────────────── */
+.aurora-band {
+  position: absolute;
+  left: 0; right: 0;
+  height: 40px;
+  border-radius: 50%;
+  filter: blur(18px);
+  animation: aurora-wave 8s ease-in-out infinite alternate;
+}
+.ab-1 {
+  top: 25%;
+  background: linear-gradient(90deg, transparent 10%, rgba(99,102,241,0.2) 40%, rgba(139,92,246,0.15) 60%, transparent 90%);
+  animation-delay: 0s;
+}
+.ab-2 {
+  top: 45%;
+  background: linear-gradient(90deg, transparent 5%, rgba(56,189,248,0.12) 35%, rgba(99,102,241,0.18) 65%, transparent 95%);
+  animation-delay: 1.5s;
+  animation-duration: 10s;
+}
+.ab-3 {
+  top: 65%;
+  background: linear-gradient(90deg, transparent 20%, rgba(139,92,246,0.1) 50%, rgba(56,189,248,0.08) 70%, transparent 85%);
+  animation-delay: 3s;
+  animation-duration: 7s;
+}
+
+@keyframes aurora-wave {
+  0%   { transform: scaleX(0.85) translateX(-3%); opacity: 0.4; }
+  50%  { transform: scaleX(1.05) translateX(2%);  opacity: 1; }
+  100% { transform: scaleX(0.9)  translateX(-1%); opacity: 0.6; }
 }
 
