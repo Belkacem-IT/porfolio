@@ -128,7 +128,7 @@
   white-space: nowrap; opacity: 0.5;
   font-family: 'Space Grotesk'; font-size: 11px;
   letter-spacing: 3px; text-transform: uppercase;
-  animation: marquee-scroll 120s linear infinite;
+  animation: marquee-scroll 240s linear infinite;
 }
 
 .trusted-label {
