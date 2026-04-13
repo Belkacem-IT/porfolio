@@ -1,8 +1,4 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://raber.dev/sitemap.xml
