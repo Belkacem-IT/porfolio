@@ -102,9 +102,17 @@
   </div>
 
   <!-- Navigation -->
-  <nav>
+  <nav id="main-nav">
     <div class="logo">BR.</div>
-    <div class="nav-links">
+
+    <!-- Burger Button (mobile only) -->
+    <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
       <a href="#hero" data-i18n="nav.cosmos">Cosmos</a>
       <a href="#about" data-i18n="nav.about">À Propos</a>
       <a href="#biomes-wrapper" data-i18n="nav.expertise">Expertise</a>
@@ -791,6 +799,62 @@
   <script src="https://unpkg.com/i18next-browser-languagedetector@7.1.0/i18nextBrowserLanguageDetector.min.js"></script>
 
   <script type="module" src="js/app.js"></script>
+
+  <!-- Burger Menu Script -->
+  <script>
+    (function() {
+      const burger = document.getElementById('burgerBtn');
+      const navLinks = document.getElementById('navLinks');
+      const nav = document.getElementById('main-nav');
+      if (!burger || !navLinks || !nav) return;
+
+      function openMenu() {
+        burger.classList.add('open');
+        navLinks.classList.add('open');
+        nav.classList.add('menu-open');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+        nav.classList.remove('menu-open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      burger.addEventListener('click', () => {
+        navLinks.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      /* Fermer au clic sur un lien */
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      /* Fermer au clic sur l'overlay (nav::after) */
+      nav.addEventListener('click', (e) => {
+        if (e.target === nav) closeMenu();
+      });
+
+      /* Fermer sur Escape */
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      /* Désactiver le scroll horizontal biomes sur mobile */
+      function handleBiomesMobile() {
+        const container = document.getElementById('biomes-container');
+        if (!container) return;
+        if (window.innerWidth <= 768) {
+          container.style.transform = 'none';
+        }
+      }
+      window.addEventListener('resize', handleBiomesMobile);
+      handleBiomesMobile();
+    })();
+  </script>
 </body>
 
 </html>
