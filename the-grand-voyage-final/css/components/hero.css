@@ -113,6 +113,44 @@
   100% { opacity: 0; }
 }
 
+/* ── TRUSTED ECOSYSTEMS BAR ── */
+.hero-trusted-bar {
+  position: absolute; bottom: 0; left: 0; width: 100%; height: 50px;
+  background: rgba(5, 5, 7, 0.6);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex; align-items: center; overflow: hidden;
+  z-index: 20;
+}
+
+.trusted-track {
+  display: flex; align-items: center; gap: 8vw;
+  white-space: nowrap; opacity: 0.5;
+  font-family: 'Space Grotesk'; font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.trusted-label {
+  font-weight: 700; color: #fff;
+}
+
+.trusted-item {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 500; color: rgba(255,255,255,0.8);
+}
+
+.trusted-dot {
+  display: block; width: 4px; height: 4px;
+  border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ═══════════════════════════════════════════
    Hero → About CINEMATIC TRANSITION
    Warp-speed light streaks + nebula glow

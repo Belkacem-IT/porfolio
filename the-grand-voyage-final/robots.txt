@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://raber.dev/sitemap.xml
+Sitemap: https://raberbelkacem.com/sitemap.xml
