@@ -826,57 +826,17 @@
 
   <!-- Burger Menu Script -->
   <script>
-    (function() {
-      const burger = document.getElementById('burgerBtn');
-      const navLinks = document.getElementById('navLinks');
-      const nav = document.getElementById('main-nav');
-      if (!burger || !navLinks || !nav) return;
-
-      function openMenu() {
-        burger.classList.add('open');
-        navLinks.classList.add('open');
-        nav.classList.add('menu-open');
-        burger.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeMenu() {
-        burger.classList.remove('open');
-        navLinks.classList.remove('open');
-        nav.classList.remove('menu-open');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-
-      burger.addEventListener('click', () => {
-        navLinks.classList.contains('open') ? closeMenu() : openMenu();
-      });
-
-      /* Fermer au clic sur un lien */
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      /* Fermer au clic sur l'overlay (nav::after) */
-      nav.addEventListener('click', (e) => {
-        if (e.target === nav) closeMenu();
-      });
-
-      /* Fermer sur Escape */
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-      });
-
-      /* Désactiver le scroll horizontal biomes sur mobile */
-      function handleBiomesMobile() {
-        const container = document.getElementById('biomes-container');
-        if (!container) return;
-        if (window.innerWidth <= 768) {
-          container.style.transform = 'none';
-        }
-      }
-      window.addEventListener('resize', handleBiomesMobile);
-      handleBiomesMobile();
+    (function () {
+      const burger  = document.getElementById('burgerBtn');
+      const drawer  = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('mobileOverlay');
+      if (!burger || !drawer || !overlay) return;
+      function openMenu()  { burger.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function closeMenu() { burger.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+      burger.addEventListener('click', function() { drawer.classList.contains('open') ? closeMenu() : openMenu(); });
+      drawer.querySelectorAll('.mob-link').forEach(function(l){ l.addEventListener('click', closeMenu); });
+      overlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
     })();
   </script>
 </body>

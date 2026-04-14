@@ -644,5 +644,21 @@
     import { initI18n } from './js/modules/i18n.js';
     initI18n();
   </script>
+
+  <!-- Burger Menu Script -->
+  <script>
+    (function () {
+      const burger  = document.getElementById('burgerBtn');
+      const drawer  = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('mobileOverlay');
+      if (!burger || !drawer || !overlay) return;
+      function openMenu()  { burger.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+      function closeMenu() { burger.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+      burger.addEventListener('click', function() { drawer.classList.contains('open') ? closeMenu() : openMenu(); });
+      drawer.querySelectorAll('.mob-link').forEach(function(l){ l.addEventListener('click', closeMenu); });
+      overlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+    })();
+  </script>
 </body>
 </html>
