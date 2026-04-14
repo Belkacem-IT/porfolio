@@ -4,7 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Belkacem Raber</title>
-  <meta name="description" content="Contactez Belkacem Raber : devis, meeting, partenariat tech.">
+  <meta name="description" content="Contactez Belkacem Raber. Architecte de Systèmes IT, DevOps et Tech Lead. Disponible pour vos projets d'envergure.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://raber.dev/contact.html">
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Contact — Belkacem Raber">
+  <meta property="og:description" content="Contactez Belkacem Raber pour échanger sur vos architectures cloud ou vos projets d'infrastructure sécurisée.">
+  <meta property="og:url" content="https://raber.dev/contact.html">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- ── JSON-LD Structured Data ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Belkacem Raber",
+      "jobTitle": "Architecte de Systèmes IT & Tech Lead"
+    }
+  }
+  </script>
   <link rel="stylesheet" href="css/main.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -293,14 +315,21 @@
   <div id="cursorDot"></div>
   <div id="cursorRing"></div>
 
-  <nav>
-    <div class="logo">BR.</div>
-    <div class="nav-links">
+  <nav id="main-nav">
+    <a href="index.html#hero" class="logo" style="text-decoration:none;">BR.</a>
+
+    <!-- Burger Button (mobile only) -->
+    <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
       <a href="index.html#hero" data-i18n="nav.cosmos">Cosmos</a>
       <a href="index.html#about" data-i18n="nav.about">À Propos</a>
       <a href="index.html#projects" data-i18n="nav.projects">Projets</a>
       <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
-      
       <div class="lang-orbit" aria-label="Language Switcher">
         <div class="orb-trigger">
           <div class="orb-ring"></div>
@@ -308,22 +337,30 @@
           <span class="orb-center-flag">🇫🇷</span>
         </div>
         <div class="orb-options">
-          <button class="lang-orb-option active" data-lang="fr" style="--i:0">
-            <span class="orb-flag">🇫🇷</span>
-            <span class="orb-label">FR</span>
-          </button>
-          <button class="lang-orb-option" data-lang="en" style="--i:1">
-            <span class="orb-flag">🇬🇧</span>
-            <span class="orb-label">EN</span>
-          </button>
-          <button class="lang-orb-option" data-lang="ar" style="--i:2">
-            <span class="orb-flag">🇸🇦</span>
-            <span class="orb-label">AR</span>
-          </button>
+          <button class="lang-orb-option active" data-lang="fr" style="--i:0"><span class="orb-flag">🇫🇷</span><span class="orb-label">FR</span></button>
+          <button class="lang-orb-option" data-lang="en" style="--i:1"><span class="orb-flag">🇬🇧</span><span class="orb-label">EN</span></button>
+          <button class="lang-orb-option" data-lang="ar" style="--i:2"><span class="orb-flag">🇸🇦</span><span class="orb-label">AR</span></button>
         </div>
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer-inner">
+      <a href="index.html#hero" class="mob-link" data-i18n="nav.cosmos">Cosmos</a>
+      <a href="index.html#about" class="mob-link" data-i18n="nav.about">À Propos</a>
+      <a href="index.html#projects" class="mob-link" data-i18n="nav.projects">Projets</a>
+      <a href="contact.html" class="mob-link" data-i18n="nav.contact">Contact</a>
+      <div class="mob-divider"></div>
+      <div class="mob-lang">
+        <button class="mob-lang-btn active" data-lang="fr">🇫🇷 FR</button>
+        <button class="mob-lang-btn" data-lang="en">🇬🇧 EN</button>
+        <button class="mob-lang-btn" data-lang="ar">🇸🇦 AR</button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
 
   <div class="contact-page">
 
@@ -652,12 +689,37 @@
       const drawer  = document.getElementById('mobileDrawer');
       const overlay = document.getElementById('mobileOverlay');
       if (!burger || !drawer || !overlay) return;
-      function openMenu()  { burger.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-      function closeMenu() { burger.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-      burger.addEventListener('click', function() { drawer.classList.contains('open') ? closeMenu() : openMenu(); });
-      drawer.querySelectorAll('.mob-link').forEach(function(l){ l.addEventListener('click', closeMenu); });
+
+      function openMenu() {
+        burger.classList.add('open');
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+        burger.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMenu() {
+        burger.classList.remove('open');
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      drawer.querySelectorAll('.mob-link').forEach(function(l) {
+        l.addEventListener('click', closeMenu);
+      });
+
       overlay.addEventListener('click', closeMenu);
-      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+      });
     })();
   </script>
 </body>

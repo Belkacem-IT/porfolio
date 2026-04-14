@@ -103,7 +103,7 @@
 
   <!-- Navigation -->
   <nav id="main-nav">
-    <div class="logo">BR.</div>
+    <a href="#hero" class="logo" style="text-decoration:none;">BR.</a>
 
     <!-- Burger Button (mobile only) -->
     <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
@@ -142,6 +142,25 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <button class="mob-close" id="mobClose" aria-label="Fermer">←</button>
+    <div class="mobile-drawer-inner">
+      <a href="#hero" class="mob-link" data-i18n="nav.cosmos">Cosmos</a>
+      <a href="#about" class="mob-link" data-i18n="nav.about">À Propos</a>
+      <a href="#biomes-wrapper" class="mob-link" data-i18n="nav.expertise">Expertise</a>
+      <a href="#projects" class="mob-link" data-i18n="nav.projects">Projets</a>
+      <a href="contact.html" class="mob-link" data-i18n="nav.contact">Contact</a>
+      <div class="mob-divider"></div>
+      <div class="mob-lang">
+        <button class="mob-lang-btn active" data-lang="fr">🇫🇷 FR</button>
+        <button class="mob-lang-btn" data-lang="en">🇬🇧 EN</button>
+        <button class="mob-lang-btn" data-lang="ar">🇸🇦 AR</button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
 
   <!-- ━━━━━ CH1: LE GRAND VIDE (GALAXIE) — HERO ━━━━━ -->
   <section class="section" id="hero">
@@ -830,13 +849,68 @@
       const burger  = document.getElementById('burgerBtn');
       const drawer  = document.getElementById('mobileDrawer');
       const overlay = document.getElementById('mobileOverlay');
+      const mobClose = document.getElementById('mobClose');
       if (!burger || !drawer || !overlay) return;
-      function openMenu()  { burger.classList.add('open'); drawer.classList.add('open'); overlay.classList.add('open'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-      function closeMenu() { burger.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-      burger.addEventListener('click', function() { drawer.classList.contains('open') ? closeMenu() : openMenu(); });
-      drawer.querySelectorAll('.mob-link').forEach(function(l){ l.addEventListener('click', closeMenu); });
+
+      function openMenu() {
+        burger.classList.add('open');
+        drawer.classList.add('open');
+        overlay.classList.add('open');
+        burger.setAttribute('aria-expanded','true');
+        document.body.style.overflow = 'hidden';
+        updateActiveLink();
+      }
+
+      function closeMenu() {
+        burger.classList.remove('open');
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+      }
+
+      burger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+
+      if (mobClose) mobClose.addEventListener('click', closeMenu);
+
+      drawer.querySelectorAll('.mob-link').forEach(function(l) {
+        l.addEventListener('click', closeMenu);
+      });
+
       overlay.addEventListener('click', closeMenu);
-      document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
+      /* ── Active section detection (scroll spy) ── */
+      function updateActiveLink() {
+        var sections = ['hero', 'about', 'biomes-wrapper', 'projects', 'contact-section'];
+        var scrollY = window.scrollY + window.innerHeight / 3;
+        var activeId = 'hero';
+
+        for (var i = 0; i < sections.length; i++) {
+          var sec = document.getElementById(sections[i]);
+          if (sec && sec.offsetTop <= scrollY) {
+            activeId = sections[i];
+          }
+        }
+
+        drawer.querySelectorAll('.mob-link').forEach(function(link) {
+          var href = link.getAttribute('href');
+          link.classList.remove('active');
+          if (href === '#' + activeId) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', function() {
+        if (drawer.classList.contains('open')) updateActiveLink();
+      });
     })();
   </script>
 </body>
