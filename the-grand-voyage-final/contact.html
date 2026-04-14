@@ -347,11 +347,12 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <button class="mob-close" id="mobClose" aria-label="Fermer">←</button>
     <div class="mobile-drawer-inner">
       <a href="index.html#hero" class="mob-link" data-i18n="nav.cosmos">Cosmos</a>
       <a href="index.html#about" class="mob-link" data-i18n="nav.about">À Propos</a>
       <a href="index.html#projects" class="mob-link" data-i18n="nav.projects">Projets</a>
-      <a href="contact.html" class="mob-link" data-i18n="nav.contact">Contact</a>
+      <a href="contact.html" class="mob-link active" data-i18n="nav.contact">Contact</a>
       <div class="mob-divider"></div>
       <div class="mob-lang">
         <button class="mob-lang-btn active" data-lang="fr">🇫🇷 FR</button>
@@ -688,6 +689,7 @@
       const burger  = document.getElementById('burgerBtn');
       const drawer  = document.getElementById('mobileDrawer');
       const overlay = document.getElementById('mobileOverlay');
+      const mobClose = document.getElementById('mobClose');
       if (!burger || !drawer || !overlay) return;
 
       function openMenu() {
@@ -710,6 +712,8 @@
         e.stopPropagation();
         drawer.classList.contains('open') ? closeMenu() : openMenu();
       });
+
+      if (mobClose) mobClose.addEventListener('click', closeMenu);
 
       drawer.querySelectorAll('.mob-link').forEach(function(l) {
         l.addEventListener('click', closeMenu);
