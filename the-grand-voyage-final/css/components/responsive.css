@@ -183,3 +183,97 @@
   .black-hole { display: none; }
   .acc-item.active { height: 400px; }
 }
+
+/* ─────────────────────────────────────────────────────
+   FIX OVERFLOW GLOBAL (empêche le scroll horizontal)
+───────────────────────────────────────────────────── */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+/* Curseur custom désactivé sur mobile */
+@media (hover: none) and (pointer: coarse) {
+  body { cursor: auto; }
+  #cursorRing, #cursorFlashlight { display: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   VOLCAN CSS PREMIUM
+   ═══════════════════════════════════════════════════════ */
+.volcano-scene {
+  position: relative;
+  width: 100%; height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.volcano-svg {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.4));
+}
+
+/* ── Fumée CSS ── */
+.v-smoke {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center,
+    rgba(100, 90, 80, 0.25) 0%,
+    transparent 70%
+  );
+  animation: smoke-rise 7s ease-out infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+.vs-1 { width: 60px; height: 60px; bottom: 65%; left: 44%;  animation-delay: 0s;   animation-duration: 6s; }
+.vs-2 { width: 80px; height: 80px; bottom: 65%; left: 46%;  animation-delay: 2s;   animation-duration: 8s; }
+.vs-3 { width: 50px; height: 50px; bottom: 65%; left: 48%;  animation-delay: 4s;   animation-duration: 7s; }
+
+@keyframes smoke-rise {
+  0%   { transform: translateY(0) scale(0.5);  opacity: 0; }
+  10%  { opacity: 0.6; }
+  60%  { opacity: 0.3; }
+  100% { transform: translateY(-180px) scale(3); opacity: 0; }
+}
+
+/* ── Conteneur particules ── */
+.v-lava-particles {
+  position: absolute;
+  bottom: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  z-index: 4;
+}
+
+/* ── Chaque particule de lave ── */
+.vlp {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #fbbf24;
+  box-shadow: 0 0 8px #ef4444, 0 0 16px rgba(239,68,68,0.5);
+  animation: lava-erupt 2.5s ease-out infinite;
+}
+
+/* Chaque particule part dans une direction différente */
+.vlp-1 { animation-delay: 0s;    --vx: -60px; --vy: -90px; }
+.vlp-2 { animation-delay: 0.3s;  --vx: 55px;  --vy: -80px; }
+.vlp-3 { animation-delay: 0.6s;  --vx: -30px; --vy: -110px; }
+.vlp-4 { animation-delay: 0.9s;  --vx: 70px;  --vy: -60px; }
+.vlp-5 { animation-delay: 1.2s;  --vx: -80px; --vy: -70px; --size: 4px; background: #ef4444; }
+.vlp-6 { animation-delay: 1.5s;  --vx: 40px;  --vy: -100px; --size: 5px; }
+.vlp-7 { animation-delay: 1.8s;  --vx: -45px; --vy: -50px; background: #f97316; }
+.vlp-8 { animation-delay: 2.1s;  --vx: 90px;  --vy: -75px; --size: 3px; background: #fbbf24; }
+
+@keyframes lava-erupt {
+  0%   { transform: translate(0, 0) scale(1);       opacity: 1; }
+  50%  { transform: translate(var(--vx, -40px), calc(var(--vy, -80px) * 0.6)) scale(0.8); opacity: 0.8; }
+  100% { transform: translate(var(--vx, -40px), calc(var(--vy, -80px) + 60px)) scale(0.3); opacity: 0; }
+}
