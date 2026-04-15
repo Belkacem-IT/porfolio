@@ -148,12 +148,13 @@ footer {
   border: 3px solid rgba(99, 102, 241, 0.5);
   box-shadow: 0 0 0 8px rgba(99, 102, 241, 0.08), 0 0 60px rgba(99, 102, 241, 0.25);
   position: relative; z-index: 2;
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  animation: avatar-pulse 4s ease-in-out infinite;
+  transition: box-shadow 0.4s ease;
 }
 
 .footer-avatar:hover {
-  transform: scale(1.05);
   box-shadow: 0 0 0 12px rgba(99, 102, 241, 0.12), 0 0 80px rgba(99, 102, 241, 0.4);
+  animation-play-state: paused;
 }
 
 .footer-avatar-glow {
@@ -164,9 +165,55 @@ footer {
   pointer-events: none; z-index: 1;
 }
 
+@keyframes avatar-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 8px rgba(99,102,241,0.08), 0 0 40px rgba(99,102,241,0.15); }
+  50%       { transform: scale(1.04); box-shadow: 0 0 0 14px rgba(99,102,241,0.12), 0 0 70px rgba(99,102,241,0.35); }
+}
+
 @keyframes avatar-breathe {
-  0%   { transform: scale(0.9); opacity: 0.5; }
-  100% { transform: scale(1.2); opacity: 1; }
+  0%   { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.3); opacity: 0.9; }
+}
+
+/* ── Scroll Arrow floating button ── */
+#scroll-arrow {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(10, 10, 20, 0.80);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 9990;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s, opacity 0.4s;
+  opacity: 0;
+  transform: translateY(10px);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+}
+
+#scroll-arrow.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#scroll-arrow:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.6);
+  transform: translateY(-2px);
+}
+
+#scroll-arrow svg {
+  width: 16px; height: 16px;
+  stroke: rgba(255,255,255,0.8);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+#scroll-arrow.at-bottom svg {
+  transform: rotate(180deg);
 }
 
 /* ── Footer bottom bar ── */
