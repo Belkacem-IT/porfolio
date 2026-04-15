@@ -131,23 +131,27 @@ export function initAnimations() {
     const panels = container.querySelectorAll('.biome-panel');
     const totalPanels = panels.length;
 
-    ScrollTrigger.create({
-      trigger: wrapper,
-      pin: true,
-      start: 'top top',
-      end: () => '+=' + (window.innerWidth * (totalPanels - 1)),
-      scrub: 1,
-      snap: {
-        snapTo: 1 / (totalPanels - 1),
-        duration: { min: 0.3, max: 0.6 },
-        ease: 'power1.inOut'
-      },
-      onUpdate: (self) => {
-        const scrollWidth = container.scrollWidth;
-        const viewportWidth = window.innerWidth;
-        const maxScroll = scrollWidth - viewportWidth;
-        gsap.set(container, {
-          x: -(self.progress * maxScroll)
+    ScrollTrigger.matchMedia({
+      "(min-width: 769px)": function() {
+        ScrollTrigger.create({
+          trigger: wrapper,
+          pin: true,
+          start: 'top top',
+          end: () => '+=' + (window.innerWidth * (totalPanels - 1)),
+          scrub: 1,
+          snap: {
+            snapTo: 1 / (totalPanels - 1),
+            duration: { min: 0.3, max: 0.6 },
+            ease: 'power1.inOut'
+          },
+          onUpdate: (self) => {
+            const scrollWidth = container.scrollWidth;
+            const viewportWidth = window.innerWidth;
+            const maxScroll = scrollWidth - viewportWidth;
+            gsap.set(container, {
+              x: -(self.progress * maxScroll)
+            });
+          }
         });
       }
     });
