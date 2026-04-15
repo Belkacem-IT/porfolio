@@ -4,9 +4,9 @@ Portfolio interactif immersif présentant l'expertise de Belkacem Raber en archi
 
 **🌐 Live:** [raberbelkacem.com](https://raberbelkacem.com)
 
----
+--
 d
-## 📁 Structure du Projet
+## 📁 Structure du Projet --
 
 ```
 the-grand-voyage-final/
@@ -112,5 +112,3 @@ git push -u origin main
 ## 📄 Licence
 
 © 2026 Belkacem Raber. Tous droits réservés.
- 
-   
