@@ -33,7 +33,7 @@ export function initI18n() {
       });
 
       // Language option click → change lang + close menu
-      document.querySelectorAll('.lang-orb-option').forEach(btn => {
+      document.querySelectorAll('.lang-orb-option, .mob-lang-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           e.stopPropagation();
@@ -65,7 +65,7 @@ export function initI18n() {
       el.textContent = flags[lang] || flags.fr;
     });
     // Mark active
-    document.querySelectorAll('.lang-orb-option').forEach(btn => {
+    document.querySelectorAll('.lang-orb-option, .mob-lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 

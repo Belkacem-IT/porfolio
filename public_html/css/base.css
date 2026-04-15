@@ -100,7 +100,10 @@ ul { list-style: none; }
   width: 90px !important; height: 90px !important;
   background: rgba(99, 102, 241, 0.1) !important;
   border-color: transparent !important;
-  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 1024px) {
+  #cursorDot, #cursorRing, #cursorFlashlight { display: none !important; }
 }
 
 /* ── NAVIGATION ── */
