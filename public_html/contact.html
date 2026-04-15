@@ -465,50 +465,50 @@
             <div class="fg">
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.dev_type_lbl">Type de Projet</label>
-                <select class="f-select">
+                <select name="type_de_projet" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.dev_type_1">Application Web</option>
-                  <option data-i18n="cpage.dev_type_2">Application Mobile</option>
-                  <option data-i18n="cpage.dev_type_3">E-Commerce</option>
-                  <option data-i18n="cpage.dev_type_4">SaaS</option>
-                  <option data-i18n="cpage.dev_type_5">API / Backend</option>
-                  <option data-i18n="cpage.dev_type_6">Audit Sécurité</option>
-                  <option data-i18n="cpage.dev_type_7">DevOps</option>
-                  <option data-i18n="cpage.dev_type_8">Refonte / Migration</option>
+                  <option value="Application Web" data-i18n="cpage.dev_type_1">Application Web</option>
+                  <option value="Application Mobile" data-i18n="cpage.dev_type_2">Application Mobile</option>
+                  <option value="E-Commerce" data-i18n="cpage.dev_type_3">E-Commerce</option>
+                  <option value="SaaS" data-i18n="cpage.dev_type_4">SaaS</option>
+                  <option value="API / Backend" data-i18n="cpage.dev_type_5">API / Backend</option>
+                  <option value="Audit Sécurité" data-i18n="cpage.dev_type_6">Audit Sécurité</option>
+                  <option value="DevOps" data-i18n="cpage.dev_type_7">DevOps</option>
+                  <option value="Refonte / Migration" data-i18n="cpage.dev_type_8">Refonte / Migration</option>
                 </select>
               </div>
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.dev_dead_lbl">Deadline</label>
-                <select class="f-select">
+                <select name="deadline" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.dev_dead_1">🔴 Urgent (< 2 sem.)</option>
-                  <option data-i18n="cpage.dev_dead_2">🟠 1 mois</option>
-                  <option data-i18n="cpage.dev_dead_3">🟡 1-3 mois</option>
-                  <option data-i18n="cpage.dev_dead_4">🟢 3-6 mois</option>
-                  <option data-i18n="cpage.dev_dead_5">⚪ Flexible</option>
+                  <option value="Urgent (< 2 sem.)" data-i18n="cpage.dev_dead_1">🔴 Urgent (< 2 sem.)</option>
+                  <option value="1 mois" data-i18n="cpage.dev_dead_2">🟠 1 mois</option>
+                  <option value="1-3 mois" data-i18n="cpage.dev_dead_3">🟡 1-3 mois</option>
+                  <option value="3-6 mois" data-i18n="cpage.dev_dead_4">🟢 3-6 mois</option>
+                  <option value="Flexible" data-i18n="cpage.dev_dead_5">⚪ Flexible</option>
                 </select>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_budg">Budget Estimé</label>
                 <div class="budget-val" id="bv">5 000 €</div>
-                <input type="range" class="budget-range" min="500" max="50000" value="5000" step="500"
+                <input type="range" name="budget_estime" class="budget-range" min="500" max="50000" value="5000" step="500"
                   oninput="document.getElementById('bv').textContent=new Intl.NumberFormat('fr-FR').format(this.value)+' €'">
                 <div class="budget-labels"><span>500 €</span><span>50 000 €+</span></div>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_serv">Services</label>
                 <div class="chk-grid">
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Dev</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>UX/UI</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Sécurité</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>DevOps</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Consulting</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox"><div class="chk-box"><span class="cm">✓</span></div>Maintenance</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Dev"><div class="chk-box"><span class="cm">✓</span></div>Dev</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="UX/UI"><div class="chk-box"><span class="cm">✓</span></div>UX/UI</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Sécurité"><div class="chk-box"><span class="cm">✓</span></div>Sécurité</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="DevOps"><div class="chk-box"><span class="cm">✓</span></div>DevOps</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Consulting"><div class="chk-box"><span class="cm">✓</span></div>Consulting</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Maintenance"><div class="chk-box"><span class="cm">✓</span></div>Maintenance</label>
                 </div>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_desc">Description</label>
-                <textarea class="f-textarea" placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..." data-i18n="[placeholder]cpage.dev_desc_ph"></textarea>
+                <textarea name="description_projet" class="f-textarea" placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..." data-i18n="[placeholder]cpage.dev_desc_ph"></textarea>
               </div>
             </div>
           </div>
@@ -518,42 +518,42 @@
             <div class="fg">
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.meet_type">Type de Meeting</label>
-                <select class="f-select">
+                <select name="type_de_meeting" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.meet_type_1">🔍 Découverte (30 min)</option>
-                  <option data-i18n="cpage.meet_type_2">⚙️ Technique (1h)</option>
-                  <option data-i18n="cpage.meet_type_3">📊 Stratégie (1h)</option>
-                  <option data-i18n="cpage.meet_type_4">🎬 Démo</option>
-                  <option data-i18n="cpage.meet_type_5">👥 Équipe</option>
+                  <option value="Découverte" data-i18n="cpage.meet_type_1">🔍 Découverte (30 min)</option>
+                  <option value="Technique" data-i18n="cpage.meet_type_2">⚙️ Technique (1h)</option>
+                  <option value="Stratégie" data-i18n="cpage.meet_type_3">📊 Stratégie (1h)</option>
+                  <option value="Démo" data-i18n="cpage.meet_type_4">🎬 Démo</option>
+                  <option value="Équipe" data-i18n="cpage.meet_type_5">👥 Équipe</option>
                 </select>
               </div>
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.meet_plat">Plateforme</label>
-                <select class="f-select">
+                <select name="plateforme" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.meet_plat_1">Google Meet</option>
-                  <option data-i18n="cpage.meet_plat_2">Zoom</option>
-                  <option data-i18n="cpage.meet_plat_3">Teams</option>
-                  <option data-i18n="cpage.meet_plat_4">Téléphone</option>
-                  <option data-i18n="cpage.meet_plat_5">En personne</option>
+                  <option value="Google Meet" data-i18n="cpage.meet_plat_1">Google Meet</option>
+                  <option value="Zoom" data-i18n="cpage.meet_plat_2">Zoom</option>
+                  <option value="Teams" data-i18n="cpage.meet_plat_3">Teams</option>
+                  <option value="Téléphone" data-i18n="cpage.meet_plat_4">Téléphone</option>
+                  <option value="En personne" data-i18n="cpage.meet_plat_5">En personne</option>
                 </select>
               </div>
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.meet_date">Date</label>
-                <input type="date" class="f-input">
+                <input type="date" name="date_souhaitee" class="f-input">
               </div>
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.meet_slot">Créneau</label>
-                <select class="f-select">
+                <select name="creneau_horaire" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.meet_slot_1">🌅 Matin (9h-12h)</option>
-                  <option data-i18n="cpage.meet_slot_2">☀️ Après-midi (14h-17h)</option>
-                  <option data-i18n="cpage.meet_slot_3">🌙 Soir (17h-19h)</option>
+                  <option value="Matin" data-i18n="cpage.meet_slot_1">🌅 Matin (9h-12h)</option>
+                  <option value="Après-midi" data-i18n="cpage.meet_slot_2">☀️ Après-midi (14h-17h)</option>
+                  <option value="Soir" data-i18n="cpage.meet_slot_3">🌙 Soir (17h-19h)</option>
                 </select>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.meet_agenda">Sujet / Agenda</label>
-                <textarea class="f-textarea" placeholder="Points à discuter..." data-i18n="[placeholder]cpage.meet_agenda_ph"></textarea>
+                <textarea name="sujet_agenda" class="f-textarea" placeholder="Points à discuter..." data-i18n="[placeholder]cpage.meet_agenda_ph"></textarea>
               </div>
             </div>
           </div>
@@ -563,34 +563,34 @@
             <div class="fg">
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.part_type">Type</label>
-                <select class="f-select">
+                <select name="type_partenariat" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.part_type_1">🤖 Technique</option>
-                  <option data-i18n="cpage.part_type_2">🏷️ White Label</option>
-                  <option data-i18n="cpage.part_type_3">🏢 Agence (sous-traitance)</option>
-                  <option data-i18n="cpage.part_type_4">🚀 Co-fondation</option>
-                  <option data-i18n="cpage.part_type_5">🌐 Open Source</option>
+                  <option value="Technique" data-i18n="cpage.part_type_1">🤖 Technique</option>
+                  <option value="White Label" data-i18n="cpage.part_type_2">🏷️ White Label</option>
+                  <option value="Agence Sous-traitance" data-i18n="cpage.part_type_3">🏢 Agence (sous-traitance)</option>
+                  <option value="Co-fondation" data-i18n="cpage.part_type_4">🚀 Co-fondation</option>
+                  <option value="Open Source" data-i18n="cpage.part_type_5">🌐 Open Source</option>
                 </select>
               </div>
               <div class="f-group">
                 <label class="f-label" data-i18n="cpage.part_sect">Secteur</label>
-                <select class="f-select">
+                <select name="secteur_activite" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.part_sect_1">Fintech</option>
-                  <option data-i18n="cpage.part_sect_2">Health Tech</option>
-                  <option data-i18n="cpage.dev_type_3">E-Commerce</option>
-                  <option data-i18n="cpage.part_sect_4">SaaS / B2B</option>
-                  <option data-i18n="cpage.part_sect_5">EdTech</option>
-                  <option data-i18n="cpage.part_sect_6">Autre</option>
+                  <option value="Fintech" data-i18n="cpage.part_sect_1">Fintech</option>
+                  <option value="Health Tech" data-i18n="cpage.part_sect_2">Health Tech</option>
+                  <option value="E-Commerce" data-i18n="cpage.dev_type_3">E-Commerce</option>
+                  <option value="SaaS / B2B" data-i18n="cpage.part_sect_4">SaaS / B2B</option>
+                  <option value="EdTech" data-i18n="cpage.part_sect_5">EdTech</option>
+                  <option value="Autre" data-i18n="cpage.part_sect_6">Autre</option>
                 </select>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.part_proj">Votre Projet</label>
-                <textarea class="f-textarea" placeholder="Présentez votre entreprise et la valeur du partenariat..." data-i18n="[placeholder]cpage.part_proj_ph"></textarea>
+                <textarea name="description_entreprise" class="f-textarea" placeholder="Présentez votre entreprise et la valeur du partenariat..." data-i18n="[placeholder]cpage.part_proj_ph"></textarea>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.part_web">Site Web</label>
-                <input type="url" class="f-input" placeholder="https://votre-site.com">
+                <input type="url" name="site_web" class="f-input" placeholder="https://votre-site.com">
               </div>
             </div>
           </div>
@@ -600,18 +600,18 @@
             <div class="fg">
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.oth_subj">Sujet</label>
-                <select class="f-select">
+                <select name="sujet_autre" class="f-select">
                   <option value="" data-i18n="cpage.dev_type_0">— Sélectionner —</option>
-                  <option data-i18n="cpage.oth_subj_1">❓ Question</option>
-                  <option data-i18n="cpage.oth_subj_2">💬 Feedback</option>
-                  <option data-i18n="cpage.oth_subj_3">👤 Recrutement</option>
-                  <option data-i18n="cpage.oth_subj_4">📰 Presse</option>
-                  <option data-i18n="cpage.oth_subj_5">📝 Autre</option>
+                  <option value="Question" data-i18n="cpage.oth_subj_1">❓ Question</option>
+                  <option value="Feedback" data-i18n="cpage.oth_subj_2">💬 Feedback</option>
+                  <option value="Recrutement" data-i18n="cpage.oth_subj_3">👤 Recrutement</option>
+                  <option value="Presse" data-i18n="cpage.oth_subj_4">📰 Presse</option>
+                  <option value="Autre" data-i18n="cpage.oth_subj_5">📝 Autre</option>
                 </select>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.oth_msg">Message</label>
-                <textarea class="f-textarea" placeholder="Votre message..." style="min-height: 140px;"></textarea>
+                <textarea name="message_libre" class="f-textarea" placeholder="Votre message..." style="min-height: 140px;"></textarea>
               </div>
             </div>
           </div>
@@ -660,13 +660,12 @@
       const activeTab = document.querySelector('.tab-panel.active');
       if (activeTab) fd.append('_tab', activeTab.id);
       
-      // Send via Formspree (replace YOUR_FORM_ID with your Formspree endpoint)
-      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      // Send via Custom PHP Mailer
+      fetch('mailer.php', {
         method: 'POST',
-        body: fd,
-        headers: { 'Accept': 'application/json' }
-      }).then(r => {
-        if (r.ok) {
+        body: fd
+      }).then(r => r.json()).then(data => {
+        if (data.status === 'success') {
           b.innerHTML = '✅ Envoyé !'; b.style.background = '#4ade80'; b.style.color = '#000';
           form.reset();
           setTimeout(() => { b.innerHTML = origText; b.style.background = ''; b.style.color = ''; b.disabled = false; }, 3000);
