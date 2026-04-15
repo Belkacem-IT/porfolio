@@ -14,7 +14,7 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🚀 Deploy to Octenium FTPppp
+      - name: 🚀 Deploy to Octenium FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -23,7 +23,7 @@ jobs:
           port: 21
           protocol: ftp
           local-dir: ./public_html/
-          server-dir: /public_html/
+          server-dir: /
           exclude: |
             **/.git*
             **/.git*/**
