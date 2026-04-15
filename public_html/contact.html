@@ -256,12 +256,26 @@
       background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4);
       color: #fff; box-shadow: 0 0 10px rgba(99,102,241,0.1);
     }
-    .budget-input-wrapper { position: relative; }
-    .budget-input-wrapper input { padding-left: 45px; font-weight: 600; font-family: 'Space Grotesk'; font-size: 16px; }
-    .budget-currency-label {
-      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-      font-family: 'Space Grotesk'; font-weight: 700; color: var(--accent); font-size: 15px;
-      pointer-events: none;
+    
+    /* Restore Range Slider */
+    .budget-val {
+      font-family: 'Space Grotesk'; font-size: 22px; font-weight: 700;
+      color: var(--accent); text-align: center; margin-bottom: 4px;
+    }
+    .budget-range {
+      width: 100%; height: 5px; border-radius: 3px;
+      background: rgba(255,255,255,0.05);
+      appearance: none; outline: none; cursor: pointer;
+    }
+    .budget-range::-webkit-slider-thumb {
+      appearance: none; width: 18px; height: 18px;
+      border-radius: 50%; background: var(--accent);
+      box-shadow: 0 0 12px var(--glow); cursor: pointer;
+    }
+    .budget-labels {
+      display: flex; justify-content: space-between;
+      font-size: 10px; color: rgba(255,255,255,0.2);
+      font-family: 'Space Grotesk'; margin-top: 3px;
     }
 
     /* Checkboxes */
@@ -525,9 +539,11 @@
                   <label class="c-pill"><input type="radio" name="devise" value="USD" onchange="selectCurrency('USD')"><span>$ USD</span></label>
                   <label class="c-pill"><input type="radio" name="devise" value="DZD" onchange="selectCurrency('DZD')"><span>DA DZD</span></label>
                 </div>
-                <div class="budget-input-wrapper">
-                  <span class="budget-currency-label" id="budgetSymbol">€</span>
-                  <input type="number" name="budget_estime" id="budgetInput" class="f-input" min="400" value="400" step="50" style="width: 100%;">
+                <div class="budget-val" id="bv">400 €</div>
+                <input type="range" name="budget_estime" id="budgetRange" class="budget-range" min="400" max="50000" value="400" step="100" oninput="updateBudgetDisplay()">
+                <div class="budget-labels">
+                  <span id="bMin">400 €</span>
+                  <span id="bMax">50 000 €+</span>
                 </div>
               </div>
               <div class="f-group fg-full">
@@ -671,17 +687,31 @@
 
   <script src="js/modules/security.js"></script>
   <script>
+    let currentCurrency = 'EUR';
+    const currencyConfig = {
+      'EUR': { min: 400, max: 50000, step: 100, default: 400, unit: '€' },
+      'USD': { min: 500, max: 50000, step: 100, default: 500, unit: '$' },
+      'DZD': { min: 40000, max: 5000000, step: 10000, default: 40000, unit: 'DA' }
+    };
+
+    function updateBudgetDisplay() {
+      const slider = document.getElementById('budgetRange');
+      const unit = currencyConfig[currentCurrency].unit;
+      document.getElementById('bv').textContent = new Intl.NumberFormat('fr-FR').format(slider.value) + ' ' + unit;
+    }
+
     function selectCurrency(curr) {
-      const config = {
-        'EUR': { min: 400, sym: '€', step: 50 },
-        'USD': { min: 500, sym: '$', step: 50 },
-        'DZD': { min: 40000, sym: 'DA', step: 1000 }
-      };
-      const input = document.getElementById('budgetInput');
-      input.min = config[curr].min;
-      input.value = config[curr].min;
-      input.step = config[curr].step;
-      document.getElementById('budgetSymbol').textContent = config[curr].sym;
+      currentCurrency = curr;
+      const cfg = currencyConfig[curr];
+      const slider = document.getElementById('budgetRange');
+      slider.min = cfg.min;
+      slider.max = cfg.max;
+      slider.step = cfg.step;
+      slider.value = cfg.default;
+      
+      document.getElementById('bMin').textContent = new Intl.NumberFormat('fr-FR').format(cfg.min) + ' ' + cfg.unit;
+      document.getElementById('bMax').textContent = new Intl.NumberFormat('fr-FR').format(cfg.max) + ' ' + cfg.unit + '+';
+      updateBudgetDisplay();
     }
 
     function switchTab(name, el) {
