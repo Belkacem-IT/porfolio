@@ -24,279 +24,281 @@ function buildBanner() {
     const style = document.createElement('style');
     style.id = 'consentStyle';
     style.textContent = `
-      /* ── Warp speed lines ── */
-      @keyframes warpLine {
-        0%   { transform: scaleX(0) translateX(-100%); opacity: 0; }
-        15%  { opacity: 0.7; }
-        80%  { opacity: 0.3; }
-        100% { transform: scaleX(1) translateX(0); opacity: 0; }
+      /* ── Stars / warp streaks ── */
+      @keyframes warpStreak {
+        0%   { transform: translateX(-110%) scaleX(0.3); opacity:0; }
+        10%  { opacity: 1; }
+        70%  { opacity: 0.6; }
+        100% { transform: translateX(110%) scaleX(1.5); opacity:0; }
       }
-      @keyframes cSlideUp {
-        from { opacity:0; transform: translateY(100%); }
-        to   { opacity:1; transform: translateY(0); }
+      @keyframes cSlideRight {
+        from { opacity:0; transform: translateX(100%) skewX(-2deg); }
+        to   { opacity:1; transform: translateX(0)    skewX(0deg); }
       }
-      @keyframes scanPulse {
-        0%,100% { opacity: 0.3; }
-        50%     { opacity: 0.7; }
+      @keyframes warpGlow {
+        0%,100% { box-shadow: -4px 0 0 rgba(99,102,241,0.4), 0 0 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07); }
+        50%     { box-shadow: -6px 0 20px rgba(99,102,241,0.7), 0 0 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); }
       }
-      @keyframes alienBlink {
-        0%,90%,100% { opacity:1; }
-        95%         { opacity:0.2; }
+      @keyframes trailPulse {
+        0%,100% { opacity: 0.4; }
+        50%     { opacity: 1; }
       }
-      @keyframes orbitSpin {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
+      @keyframes dotBlink {
+        0%,100% { opacity:1; }
+        48%     { opacity:1; }
+        50%     { opacity:0; }
+        52%     { opacity:0; }
+      }
+      @keyframes scanH {
+        0%   { left: -100%; }
+        100% { left: 200%; }
       }
 
+      /* ── Wrapper ── */
       .consent-banner {
         position: fixed;
-        bottom: 0; left: 0; right: 0;
-        z-index: 99999;
+        top: 72px;
+        right: 0;
+        z-index: 99998;
         opacity: 0;
         pointer-events: none;
-        transform: translateY(100%);
+        max-width: 400px;
+        width: 100%;
       }
       .consent-banner.visible {
-        animation: cSlideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+        animation: cSlideRight 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
         pointer-events: auto;
       }
 
-      /* ── Main HUD bar ── */
+      /* ── Main panel ── */
       .consent-hud {
         position: relative;
+        overflow: hidden;
+        background: rgba(6, 8, 20, 0.82);
+        backdrop-filter: blur(24px) saturate(160%);
+        -webkit-backdrop-filter: blur(24px) saturate(160%);
+        border-radius: 14px 0 0 14px;
+        border: 1px solid rgba(99,102,241,0.25);
+        border-right: none;
+        animation: warpGlow 3s ease-in-out infinite;
+        padding: 10px 16px 10px 0;
         display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 0;
-        height: 56px;
-        overflow: hidden;
-        background: rgba(8, 10, 20, 0.72);
-        backdrop-filter: blur(28px) saturate(160%);
-        -webkit-backdrop-filter: blur(28px) saturate(160%);
-        border-top: 1px solid rgba(99,102,241,0.2);
-        box-shadow: 0 -4px 30px rgba(0,0,0,0.5), 0 -1px 0 rgba(99,102,241,0.1) inset;
       }
 
-      /* top edge glow line */
-      .consent-hud::before {
-        content:'';
+      /* ── Warp streak canvas ── */
+      .consent-streaks {
         position: absolute;
-        top: 0; left: 0; right: 0;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .streak {
+        position: absolute;
         height: 1px;
-        background: linear-gradient(to right,
-          transparent 0%,
-          rgba(99,102,241,0.6) 20%,
-          rgba(167,139,250,0.8) 50%,
-          rgba(99,102,241,0.6) 80%,
-          transparent 100%
-        );
+        width: 60%;
+        border-radius: 2px;
+        background: linear-gradient(to right, transparent, rgba(167,139,250,0.7), rgba(255,255,255,0.9), transparent);
+        animation: warpStreak linear infinite;
+      }
+      .streak:nth-child(1)  { top:12%; width:45%; animation-duration:1.2s; animation-delay:-0.1s; }
+      .streak:nth-child(2)  { top:22%; width:70%; animation-duration:0.9s; animation-delay:-0.5s; }
+      .streak:nth-child(3)  { top:31%; width:55%; animation-duration:1.5s; animation-delay:-0.2s; }
+      .streak:nth-child(4)  { top:42%; width:80%; animation-duration:1.0s; animation-delay:-0.7s; }
+      .streak:nth-child(5)  { top:51%; width:50%; animation-duration:1.3s; animation-delay:-0.3s; }
+      .streak:nth-child(6)  { top:60%; width:65%; animation-duration:0.8s; animation-delay:-0.9s; }
+      .streak:nth-child(7)  { top:70%; width:40%; animation-duration:1.6s; animation-delay:-0.4s; }
+      .streak:nth-child(8)  { top:80%; width:75%; animation-duration:1.1s; animation-delay:-0.6s; }
+      .streak:nth-child(9)  { top:88%; width:35%; animation-duration:1.4s; animation-delay:-0.15s; }
+
+      /* Horizontal scan shimmer */
+      .consent-scan {
+        position: absolute;
+        top: 0; bottom: 0;
+        width: 60px;
+        background: linear-gradient(to right, transparent, rgba(167,139,250,0.05), transparent);
+        animation: scanH 3.5s linear infinite;
+        pointer-events: none;
       }
 
-      /* ── Warp speed section (decorative left) ── */
-      .consent-warp {
-        position: relative;
-        width: 130px;
-        flex-shrink: 0;
-        height: 100%;
+      /* Left warp engine visual */
+      .consent-engine {
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 38px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid rgba(99,102,241,0.15);
+        gap: 3px;
+      }
+      .engine-dot {
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background: rgba(167,139,250,0.8);
+        animation: trailPulse 1.2s ease-in-out infinite;
+        box-shadow: 0 0 5px rgba(167,139,250,0.8);
+      }
+      .engine-dot:nth-child(2) { animation-delay: 0.2s; opacity: 0.6; width:3px; height:3px; }
+      .engine-dot:nth-child(3) { animation-delay: 0.4s; opacity: 0.35; width:2px; height:2px; }
+      .engine-dot:nth-child(4) { animation-delay: 0.6s; opacity: 0.2; width:2px; height:2px; }
+
+      /* ── Content rows ── */
+      .consent-top-row {
         display: flex;
         align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        border-right: 1px solid rgba(99,102,241,0.1);
-      }
-
-      /* warp lines */
-      .warp-line {
-        position: absolute;
-        height: 1px;
-        left: 0; right: 0;
-        background: linear-gradient(to right, transparent, rgba(167,139,250,0.6), rgba(255,255,255,0.3), transparent);
-        transform-origin: left center;
-        animation: warpLine 2.4s ease-in-out infinite;
-      }
-      .warp-line:nth-child(1) { top: 22%; animation-delay: 0s;    animation-duration: 2.1s; }
-      .warp-line:nth-child(2) { top: 38%; animation-delay: 0.4s;  animation-duration: 2.6s; }
-      .warp-line:nth-child(3) { top: 52%; animation-delay: 0.15s; animation-duration: 1.9s; }
-      .warp-line:nth-child(4) { top: 66%; animation-delay: 0.65s; animation-duration: 2.3s; }
-      .warp-line:nth-child(5) { top: 78%; animation-delay: 0.3s;  animation-duration: 2.8s; }
-
-      /* alien/UFO icon */
-      .consent-alien {
+        gap: 8px;
+        padding: 0 0 5px 46px;
         position: relative; z-index: 2;
-        display: flex; flex-direction: column;
-        align-items: center; gap: 2px;
-        animation: alienBlink 4s ease-in-out infinite;
       }
-      .consent-alien svg { display: block; filter: drop-shadow(0 0 6px rgba(167,139,250,0.6)); }
-      .alien-signal {
-        font-size: 7px; letter-spacing: 2px;
-        color: rgba(167,139,250,0.5);
-        font-family: monospace;
-        animation: scanPulse 1.8s ease-in-out infinite;
+      .consent-signal {
+        font-size: 8px; letter-spacing: 2px;
+        color: rgba(99,102,241,0.7);
+        font-family: monospace; text-transform: uppercase;
+        animation: dotBlink 1.8s step-end infinite;
       }
-
-      /* ── Text section ── */
-      .consent-text {
-        flex: 1;
-        padding: 0 20px;
-        min-width: 0;
-      }
-      .consent-label {
+      .consent-title {
         font-size: 11px; font-weight: 700;
         color: rgba(255,255,255,0.85);
         font-family: 'Space Grotesk', sans-serif;
         letter-spacing: 0.5px;
+        flex: 1;
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+
+      .consent-body-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding-left: 46px;
+        position: relative; z-index:2;
       }
       .consent-sublabel {
         font-size: 10px;
         color: rgba(255,255,255,0.3);
         font-family: 'Plus Jakarta Sans', sans-serif;
+        flex: 1;
         white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-        margin-top: 1px;
+        line-height: 1.3;
       }
 
-      /* ── Tags ── */
-      .consent-chips {
-        display: flex; gap: 5px;
-        padding: 0 10px;
+      /* buttons inline */
+      .consent-btns {
+        display: flex;
+        align-items: center;
+        gap: 6px;
         flex-shrink: 0;
-      }
-      .consent-chip {
-        font-size: 8px; font-family: monospace;
-        color: rgba(99,102,241,0.5);
-        border: 1px solid rgba(99,102,241,0.15);
-        padding: 2px 6px; border-radius: 3px;
-        letter-spacing: 1px; text-transform: uppercase;
-      }
-
-      /* ── Actions ── */
-      .consent-actions {
-        display: flex; align-items: center; gap: 6px;
-        padding: 0 20px;
-        flex-shrink: 0;
-        border-left: 1px solid rgba(255,255,255,0.04);
       }
       .consent-btn {
         border: none; cursor: pointer;
         font-family: 'Space Grotesk', sans-serif;
-        font-weight: 600; letter-spacing: 0.3px;
+        font-weight: 600;
         transition: all 0.2s ease;
+        line-height: 1;
       }
       .btn-decline {
         background: transparent;
-        color: rgba(255,255,255,0.2);
-        font-size: 11px; padding: 6px 10px;
-        border-radius: 6px;
+        color: rgba(255,255,255,0.18);
+        font-size: 10px;
+        padding: 4px 6px;
+        border-radius: 4px;
+        letter-spacing: 0.3px;
       }
-      .btn-decline:hover { color: rgba(255,255,255,0.45); }
+      .btn-decline:hover { color: rgba(255,255,255,0.4); }
 
       .btn-accept {
-        background: rgba(99,102,241,0.15);
-        color: rgba(167,139,250,0.9);
-        font-size: 12px; padding: 7px 18px;
-        border-radius: 8px;
-        border: 1px solid rgba(99,102,241,0.35) !important;
-        box-shadow: 0 0 14px rgba(99,102,241,0.15);
+        background: rgba(99,102,241,0.2);
+        color: rgba(167,139,250,1);
+        font-size: 11px;
+        padding: 6px 14px;
+        border-radius: 7px;
+        border: 1px solid rgba(99,102,241,0.4) !important;
+        letter-spacing: 0.4px;
+        box-shadow: 0 0 12px rgba(99,102,241,0.2);
       }
       .btn-accept:hover {
-        background: rgba(99,102,241,0.3);
+        background: rgba(99,102,241,0.4);
         color: #fff;
-        box-shadow: 0 0 22px rgba(99,102,241,0.35);
-        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(99,102,241,0.5);
+        transform: scale(1.04);
       }
 
-      /* scanning line overlay */
-      .consent-scan {
+      /* top-right status LED */
+      .consent-led {
         position: absolute;
-        bottom: 0; left: 0; right: 0;
-        height: 100%;
-        background: repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 3px,
-          rgba(0,0,0,0.04) 3px,
-          rgba(0,0,0,0.04) 4px
-        );
-        pointer-events: none;
+        top: 8px; right: 10px;
+        width: 5px; height: 5px;
+        border-radius: 50%;
+        background: rgba(99,102,241,0.9);
+        box-shadow: 0 0 6px rgba(99,102,241,0.9);
+        animation: trailPulse 1.5s ease-in-out infinite;
+        z-index: 3;
       }
 
-      @media(max-width: 600px) {
-        .consent-chips { display: none; }
-        .consent-warp  { width: 80px; }
-        .consent-sublabel { display: none; }
-        .btn-decline { display: none; }
-        .consent-actions { padding: 0 12px; }
+      @media(max-width: 520px) {
+        .consent-banner { max-width: 100%; }
+        .consent-sublabel { display:none; }
       }
     `;
     document.head.appendChild(style);
   }
 
   const banner = document.createElement('div');
-  banner.className = 'consent-banner';
+  banner.className  = 'consent-banner';
   banner.id = 'consentBanner';
 
-  const title = (typeof i18next !== 'undefined' && i18next.isInitialized)
-    ? i18next.t('consent.title') : 'Cookies & Confidentialité';
-  const text = (typeof i18next !== 'undefined' && i18next.isInitialized)
-    ? i18next.t('consent.text') : "Je promets de ne pas espionner vos recettes de crêpes — juste les stats du site.";
-  const decline = (typeof i18next !== 'undefined' && i18next.isInitialized)
-    ? i18next.t('consent.decline') : 'Passer';
-  const accept = (typeof i18next !== 'undefined' && i18next.isInitialized)
-    ? i18next.t('consent.accept') : 'Accepter';
+  const title   = (typeof i18next !== 'undefined' && i18next.isInitialized) ? i18next.t('consent.title')   : 'Cookies & Confidentialité';
+  const text    = (typeof i18next !== 'undefined' && i18next.isInitialized) ? i18next.t('consent.text')    : "Je promets de ne pas espionner vos recettes de crêpes 🥞";
+  const decline = (typeof i18next !== 'undefined' && i18next.isInitialized) ? i18next.t('consent.decline') : 'Passer';
+  const accept  = (typeof i18next !== 'undefined' && i18next.isInitialized) ? i18next.t('consent.accept')  : 'Accepter';
 
   banner.innerHTML = `
     <div class="consent-hud">
+
+      <!-- Velocity streaks background -->
+      <div class="consent-streaks">
+        <div class="streak"></div><div class="streak"></div>
+        <div class="streak"></div><div class="streak"></div>
+        <div class="streak"></div><div class="streak"></div>
+        <div class="streak"></div><div class="streak"></div>
+        <div class="streak"></div>
+      </div>
       <div class="consent-scan"></div>
 
-      <!-- Warp speed + alien left panel -->
-      <div class="consent-warp">
-        <div class="warp-line"></div>
-        <div class="warp-line"></div>
-        <div class="warp-line"></div>
-        <div class="warp-line"></div>
-        <div class="warp-line"></div>
+      <!-- Left warp engine dots -->
+      <div class="consent-engine">
+        <div class="engine-dot"></div>
+        <div class="engine-dot"></div>
+        <div class="engine-dot"></div>
+        <div class="engine-dot"></div>
+      </div>
 
-        <!-- UFO / alien icon -->
-        <div class="consent-alien">
-          <svg width="24" height="18" viewBox="0 0 36 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- saucer body -->
-            <ellipse cx="18" cy="14" rx="16" ry="5" fill="rgba(99,102,241,0.15)" stroke="rgba(167,139,250,0.6)" stroke-width="1"/>
-            <!-- dome -->
-            <path d="M10 14 Q10 6 18 5 Q26 6 26 14" fill="rgba(99,102,241,0.1)" stroke="rgba(167,139,250,0.5)" stroke-width="1"/>
-            <!-- light portholes -->
-            <circle cx="12" cy="14.5" r="1.2" fill="rgba(167,139,250,0.7)"/>
-            <circle cx="18" cy="15"   r="1.4" fill="rgba(200,180,255,0.9)"/>
-            <circle cx="24" cy="14.5" r="1.2" fill="rgba(167,139,250,0.7)"/>
-            <!-- beam -->
-            <path d="M12 19 L10 24 M18 19.5 L18 24 M24 19 L26 24" stroke="rgba(167,139,250,0.25)" stroke-width="0.8" stroke-dasharray="2 2"/>
-          </svg>
-          <div class="alien-signal">SIGNAL</div>
+      <!-- Pulsing LED status -->
+      <div class="consent-led"></div>
+
+      <!-- Top row: signal + title -->
+      <div class="consent-top-row">
+        <span class="consent-signal">● SIG</span>
+        <span class="consent-title" data-i18n="consent.title">${title}</span>
+      </div>
+
+      <!-- Bottom row: subtext + buttons -->
+      <div class="consent-body-row">
+        <span class="consent-sublabel" data-i18n="consent.text">${text}</span>
+        <div class="consent-btns">
+          <button class="consent-btn btn-decline" id="btnConsentDecline" data-i18n="consent.decline">${decline}</button>
+          <button class="consent-btn btn-accept"  id="btnConsentAccept"  data-i18n="consent.accept">${accept}</button>
         </div>
       </div>
 
-      <!-- Text -->
-      <div class="consent-text">
-        <div class="consent-label" data-i18n="consent.title">${title}</div>
-        <div class="consent-sublabel" data-i18n="consent.text">${text}</div>
-      </div>
-
-      <!-- Chips -->
-      <div class="consent-chips">
-        <span class="consent-chip">RGPD</span>
-        <span class="consent-chip">GA4</span>
-      </div>
-
-      <!-- Actions -->
-      <div class="consent-actions">
-        <button class="consent-btn btn-decline" id="btnConsentDecline" data-i18n="consent.decline">${decline}</button>
-        <button class="consent-btn btn-accept"  id="btnConsentAccept"  data-i18n="consent.accept">${accept}</button>
-      </div>
     </div>
   `;
 
   document.body.appendChild(banner);
 
-  setTimeout(() => banner.classList.add('visible'), 300);
+  setTimeout(() => banner.classList.add('visible'), 800);
 
   document.getElementById('btnConsentAccept').addEventListener('click', () => {
     updateGtagConsent('granted');
@@ -313,6 +315,6 @@ function buildBanner() {
 function closeBanner(banner) {
   banner.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
   banner.style.opacity = '0';
-  banner.style.transform = 'translateY(100%)';
-  setTimeout(() => { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 320);
+  banner.style.transform = 'translateX(110%)';
+  setTimeout(() => { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 350);
 }
