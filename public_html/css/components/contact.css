@@ -179,7 +179,7 @@ footer {
 #scroll-arrow {
   position: fixed;
   bottom: 28px;
-  right: 28px;
+  left: 28px;
   width: 42px; height: 42px;
   border-radius: 50%;
   background: rgba(10, 10, 20, 0.80);
