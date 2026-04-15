@@ -156,6 +156,31 @@
     });
   </script>
 
+  <!-- ── SCROLL ARROW ── -->
+  <button id="scroll-arrow" aria-label="Scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+  <script>
+    (function() {
+      const btn = document.getElementById('scroll-arrow');
+      function update() {
+        const scrolled = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const atBottom = scrolled > maxScroll - 80;
+        btn.classList.toggle('visible', scrolled > 200);
+        btn.classList.toggle('at-bottom', atBottom);
+        btn.setAttribute('aria-label', atBottom ? 'Retour en haut' : 'Aller en bas');
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      btn.addEventListener('click', function() {
+        const atBottom = btn.classList.contains('at-bottom');
+        window.scrollTo({ top: atBottom ? 0 : document.body.scrollHeight, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
   <div class="grain"></div>
   <div id="cursorDot"></div>
   <div id="cursorRing"></div>
