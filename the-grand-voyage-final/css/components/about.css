@@ -1,7 +1,7 @@
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    CH2: À PROPOS — TRUST & AUTHORITY
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-#about { background: var(--bg); }
+#about { background: var(--bg); padding: 100px 5vw; }
 
 .about-earth-bg {
   position: absolute; right: -15%; top: -20%;
