@@ -7,3 +7,6 @@ scratch_*.py
 *.log
 .gemini/
 .antigravity/
+
+.DS_Store
+**/.DS_Store
