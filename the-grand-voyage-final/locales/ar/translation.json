@@ -79,13 +79,13 @@
     "btn": "وصف مشروعي",
     "lbl_email": "البريد الإلكتروني",
     "lbl_loc": "الموقع",
-    "val_loc": "فرنسا 🇫🇷",
+    "val_loc": "العالم 🌍",
     "lbl_avail": "التوفر",
     "val_avail": "متاح للعمل"
   },
   "footer": {
     "huge": "لـنـبـنِ.",
-    "info": "belkacemraber@proton.me — متواجد في فرنسا",
+    "info": "contact@raberbelkacem.com — حول العالم",
     "git": "GitHub (مستودعات خاصة عند الطلب)",
     "copy": "© 2026 بلقاسم رابر. جميع الحقوق محفوظة."
   },

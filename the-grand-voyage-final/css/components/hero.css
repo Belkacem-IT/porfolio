@@ -79,37 +79,35 @@
 @keyframes bh-spin { 100% { transform: rotate(360deg); } }
 @keyframes bh-pulse { 0% { opacity: 0.5; transform: scale(1); } 100% { opacity: 1; transform: scale(1.15); } }
 
-/* ── Shooting Stars (fixed timing — always visible at start) ── */
+/* ── Shooting Stars (continuous looping) ── */
 .shooting-star {
   position: absolute; width: 150px; height: 2px;
   background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.3) 40%, transparent);
   border-radius: 2px; opacity: 0; z-index: 4;
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));
 }
-.ss-1 { top: 15%; left: 60%; transform: rotate(-30deg); animation: none; }
-.ss-2 { top: 30%; left: 80%; transform: rotate(-45deg); animation: none; }
-.ss-3 { top: 8%; left: 30%; transform: rotate(-20deg); animation: none; }
-
-.ss-1.fire { animation: shoot-1 3s ease-out forwards 0.2s; }
-.ss-2.fire { animation: shoot-2 3.5s ease-out forwards 0.5s; }
-.ss-3.fire { animation: shoot-3 4s ease-out forwards 0.8s; }
+.ss-1 { top: 12%; left: 65%; transform: rotate(-30deg); animation: shoot-1 6s ease-out infinite 0.5s; }
+.ss-2 { top: 28%; left: 82%; transform: rotate(-45deg); animation: shoot-2 8s ease-out infinite 2s; }
+.ss-3 { top: 6%;  left: 25%; transform: rotate(-20deg); animation: shoot-3 7s ease-out infinite 3.5s; }
+.ss-4 { top: 20%; left: 45%; transform: rotate(-35deg); animation: shoot-1 9s ease-out infinite 5s; }
+.ss-5 { top: 35%; left: 70%; transform: rotate(-25deg); animation: shoot-2 10s ease-out infinite 7s; }
 
 @keyframes shoot-1 {
-  0% { opacity: 0; transform: translateX(0) rotate(-30deg); width: 0; }
-  5% { opacity: 1; width: 150px; }
-  25% { opacity: 0; transform: translateX(-500px) rotate(-30deg); width: 80px; }
+  0%  { opacity: 0; transform: translateX(0) rotate(-30deg); width: 0; }
+  3%  { opacity: 1; width: 150px; }
+  15% { opacity: 0; transform: translateX(-500px) rotate(-30deg); width: 80px; }
   100% { opacity: 0; }
 }
 @keyframes shoot-2 {
-  0% { opacity: 0; transform: translateX(0) rotate(-45deg); width: 0; }
-  5% { opacity: 1; width: 120px; }
-  20% { opacity: 0; transform: translateX(-450px) rotate(-45deg); width: 60px; }
+  0%  { opacity: 0; transform: translateX(0) rotate(-45deg); width: 0; }
+  3%  { opacity: 1; width: 120px; }
+  12% { opacity: 0; transform: translateX(-450px) rotate(-45deg); width: 60px; }
   100% { opacity: 0; }
 }
 @keyframes shoot-3 {
-  0% { opacity: 0; transform: translateX(0) rotate(-20deg); width: 0; }
-  4% { opacity: 1; width: 180px; }
-  22% { opacity: 0; transform: translateX(-600px) rotate(-20deg); width: 100px; }
+  0%  { opacity: 0; transform: translateX(0) rotate(-20deg); width: 0; }
+  3%  { opacity: 1; width: 180px; }
+  14% { opacity: 0; transform: translateX(-600px) rotate(-20deg); width: 100px; }
   100% { opacity: 0; }
 }
 

@@ -79,13 +79,13 @@
     "btn": "Décrire mon Projet",
     "lbl_email": "Email",
     "lbl_loc": "Localisation",
-    "val_loc": "France 🇫🇷",
+    "val_loc": "World 🌍",
     "lbl_avail": "Disponibilité",
     "val_avail": "Disponible"
   },
   "footer": {
     "huge": "CONSTRUISONS.",
-    "info": "belkacemraber@proton.me — Based in France",
+    "info": "contact@raberbelkacem.com — Worldwide",
     "git": "GitHub (Dépôts privés s/ demande)",
     "copy": "© 2026 Belkacem Raber. Tous droits réservés."
   },

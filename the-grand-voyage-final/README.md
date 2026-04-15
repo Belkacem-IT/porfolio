@@ -1,55 +1,114 @@
-# The Grand Voyage — Portfolio Interactif
+# 🚀 The Grand Voyage — Portfolio Belkacem Raber
 
-Bienvenue dans le code source de **The Grand Voyage**, mon portfolio interactif et immersif de l'année 2026. Ce projet n'est pas un simple site web : c'est une véritable **expérience cinématique** pensée pour démontrer mon expertise en architecture front-end, en design d'interaction et en cybersécurité.
+Portfolio interactif immersif présentant l'expertise de Belkacem Raber en architecture de systèmes IT, DevSecOps et pilotage de projets.
 
-## 🚀 Vision du Projet
-Plutôt qu'un "dashboard" rigide ou un classique site vitrine, ce portfolio invite l'utilisateur à un voyage vertical :
-- **Le Cosmos** : Un accueil dans l'espace avec des effets WebGL (Vanta.js), un trou noir en CSS pur et une pluie d'étoiles filantes.
-- **La Terre** : Des environnements atmosphériques animés avec GSAP (nuages géométriques, avions, orbites de planètes).
-- **Les Biomes** : Une exploration horizontale (scroll) des compétences découpées par univers physiques (Forêt, Montagnes glaciaires, Volcans) avec des easter eggs animés.
-- **Le Souterrain** : Le "Dark Mode" ultime où l'on explore mes compétences structurelles complexes à l'aide d'un effet "Lampe Torche" rattaché au curseur qui révèle des "secrets IT" enfouis.
-
-## 🌍 Internationalisation (i18n) & UX Orbitale
-Le projet intègre une gestion multilingue robuste via `i18next` :
-- **Langues supportées** : Français (FR), Anglais (EN), Arabe (AR).
-- **Interface Orbitale** : Un sélecteur de langue exclusif, conçu comme un astre avec des satellites en orbite, permettant un basculement fluide et cinématique.
-- **RTL Support** : Basculement automatique de la mise en page (Right-To-Left) pour la langue arabe, assurant une accessibilité universelle.
-- **Persistance** : Détection automatique de la langue du navigateur et mémorisation du choix utilisateur.
-
-## 🛠 Stack Technique
-**Architecture "Pure & Light"** : Afin de garantir des performances ultra-rapides, le projet s'affranchit de frameworks lourds :
-- **HTML5 Sémantique**
-- **Vanilla CSS** (Variables, Grid, Clip-paths, Animations 3D)
-- **Vanilla JavaScript** (ES6 Modules)
-- **GSAP 3** & ScrollTrigger (Animations narratives)
-- **i18next** (Moteur de traduction asynchrone)
-- **Lenis** (Smooth Scrolling)
-
-## 🗂️ Structure des Fichiers
-
-```text
-/
-├── index.html                 # Portails de navigation et narration
-├── contact.html               # Interface de contact et devis
-├── locales/                   # Dictionnaires JSON (fr, en, ar)
-├── css/
-│   ├── base.css               # Design System & Switcher Orbital
-│   └── components/            # Styles modulaires par biome
-└── js/
-    ├── app.js                 # Initialisation globale
-    └── modules/
-        ├── i18n.js            # Moteur de traduction & Logique orbitale
-        ├── animations.js      # Orchestration GSAP
-        ├── cursor.js          # Curseur magnétique
-        ├── flashlight.js      # Effet de masque dynamique
-        └── security.js        # Couche cyber protective
-```
-
-## 🚀 Déploiement
-Le projet est optimisé pour un déploiement sur **Vercel** avec un pipeline CI/CD automatisé relié à GitHub.
-
-## 📄 Licence
-Ce projet est le portfolio professionnel de **Belkacem Raber**. Toute republication ou réutilisation commerciale sans autorisation est interdite.
+**🌐 Live:** [raberbelkacem.com](https://raberbelkacem.com)
 
 ---
-*Codé avec clarté. Construit pour durer.*
+
+## 📁 Structure du Projet
+
+```
+the-grand-voyage-final/
+├── index.html              # Page principale (Hero → About → Expertise → Projets → Contact)
+├── contact.html            # Page contact avec formulaire multi-onglets
+├── sitemap.xml             # Sitemap SEO
+├── robots.txt              # Directives moteurs de recherche
+├── css/
+│   ├── base.css            # Variables, reset, cursor custom, typographie
+│   └── components/
+│       ├── hero.css         # Hero section, black hole, shooting stars, trusted bar
+│       └── responsive.css   # Burger menu, mobile drawer, volcan, media queries
+├── js/
+│   ├── app.js              # Point d'entrée — importe tous les modules
+│   └── modules/
+│       ├── animations.js    # GSAP ScrollTrigger, reveal, parallax
+│       ├── carousel.js      # Carousel projets (accordion)
+│       ├── cursor.js        # Curseur custom (dot + ring)
+│       ├── easterEggs.js    # Easter eggs interactifs
+│       ├── flashlight.js    # Interaction lampe torche (section underground)
+│       ├── i18n.js          # Internationalisation (FR/EN/AR)
+│       └── security.js      # Protections anti-DevTools
+├── locales/
+│   ├── fr/translation.json  # Traductions françaises
+│   ├── en/translation.json  # Traductions anglaises
+│   └── ar/translation.json  # Traductions arabes
+├── assets/                  # Images, fonts, médias
+└── .github/
+    └── workflows/
+        └── deploy.yml       # GitHub Actions → FTP Octenium
+```
+
+## 🎨 Sections de la Page
+
+| Section | Description |
+|---------|-------------|
+| **Hero (Cosmos)** | Vanta.js network, trou noir animé, étoiles filantes, bannière skills défilante |
+| **À Propos** | Présentation, stats animées, astronaute illustré |
+| **Transition Warp** | Effet cinématique vitesse lumière entre Hero et About |
+| **Expertise (Biomes)** | Scroll horizontal avec panels thématiques (Architecture, Cloud, Sécurité...) |
+| **Volcan** | SVG animé avec cratère, lave, fumée, particules |
+| **Underground** | Section cachée avec interaction lampe torche et easter eggs IT |
+| **Projets** | Accordion interactif avec projets détaillés |
+| **Contact** | Infos, formulaire multi-onglets (Devis/Meeting/Partenariat/Autre) |
+
+## 🛠️ Technologies
+
+- **HTML5 / CSS3 / JavaScript ES6+** — Stack pure, pas de framework
+- **GSAP + ScrollTrigger** — Animations scroll-driven
+- **Vanta.js** — Background WebGL (réseau de particules)
+- **Lenis** — Smooth scroll
+- **i18next** — Internationalisation FR / EN / AR
+- **SVG animé** — Volcan avec lave pulsante
+- **CSS Custom Properties** — Design system cohérent
+
+## 📱 Responsive
+
+- **Desktop** : Navigation fixe avec blur, curseur custom, effets hover
+- **Tablette** : Grilles adaptées, burger menu
+- **Mobile** : Drawer dédié (hors `<nav>` pour iOS Safari), curseur custom caché, touch-optimized
+
+## 🌍 SEO & Performance
+
+- Balises meta (description, keywords, Open Graph, JSON-LD)
+- Sitemap XML
+- Canonical URLs → `raberbelkacem.com`
+- Semantic HTML5
+- Images optimisées
+
+## 📬 Formulaire de Contact
+
+Le formulaire utilise **Formspree** (gratuit) pour l'envoi d'emails.
+
+### Configuration :
+1. Créer un compte sur [formspree.io](https://formspree.io)
+2. Créer un nouveau formulaire
+3. Remplacer `YOUR_FORM_ID` dans `contact.html` par votre ID Formspree
+4. Si Formspree est indisponible, le formulaire ouvre automatiquement le client mail en fallback
+
+## 🚀 Déploiement (GitHub Actions → Octenium FTP)
+
+Le déploiement est automatisé via GitHub Actions. Chaque push sur `main` déclenche un upload FTP vers Octenium.
+
+### Configuration des Secrets GitHub :
+Dans **Settings → Secrets and variables → Actions**, ajouter :
+
+| Secret | Valeur |
+|--------|--------|
+| `FTP_SERVER` | `ftp://raberbelkacem.com` |
+| `FTP_USERNAME` | `gaeehncc` |
+| `FTP_PASSWORD` | Votre mot de passe cPanel |
+
+### Commandes :
+```bash
+# Premier push
+git init
+git remote add origin https://github.com/VOTRE_USER/portfolio.git
+git add .
+git commit -m "Initial commit - The Grand Voyage"
+git push -u origin main
+```
+
+## 📄 Licence
+
+© 2026 Belkacem Raber. Tous droits réservés.

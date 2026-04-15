@@ -385,7 +385,6 @@ html, body {
   height: auto;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.4));
 }
 
 /* ── Fumée CSS ── */
@@ -400,9 +399,9 @@ html, body {
   z-index: 3;
   pointer-events: none;
 }
-.vs-1 { width: 60px; height: 60px; bottom: 65%; left: 44%;  animation-delay: 0s;   animation-duration: 6s; }
-.vs-2 { width: 80px; height: 80px; bottom: 65%; left: 46%;  animation-delay: 2s;   animation-duration: 8s; }
-.vs-3 { width: 50px; height: 50px; bottom: 65%; left: 48%;  animation-delay: 4s;   animation-duration: 7s; }
+.vs-1 { width: 60px; height: 60px; bottom: 58%; left: 44%;  animation-delay: 0s;   animation-duration: 6s; }
+.vs-2 { width: 80px; height: 80px; bottom: 58%; left: 46%;  animation-delay: 2s;   animation-duration: 8s; }
+.vs-3 { width: 50px; height: 50px; bottom: 58%; left: 48%;  animation-delay: 4s;   animation-duration: 7s; }
 
 @keyframes smoke-rise {
   0%   { transform: translateY(0) scale(0.5);  opacity: 0; }
@@ -414,7 +413,7 @@ html, body {
 /* ── Conteneur particules ── */
 .v-lava-particles {
   position: absolute;
-  bottom: 65%;
+  bottom: 58%;
   left: 50%;
   transform: translateX(-50%);
   width: 10px; height: 10px;

@@ -13,14 +13,14 @@
     content="architecte systèmes IT, tech lead freelance, transformation digitale, architecture cloud, DevOps, sécurité informatique, IA appliquée, Belkacem Raber, freelance France, Algérie, chef de projet IT">
   <meta name="author" content="Belkacem Raber">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://raber.dev/">
+  <link rel="canonical" href="https://raberbelkacem.com/">
 
   <!-- ── Open Graph (LinkedIn, Facebook) ── -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Belkacem Raber — Architecte de Systèmes IT & Tech Lead">
   <meta property="og:description"
     content="Transformation digitale, architecture de systèmes IT et pilotage de projets d'envergure. Architecte, chef de projet et tech lead freelance.">
-  <meta property="og:url" content="https://raber.dev/">
+  <meta property="og:url" content="https://raberbelkacem.com/">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="en_GB">
   <meta property="og:locale:alternate" content="ar_SA">
@@ -41,7 +41,7 @@
     "name": "Belkacem Raber",
     "jobTitle": "Architecte de Systèmes IT & Tech Lead",
     "description": "Auto-entrepreneur spécialisé dans la transformation digitale, l'architecture de systèmes IT, le Cloud, l'IA appliquée et la sécurité. Plus de 7 ans d'expérience, Master 2, intervient seul ou à la tête d'équipes freelance pour des projets d'envergure.",
-    "url": "https://raber.dev",
+    "url": "https://raberbelkacem.com",
     "sameAs": [
       "https://www.linkedin.com/in/belkacem-raber"
     ],
@@ -180,6 +180,8 @@
     <div class="shooting-star ss-1"></div>
     <div class="shooting-star ss-2"></div>
     <div class="shooting-star ss-3"></div>
+    <div class="shooting-star ss-4"></div>
+    <div class="shooting-star ss-5"></div>
 
     <div class="hero-content">
       <span class="tag gs-reveal" data-i18n="hero.tag">Portfolio Interactif — 2026</span>
@@ -224,6 +226,13 @@
         <span class="trusted-item"><i class="trusted-dot"></i> Keycloak IAM</span>
         <span class="trusted-item"><i class="trusted-dot"></i> Cloudflare Zero Trust</span>
         <span class="trusted-item"><i class="trusted-dot"></i> DevSecOps Pipelines</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Web Scraping</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Apify</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Crawlers sur mesure</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Puppeteer / Playwright</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Data Processing</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> ETL Pipelines</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Solutions Sur Mesure</span>
         <!-- Duplication exacte pour défilement infini sans coupure -->
         <span class="trusted-label" style="margin-left: 8vw;">Écosystèmes & Technologies Maîtrisés</span>
         <span class="trusted-item"><i class="trusted-dot"></i> AWS Cloud</span>
@@ -245,6 +254,13 @@
         <span class="trusted-item"><i class="trusted-dot"></i> Keycloak IAM</span>
         <span class="trusted-item"><i class="trusted-dot"></i> Cloudflare Zero Trust</span>
         <span class="trusted-item"><i class="trusted-dot"></i> DevSecOps Pipelines</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Web Scraping</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Apify</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Crawlers sur mesure</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Puppeteer / Playwright</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Data Processing</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> ETL Pipelines</span>
+        <span class="trusted-item"><i class="trusted-dot"></i> Solutions Sur Mesure</span>
       </div>
     </div>
   </section>
@@ -505,6 +521,9 @@
                   <stop offset="60%" stop-color="#ef4444" stop-opacity="0.6"/>
                   <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0"/>
                 </radialGradient>
+                <clipPath id="mountainClip">
+                  <polygon points="20,300 155,70 245,70 380,300"/>
+                </clipPath>
               </defs>
 
               <!-- Halo thermique pulsant -->
@@ -513,10 +532,10 @@
                 <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
               </ellipse>
 
-              <!-- Corps principal -->
-              <polygon points="20,300 200,30 380,300" fill="#1c0a00"/>
-              <polygon points="60,300 200,55 340,300" fill="#2d1507"/>
-              <polygon points="90,300 200,80 310,300" fill="#3d2010"/>
+              <!-- Corps principal — sommet plat uniforme -->
+              <polygon points="20,300 155,70 245,70 380,300" fill="#1c0a00"/>
+              <polygon points="60,300 165,85 235,85 340,300" fill="#2d1507"/>
+              <polygon points="90,300 172,95 228,95 310,300" fill="#3d2010"/>
 
               <!-- Stries de roche -->
               <line x1="130" y1="200" x2="110" y2="300" stroke="rgba(80,40,10,0.4)" stroke-width="1.5"/>
@@ -524,36 +543,45 @@
               <line x1="175" y1="120" x2="160" y2="250" stroke="rgba(80,40,10,0.3)" stroke-width="1"/>
               <line x1="225" y1="120" x2="240" y2="250" stroke="rgba(80,40,10,0.3)" stroke-width="1"/>
 
-              <!-- Coulée de lave gauche -->
-              <path d="M188 40 Q 170 100 158 170 Q 148 230 140 300" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" opacity="0.6">
-                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
-                <animate attributeName="stroke-width" values="3;6;3" dur="3s" repeatCount="indefinite"/>
-              </path>
-              <path d="M193 42 Q 178 110 168 190 Q 160 245 155 300" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4">
-                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite"/>
-              </path>
+              <!-- Coulée de lave — part du centre du cratère (200,75) -->
+              <g clip-path="url(#mountainClip)">
+                <!-- Coulée gauche principale -->
+                <path d="M200 75 Q 192 100 182 140 Q 168 200 150 300" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" opacity="0.6">
+                  <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-width" values="3;6;3" dur="3s" repeatCount="indefinite"/>
+                </path>
+                <!-- Reflet chaud gauche -->
+                <path d="M200 75 Q 194 105 186 150 Q 174 215 160 300" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4">
+                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite"/>
+                </path>
 
-              <!-- Coulée de lave droite -->
-              <path d="M212 40 Q 228 110 240 180 Q 250 240 258 300" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.5">
-                <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
-              </path>
+                <!-- Coulée droite principale -->
+                <path d="M200 75 Q 210 105 220 150 Q 235 215 252 300" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.5">
+                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
+                </path>
 
-              <!-- Cratère -->
-              <ellipse cx="200" cy="38" rx="38" ry="14" fill="#0f0500"/>
-              <ellipse cx="200" cy="40" rx="30" ry="10" fill="#7f1d1d"/>
+                <!-- Coulée centrale fine -->
+                <path d="M200 75 Q 200 120 200 180 Q 200 240 200 300" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.3">
+                  <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.5s" repeatCount="indefinite"/>
+                </path>
+              </g>
+
+              <!-- Cratère — creusé dans le sommet plat -->
+              <ellipse cx="200" cy="72" rx="42" ry="14" fill="#0f0500"/>
+              <ellipse cx="200" cy="74" rx="34" ry="10" fill="#7f1d1d"/>
 
               <!-- Magma dans le cratère — pulsant -->
-              <ellipse cx="200" cy="41" rx="22" ry="7" fill="#ef4444" opacity="0.8">
+              <ellipse cx="200" cy="75" rx="26" ry="8" fill="#ef4444" opacity="0.8">
                 <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="rx" values="20;25;20" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="rx" values="22;28;22" dur="2s" repeatCount="indefinite"/>
               </ellipse>
-              <ellipse cx="200" cy="41" rx="12" ry="4" fill="#fbbf24" opacity="0.95">
+              <ellipse cx="200" cy="75" rx="14" ry="5" fill="#fbbf24" opacity="0.95">
                 <animate attributeName="opacity" values="0.7;1;0.7" dur="1.2s" repeatCount="indefinite"/>
-                <animate attributeName="rx" values="10;15;10" dur="1.2s" repeatCount="indefinite"/>
+                <animate attributeName="rx" values="12;16;12" dur="1.2s" repeatCount="indefinite"/>
               </ellipse>
 
               <!-- Halo cratère -->
-              <ellipse cx="200" cy="38" rx="50" ry="20" fill="url(#craterGlow)" opacity="0.6">
+              <ellipse cx="200" cy="70" rx="55" ry="22" fill="url(#craterGlow)" opacity="0.6">
                 <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
               </ellipse>
             </svg>
@@ -798,11 +826,11 @@
       <div class="contact-info-grid gs-reveal">
         <div class="contact-info-item">
           <span class="contact-info-label" data-i18n="contact.lbl_email">Email</span>
-          <span class="contact-info-value">belkacemraber@proton.me</span>
+          <span class="contact-info-value">contact@raberbelkacem.com</span>
         </div>
         <div class="contact-info-item">
           <span class="contact-info-label" data-i18n="contact.lbl_loc">Localisation</span>
-          <span class="contact-info-value" data-i18n="contact.val_loc">France 🇫🇷</span>
+          <span class="contact-info-value" data-i18n="contact.val_loc">World 🌍</span>
         </div>
         <div class="contact-info-item">
           <span class="contact-info-label" data-i18n="contact.lbl_avail">Disponibilité</span>
@@ -814,13 +842,11 @@
 
   <!-- ━━━━━ FOOTER ━━━━━ -->
   <footer>
-    <a href="mailto:belkacemraber@proton.me">
+    <a href="mailto:contact@raberbelkacem.com">
       <div class="footer-huge" data-i18n="footer.huge">LANÇONS.</div>
     </a>
-    <div class="contact-info" data-i18n="footer.info">belkacemraber@proton.me — Based in France</div>
+    <div class="contact-info" data-i18n="footer.info">contact@raberbelkacem.com — Worldwide</div>
     <div class="social-links">
-      <a href="https://github.com/cryptobeka" target="_blank" rel="noopener" data-i18n="footer.git">GitHub (Dépôts
-        privés s/ demande)</a>
       <a href="https://www.linkedin.com/in/raber-belkacem-2811b723b" target="_blank" rel="noopener">LinkedIn</a>
     </div>
     <div class="footer-copyright" data-i18n="footer.copy">

@@ -6,13 +6,13 @@
   <title>Contact — Belkacem Raber</title>
   <meta name="description" content="Contactez Belkacem Raber. Architecte de Systèmes IT, DevOps et Tech Lead. Disponible pour vos projets d'envergure.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://raber.dev/contact.html">
+  <link rel="canonical" href="https://raberbelkacem.com/contact.html">
 
   <!-- ── Open Graph ── -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Contact — Belkacem Raber">
   <meta property="og:description" content="Contactez Belkacem Raber pour échanger sur vos architectures cloud ou vos projets d'infrastructure sécurisée.">
-  <meta property="og:url" content="https://raber.dev/contact.html">
+  <meta property="og:url" content="https://raberbelkacem.com/contact.html">
   <meta property="og:locale" content="fr_FR">
 
   <!-- ── JSON-LD Structured Data ── -->
@@ -387,14 +387,14 @@
             <div class="info-icon">✉</div>
             <div class="info-text">
               <span class="info-label" data-i18n="cpage.sb_email">Email</span>
-              <span class="info-value">belkacemraber@proton.me</span>
+              <span class="info-value">contact@raberbelkacem.com</span>
             </div>
           </div>
           <div class="info-row">
             <div class="info-icon">📍</div>
             <div class="info-text">
               <span class="info-label" data-i18n="cpage.sb_loc_lbl">Localisation</span>
-              <span class="info-value" data-i18n="cpage.sb_loc_val">France 🇫🇷</span>
+              <span class="info-value" data-i18n="cpage.sb_loc_val">World 🌍</span>
             </div>
           </div>
           <div class="info-row">
@@ -408,11 +408,8 @@
 
         <div class="c-side-card">
           <h4 data-i18n="cpage.sb_links">Liens Rapides</h4>
-          <a href="mailto:belkacemraber@proton.me" class="q-link">
+          <a href="mailto:contact@raberbelkacem.com" class="q-link">
             <div class="q-link-icon">📧</div> <span data-i18n="cpage.sb_email_lbl">Email direct</span>
-          </a>
-          <a href="https://github.com/cryptobeka" target="_blank" class="q-link">
-            <div class="q-link-icon">💻</div> <span data-i18n="cpage.sb_git">GitHub</span>
           </a>
           <a href="https://www.linkedin.com/in/raber-belkacem-2811b723b" target="_blank" class="q-link">
             <div class="q-link-icon">🔗</div> <span data-i18n="cpage.sb_in">LinkedIn</span>
@@ -447,19 +444,19 @@
           <div class="fg" style="margin-bottom: 16px;">
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_fn">Prénom *</label>
-              <input type="text" class="f-input" placeholder="John" data-i18n="[placeholder]cpage.ph_fn" required>
+              <input type="text" name="firstName" class="f-input" placeholder="John" data-i18n="[placeholder]cpage.ph_fn" required>
             </div>
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_ln">Nom *</label>
-              <input type="text" class="f-input" placeholder="Doe" data-i18n="[placeholder]cpage.ph_ln" required>
+              <input type="text" name="lastName" class="f-input" placeholder="Doe" data-i18n="[placeholder]cpage.ph_ln" required>
             </div>
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_em">Email *</label>
-              <input type="email" class="f-input" placeholder="john@example.com" required>
+              <input type="email" name="email" class="f-input" placeholder="john@example.com" required>
             </div>
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_comp">Entreprise</label>
-              <input type="text" class="f-input" placeholder="Nom entreprise" data-i18n="[placeholder]cpage.ph_comp">
+              <input type="text" name="company" class="f-input" placeholder="Nom entreprise" data-i18n="[placeholder]cpage.ph_comp">
             </div>
           </div>
 
@@ -631,7 +628,6 @@
 
     <!-- Footer -->
     <div class="c-footer">
-      <a href="https://github.com/cryptobeka" target="_blank">GitHub (Dépôts privés s/ demande)</a>
       <a href="https://www.linkedin.com/in/raber-belkacem-2811b723b" target="_blank">LinkedIn</a>
       <p style="margin-top: 8px;">© 2026 Belkacem Raber</p>
     </div>
@@ -653,9 +649,42 @@
     }
     function handleSubmit(e) {
       e.preventDefault();
-      const b = e.target.querySelector('.f-submit');
-      b.innerHTML = '✅ Envoyé !'; b.style.background = '#4ade80'; b.style.color = '#000';
-      setTimeout(() => { b.innerHTML = '🚀 Envoyer'; b.style.background = ''; b.style.color = ''; }, 3000);
+      const form = e.target;
+      const b = form.querySelector('.f-submit');
+      const origText = b.innerHTML;
+      b.innerHTML = '⏳ Envoi...'; b.disabled = true;
+
+      // Collect form data
+      const fd = new FormData(form);
+      // Add active tab info
+      const activeTab = document.querySelector('.tab-panel.active');
+      if (activeTab) fd.append('_tab', activeTab.id);
+      
+      // Send via Formspree (replace YOUR_FORM_ID with your Formspree endpoint)
+      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: fd,
+        headers: { 'Accept': 'application/json' }
+      }).then(r => {
+        if (r.ok) {
+          b.innerHTML = '✅ Envoyé !'; b.style.background = '#4ade80'; b.style.color = '#000';
+          form.reset();
+          setTimeout(() => { b.innerHTML = origText; b.style.background = ''; b.style.color = ''; b.disabled = false; }, 3000);
+        } else {
+          // Fallback: open mailto
+          const email = 'contact@raberbelkacem.com';
+          const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
+          const body = encodeURIComponent('Nom: ' + (fd.get('firstName') || '') + ' ' + (fd.get('lastName') || '') + '\nEmail: ' + (fd.get('email') || '') + '\n\nMessage envoyé depuis le formulaire de contact.');
+          window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+          b.innerHTML = origText; b.disabled = false;
+        }
+      }).catch(() => {
+        // Network error fallback: open mailto
+        const email = 'contact@raberbelkacem.com';
+        const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
+        window.location.href = 'mailto:' + email + '?subject=' + subject;
+        b.innerHTML = origText; b.disabled = false;
+      });
     }
 
     // Cursor
