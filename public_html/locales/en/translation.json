@@ -184,5 +184,11 @@
     "oth_msg": "Message",
     "submit": "🚀 Send",
     "submit_note": "Response in 24-48h"
+  },
+  "build": {
+    "tag": "What I Build",
+    "title": "Systems<br>That Last.",
+    "subtitle": "I don't just deliver code. I deliver architectures designed to scale, resist heavy loads, and protect your sensitive data.",
+    "btn": "Explore My Domains"
   }
 }

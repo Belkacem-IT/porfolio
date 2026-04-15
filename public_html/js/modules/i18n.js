@@ -92,4 +92,13 @@ function updateContent() {
       el.innerHTML = i18next.t(key);
     }
   });
+
+  // Render Twemoji
+  if (typeof twemoji !== 'undefined') {
+    twemoji.parse(document.body, {
+      folder: 'svg',
+      ext: '.svg',
+      base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+    });
+  }
 }

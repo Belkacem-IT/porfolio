@@ -184,5 +184,11 @@
     "oth_msg": "Message",
     "submit": "🚀 Envoyer",
     "submit_note": "Réponse sous 24-48h"
+  },
+  "build": {
+    "tag": "Ce que je construis",
+    "title": "Des systèmes<br>qui durent.",
+    "subtitle": "Je ne livre pas du code. Je livre des architectures pensées pour évoluer, résister aux montées en charge, et protéger vos données sensibles.",
+    "btn": "Explorer mes domaines"
   }
 }
