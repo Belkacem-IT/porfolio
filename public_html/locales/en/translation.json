@@ -192,8 +192,8 @@
     "btn": "Explore My Domains"
   },
   "consent": {
-    "title": "🛡️ Consent Mode",
-    "text": "To analyze traffic and improve the portfolio, this site uses Google Analytics. I need your consent (GDPR).",
+    "title": "Privacy & Cookies",
+    "text": "I promise I won't spy on your crepe recipe searches 🥞  — just website stats.",
     "accept": "Accept",
     "decline": "Decline"
   }

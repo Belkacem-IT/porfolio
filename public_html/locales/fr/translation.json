@@ -192,8 +192,8 @@
     "btn": "Explorer mes domaines"
   },
   "consent": {
-    "title": "🛡️ Mode de Consentement",
-    "text": "Pour analyser le trafic et améliorer le portfolio, ce site utilise Google Analytics. J'ai besoin de votre accord (RGPD).",
+    "title": "Cookies & Confidentialité",
+    "text": "Je promets de ne pas espionner vos recherches de recettes de crêpes 🥞 — juste les stats du site.",
     "accept": "Accepter",
     "decline": "Limiter"
   }
