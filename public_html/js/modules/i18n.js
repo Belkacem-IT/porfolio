@@ -68,6 +68,11 @@ export function initI18n() {
     document.querySelectorAll('.lang-orb-option').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
+
+    // Re-render Twemoji for dynamic flags
+    if (typeof twemoji !== 'undefined') {
+      twemoji.parse(document.body, { folder: 'svg', ext: '.svg', base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
+    }
   }
 }
 
