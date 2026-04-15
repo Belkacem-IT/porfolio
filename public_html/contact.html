@@ -241,25 +241,27 @@
     .f-select option:hover { background: #1e1b4b; }
     .f-select:hover { border-color: rgba(129,140,248,0.3); }
 
-    /* Budget */
-    .budget-val {
-      font-family: 'Space Grotesk'; font-size: 22px; font-weight: 700;
-      color: var(--accent); text-align: center; margin-bottom: 4px;
+    /* Budget & Currencies */
+    .c-pill-group { display: flex; gap: 8px; margin-bottom: 12px; }
+    .c-pill { flex: 1; cursor: pointer; text-align: center; position: relative; }
+    .c-pill input { position: absolute; opacity: 0; pointer-events: none; }
+    .c-pill span {
+      display: block; padding: 10px; border-radius: 8px;
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.4); font-family: 'Space Grotesk'; font-size: 11px;
+      font-weight: 600; letter-spacing: 1px; transition: 0.3s;
     }
-    .budget-range {
-      width: 100%; height: 5px; border-radius: 3px;
-      background: rgba(255,255,255,0.05);
-      appearance: none; outline: none; cursor: pointer;
+    .c-pill:hover span { background: rgba(99,102,241,0.05); border-color: rgba(99,102,241,0.15); }
+    .c-pill input:checked + span {
+      background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4);
+      color: #fff; box-shadow: 0 0 10px rgba(99,102,241,0.1);
     }
-    .budget-range::-webkit-slider-thumb {
-      appearance: none; width: 18px; height: 18px;
-      border-radius: 50%; background: var(--accent);
-      box-shadow: 0 0 12px var(--glow); cursor: pointer;
-    }
-    .budget-labels {
-      display: flex; justify-content: space-between;
-      font-size: 10px; color: rgba(255,255,255,0.2);
-      font-family: 'Space Grotesk'; margin-top: 3px;
+    .budget-input-wrapper { position: relative; }
+    .budget-input-wrapper input { padding-left: 45px; font-weight: 600; font-family: 'Space Grotesk'; font-size: 16px; }
+    .budget-currency-label {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      font-family: 'Space Grotesk'; font-weight: 700; color: var(--accent); font-size: 15px;
+      pointer-events: none;
     }
 
     /* Checkboxes */
@@ -517,11 +519,16 @@
                 </select>
               </div>
               <div class="f-group fg-full">
-                <label class="f-label" data-i18n="cpage.dev_budg">Budget Estimé</label>
-                <div class="budget-val" id="bv">5 000 €</div>
-                <input type="range" name="budget_estime" class="budget-range" min="500" max="50000" value="5000" step="500"
-                  oninput="document.getElementById('bv').textContent=new Intl.NumberFormat('fr-FR').format(this.value)+' €'">
-                <div class="budget-labels"><span>500 €</span><span>50 000 €+</span></div>
+                <label class="f-label" data-i18n="cpage.dev_budg">Budget Estimé Minimum</label>
+                <div class="c-pill-group">
+                  <label class="c-pill"><input type="radio" name="devise" value="EUR" checked onchange="selectCurrency('EUR')"><span>€ EUR</span></label>
+                  <label class="c-pill"><input type="radio" name="devise" value="USD" onchange="selectCurrency('USD')"><span>$ USD</span></label>
+                  <label class="c-pill"><input type="radio" name="devise" value="DZD" onchange="selectCurrency('DZD')"><span>DA DZD</span></label>
+                </div>
+                <div class="budget-input-wrapper">
+                  <span class="budget-currency-label" id="budgetSymbol">€</span>
+                  <input type="number" name="budget_estime" id="budgetInput" class="f-input" min="400" value="400" step="50" style="width: 100%;">
+                </div>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_serv">Services</label>
@@ -664,6 +671,19 @@
 
   <script src="js/modules/security.js"></script>
   <script>
+    function selectCurrency(curr) {
+      const config = {
+        'EUR': { min: 400, sym: '€', step: 50 },
+        'USD': { min: 500, sym: '$', step: 50 },
+        'DZD': { min: 40000, sym: 'DA', step: 1000 }
+      };
+      const input = document.getElementById('budgetInput');
+      input.min = config[curr].min;
+      input.value = config[curr].min;
+      input.step = config[curr].step;
+      document.getElementById('budgetSymbol').textContent = config[curr].sym;
+    }
+
     function switchTab(name, el) {
       document.querySelectorAll('.f-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
