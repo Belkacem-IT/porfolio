@@ -312,6 +312,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: auto !important; /* Fix container height wrapping 3 vertical cards instead of 100vh */
     transform: none !important; /* Désactive le scroll horizontal JS sur mobile */
   }
   .biome-panel {
@@ -325,7 +326,8 @@
   .panel-card { padding: 40px 6vw !important; max-width: 100%; border-radius: 16px; z-index: 10; position: relative; margin-top: 5vh; }
   .title-card { font-size: clamp(30px, 8vw, 60px); }
   .biome-tech-stack { justify-content: center; }
-  .panel-visuals { width: 100vw !important; right: 0; opacity: 0.6; }
+  .panel-visuals { width: 100vw !important; height: 100% !important; right: 0; opacity: 0.6; top: 0; }
+  .bg-number { display: none; }
 
   /* ── PROJECTS ── */
   #projects { padding: 80px 6vw; }
