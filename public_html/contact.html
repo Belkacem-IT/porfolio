@@ -5,12 +5,21 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    // Default consent mode setup
+    // EEE countries: denied by default (GDPR requirement)
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
       'ad_storage': 'denied',
       'ad_user_data': 'denied',
-      'ad_personalization': 'denied'
+      'ad_personalization': 'denied',
+      'wait_for_update': 500,
+      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB']
+    });
+    // Non-EEE: granted by default (no banner needed)
+    gtag('consent', 'default', {
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
     });
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMN14GLKD4"></script>
