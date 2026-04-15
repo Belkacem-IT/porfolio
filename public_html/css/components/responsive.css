@@ -348,6 +348,12 @@
     display: none !important;
   }
 
+  /* ── LOGO plus grand sur mobile ── */
+  .logo {
+    font-size: 32px !important;
+    letter-spacing: -1.5px;
+  }
+
   /* ── HERO ── */
   #hero {
     padding: 100px 6vw 60px;
@@ -441,7 +447,7 @@
   }
 
   .biome-panel {
-    width: 100vw !important;
+    width: 100% !important;
     min-height: 100vh;
     flex-shrink: 0;
     padding: 100px 6vw 40px !important;
@@ -467,7 +473,7 @@
   }
 
   .panel-visuals {
-    width: 100vw !important;
+    width: 100% !important;
     height: 100% !important;
     right: 0;
     opacity: 0.6;
@@ -552,10 +558,36 @@
 /* ─────────────────────────────────────────────────────
    FIX OVERFLOW GLOBAL (empêche le scroll horizontal)
 ───────────────────────────────────────────────────── */
-html,
-body {
-  max-width: 100vw;
+html {
   overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Sur mobile: conteneur principal sans débordement */
+@media (max-width: 768px) {
+  body > * {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Section animations légères GPU pour éviter freeze */
+  .section, .biome-panel, #hero, #about, #projects {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Désactive les warp lines et effets lourds sur mobile */
+  .warp-line, .div-wl, .shooting-star, .bh-disk-3, .bh-disk-2 {
+    display: none;
+  }
 }
 
 /* Curseur custom désactivé sur mobile */
