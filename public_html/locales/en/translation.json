@@ -190,5 +190,11 @@
     "title": "Systems<br>That Last.",
     "subtitle": "I don't just deliver code. I deliver architectures designed to scale, resist heavy loads, and protect your sensitive data.",
     "btn": "Explore My Domains"
+  },
+  "consent": {
+    "title": "🛡️ Consent Mode",
+    "text": "To analyze traffic and improve the portfolio, this site uses Google Analytics. I need your consent (GDPR).",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

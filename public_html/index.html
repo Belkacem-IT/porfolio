@@ -2,13 +2,21 @@
 <html lang="fr" class="lenis">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMN14GLKD4"></script>
+  <!-- Google tag (gtag.js) & Consent Mode v2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
+    // Default consent mode setup
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMN14GLKD4"></script>
+  <script>
     gtag('js', new Date());
-
     gtag('config', 'G-ZMN14GLKD4');
   </script>
   <meta charset="UTF-8">
@@ -93,10 +101,11 @@
     <div class="flashlight-beam"></div>
     <!-- Small white flashlight body pointing top-left. Hotspot is top-left (0,0). -->
     <div class="flashlight-body">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(-45deg);">
-        <path d="M18 6c0 2-2 2-2 4v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4V2h12z"/>
-        <line x1="6" x2="18" y1="6" y2="6"/>
-        <line x1="12" x2="12" y1="12" y2="12"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.9)"
+        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(-45deg);">
+        <path d="M18 6c0 2-2 2-2 4v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V10c0-2-2-2-2-4V2h12z" />
+        <line x1="6" x2="18" y1="6" y2="6" />
+        <line x1="12" x2="12" y1="12" y2="12" />
       </svg>
     </div>
   </div>
@@ -297,7 +306,8 @@
       <div>
         <span class="tag gs-reveal" data-i18n="about.tag">Expertise Hybride</span>
         <h2 class="title-section gs-reveal" data-i18n="about.title">Belkacem<br>Raber.</h2>
-        <p class="subtitle gs-reveal" style="margin-top: 30px;" data-i18n="about.subtitle">Mon profil hybride allie Sécurité, Systèmes et
+        <p class="subtitle gs-reveal" style="margin-top: 30px;" data-i18n="about.subtitle">Mon profil hybride allie
+          Sécurité, Systèmes et
           Développement. Qu'il s'agisse de conseil technique ou du déploiement d'une infrastructure d'envergure, mon
           objectif est d'assurer la sécurité « by design » à chaque étape du cycle de vie du projet.</p>
 
@@ -376,7 +386,8 @@
     <div class="container" style="position:relative; z-index:10;">
       <span class="tag gs-reveal" data-i18n="build.tag">Ce que je construis</span>
       <h2 class="title-section gs-reveal" data-i18n="build.title">Des systèmes<br>qui durent.</h2>
-      <p class="subtitle gs-reveal" style="margin: 30px auto 0; text-align:center;" data-i18n="build.subtitle">Je ne livre pas du code. Je livre
+      <p class="subtitle gs-reveal" style="margin: 30px auto 0; text-align:center;" data-i18n="build.subtitle">Je ne
+        livre pas du code. Je livre
         des architectures pensées pour évoluer, résister aux montées en charge, et protéger vos données sensibles.</p>
       <div style="text-align:center; margin-top:40px;" class="gs-reveal">
         <a href="#biomes-wrapper" class="cyber-btn" data-i18n="build.btn">Explorer mes domaines</a>
@@ -518,76 +529,80 @@
               <!-- Arrière-plan lueur thermique -->
               <defs>
                 <radialGradient id="lavaGlow" cx="50%" cy="100%" r="60%">
-                  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3"/>
-                  <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+                  <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3" />
+                  <stop offset="100%" stop-color="transparent" stop-opacity="0" />
                 </radialGradient>
                 <radialGradient id="craterGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.9"/>
-                  <stop offset="60%" stop-color="#ef4444" stop-opacity="0.6"/>
-                  <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0"/>
+                  <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.9" />
+                  <stop offset="60%" stop-color="#ef4444" stop-opacity="0.6" />
+                  <stop offset="100%" stop-color="#7f1d1d" stop-opacity="0" />
                 </radialGradient>
                 <clipPath id="mountainClip">
-                  <polygon points="20,300 155,70 245,70 380,300"/>
+                  <polygon points="20,300 155,70 245,70 380,300" />
                 </clipPath>
               </defs>
 
               <!-- Halo thermique pulsant -->
               <ellipse cx="200" cy="290" rx="160" ry="30" fill="url(#lavaGlow)">
-                <animate attributeName="rx" values="130;170;130" dur="4s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite"/>
+                <animate attributeName="rx" values="130;170;130" dur="4s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
               </ellipse>
 
               <!-- Corps principal — sommet plat uniforme -->
-              <polygon points="20,300 155,70 245,70 380,300" fill="#1c0a00"/>
-              <polygon points="60,300 165,85 235,85 340,300" fill="#2d1507"/>
-              <polygon points="90,300 172,95 228,95 310,300" fill="#3d2010"/>
+              <polygon points="20,300 155,70 245,70 380,300" fill="#1c0a00" />
+              <polygon points="60,300 165,85 235,85 340,300" fill="#2d1507" />
+              <polygon points="90,300 172,95 228,95 310,300" fill="#3d2010" />
 
               <!-- Stries de roche -->
-              <line x1="130" y1="200" x2="110" y2="300" stroke="rgba(80,40,10,0.4)" stroke-width="1.5"/>
-              <line x1="270" y1="200" x2="290" y2="300" stroke="rgba(80,40,10,0.4)" stroke-width="1.5"/>
-              <line x1="175" y1="120" x2="160" y2="250" stroke="rgba(80,40,10,0.3)" stroke-width="1"/>
-              <line x1="225" y1="120" x2="240" y2="250" stroke="rgba(80,40,10,0.3)" stroke-width="1"/>
+              <line x1="130" y1="200" x2="110" y2="300" stroke="rgba(80,40,10,0.4)" stroke-width="1.5" />
+              <line x1="270" y1="200" x2="290" y2="300" stroke="rgba(80,40,10,0.4)" stroke-width="1.5" />
+              <line x1="175" y1="120" x2="160" y2="250" stroke="rgba(80,40,10,0.3)" stroke-width="1" />
+              <line x1="225" y1="120" x2="240" y2="250" stroke="rgba(80,40,10,0.3)" stroke-width="1" />
 
               <!-- Coulée de lave — part du centre du cratère (200,75) -->
               <g clip-path="url(#mountainClip)">
                 <!-- Coulée gauche principale -->
-                <path d="M200 75 Q 192 100 182 140 Q 168 200 150 300" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round" opacity="0.6">
-                  <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
-                  <animate attributeName="stroke-width" values="3;6;3" dur="3s" repeatCount="indefinite"/>
+                <path d="M200 75 Q 192 100 182 140 Q 168 200 150 300" fill="none" stroke="#ef4444" stroke-width="5"
+                  stroke-linecap="round" opacity="0.6">
+                  <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="stroke-width" values="3;6;3" dur="3s" repeatCount="indefinite" />
                 </path>
                 <!-- Reflet chaud gauche -->
-                <path d="M200 75 Q 194 105 186 150 Q 174 215 160 300" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.4">
-                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite"/>
+                <path d="M200 75 Q 194 105 186 150 Q 174 215 160 300" fill="none" stroke="#fbbf24" stroke-width="2"
+                  stroke-linecap="round" opacity="0.4">
+                  <animate attributeName="opacity" values="0.2;0.6;0.2" dur="3.5s" repeatCount="indefinite" />
                 </path>
 
                 <!-- Coulée droite principale -->
-                <path d="M200 75 Q 210 105 220 150 Q 235 215 252 300" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" opacity="0.5">
-                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite"/>
+                <path d="M200 75 Q 210 105 220 150 Q 235 215 252 300" fill="none" stroke="#ef4444" stroke-width="4"
+                  stroke-linecap="round" opacity="0.5">
+                  <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4s" repeatCount="indefinite" />
                 </path>
 
                 <!-- Coulée centrale fine -->
-                <path d="M200 75 Q 200 120 200 180 Q 200 240 200 300" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" opacity="0.3">
-                  <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.5s" repeatCount="indefinite"/>
+                <path d="M200 75 Q 200 120 200 180 Q 200 240 200 300" fill="none" stroke="#fbbf24" stroke-width="2"
+                  stroke-linecap="round" opacity="0.3">
+                  <animate attributeName="opacity" values="0.15;0.5;0.15" dur="2.5s" repeatCount="indefinite" />
                 </path>
               </g>
 
               <!-- Cratère — creusé dans le sommet plat -->
-              <ellipse cx="200" cy="72" rx="42" ry="14" fill="#0f0500"/>
-              <ellipse cx="200" cy="74" rx="34" ry="10" fill="#7f1d1d"/>
+              <ellipse cx="200" cy="72" rx="42" ry="14" fill="#0f0500" />
+              <ellipse cx="200" cy="74" rx="34" ry="10" fill="#7f1d1d" />
 
               <!-- Magma dans le cratère — pulsant -->
               <ellipse cx="200" cy="75" rx="26" ry="8" fill="#ef4444" opacity="0.8">
-                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
-                <animate attributeName="rx" values="22;28;22" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+                <animate attributeName="rx" values="22;28;22" dur="2s" repeatCount="indefinite" />
               </ellipse>
               <ellipse cx="200" cy="75" rx="14" ry="5" fill="#fbbf24" opacity="0.95">
-                <animate attributeName="opacity" values="0.7;1;0.7" dur="1.2s" repeatCount="indefinite"/>
-                <animate attributeName="rx" values="12;16;12" dur="1.2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="1.2s" repeatCount="indefinite" />
+                <animate attributeName="rx" values="12;16;12" dur="1.2s" repeatCount="indefinite" />
               </ellipse>
 
               <!-- Halo cratère -->
               <ellipse cx="200" cy="70" rx="55" ry="22" fill="url(#craterGlow)" opacity="0.6">
-                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" />
               </ellipse>
             </svg>
 
@@ -634,7 +649,8 @@
     <div class="projects-header">
       <span class="tag gs-reveal" data-i18n="projects.tag">Réalisations</span>
       <h2 class="title-section gs-reveal" data-i18n="projects.title">Projets<br>Sélectionnés.</h2>
-      <p class="subtitle gs-reveal" style="margin: 30px auto 0; text-align:center;" data-i18n="projects.subtitle">Chaque projet est une mission : des
+      <p class="subtitle gs-reveal" style="margin: 30px auto 0; text-align:center;" data-i18n="projects.subtitle">Chaque
+        projet est une mission : des
         objectifs clairs, une exécution chirurgicale, et des résultats mesurables.</p>
     </div>
 
@@ -880,8 +896,8 @@
   <!-- Burger Menu Script -->
   <script>
     (function () {
-      const burger  = document.getElementById('burgerBtn');
-      const drawer  = document.getElementById('mobileDrawer');
+      const burger = document.getElementById('burgerBtn');
+      const drawer = document.getElementById('mobileDrawer');
       const overlay = document.getElementById('mobileOverlay');
       const mobClose = document.getElementById('mobClose');
       if (!burger || !drawer || !overlay) return;
@@ -890,7 +906,7 @@
         burger.classList.add('open');
         drawer.classList.add('open');
         overlay.classList.add('open');
-        burger.setAttribute('aria-expanded','true');
+        burger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
         updateActiveLink();
       }
@@ -899,24 +915,24 @@
         burger.classList.remove('open');
         drawer.classList.remove('open');
         overlay.classList.remove('open');
-        burger.setAttribute('aria-expanded','false');
+        burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
 
-      burger.addEventListener('click', function(e) {
+      burger.addEventListener('click', function (e) {
         e.stopPropagation();
         drawer.classList.contains('open') ? closeMenu() : openMenu();
       });
 
       if (mobClose) mobClose.addEventListener('click', closeMenu);
 
-      drawer.querySelectorAll('.mob-link').forEach(function(l) {
+      drawer.querySelectorAll('.mob-link').forEach(function (l) {
         l.addEventListener('click', closeMenu);
       });
 
       overlay.addEventListener('click', closeMenu);
 
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeMenu();
       });
 
@@ -933,7 +949,7 @@
           }
         }
 
-        drawer.querySelectorAll('.mob-link').forEach(function(link) {
+        drawer.querySelectorAll('.mob-link').forEach(function (link) {
           var href = link.getAttribute('href');
           link.classList.remove('active');
           if (href === '#' + activeId) {
@@ -942,7 +958,7 @@
         });
       }
 
-      window.addEventListener('scroll', function() {
+      window.addEventListener('scroll', function () {
         if (drawer.classList.contains('open')) updateActiveLink();
       });
     })();

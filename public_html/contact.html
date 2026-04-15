@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr" class="lenis">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMN14GLKD4"></script>
+  <!-- Google tag (gtag.js) & Consent Mode v2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Default consent mode setup
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMN14GLKD4"></script>
+  <script>
     gtag('js', new Date());
-
     gtag('config', 'G-ZMN14GLKD4');
   </script>
   <meta charset="UTF-8">
@@ -720,7 +728,9 @@
   <script src="https://unpkg.com/i18next-browser-languagedetector@7.1.0/i18nextBrowserLanguageDetector.min.js"></script>
   <script type="module">
     import { initI18n } from './js/modules/i18n.js';
+    import { initConsent } from './js/modules/consent.js';
     initI18n();
+    initConsent();
   </script>
 
   <!-- Burger Menu Script -->
