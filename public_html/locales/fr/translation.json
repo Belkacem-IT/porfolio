@@ -130,6 +130,7 @@
     "dev_type_6": "Audit Sécurité",
     "dev_type_7": "DevOps",
     "dev_type_8": "Refonte / Migration",
+    "dev_type_9": "Autre",
     "dev_dead_lbl": "Deadline",
     "dev_dead_1": "🔴 Urgent (< 2 sem.)",
     "dev_dead_2": "🟠 1 mois",

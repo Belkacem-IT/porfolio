@@ -285,7 +285,6 @@ html[dir="rtl"] body {
 html[dir="rtl"] .hero-content, 
 html[dir="rtl"] .hero-content .subtitle { text-align: center; }
 html[dir="rtl"] .skills-list li span { float: left; margin-left: 0; }
-html[dir="rtl"] .nav-links { flex-direction: row-reverse; }
 
 
 .tag {
