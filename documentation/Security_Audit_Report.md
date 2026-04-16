@@ -23,7 +23,6 @@ Le code a été durci (Hardening) pour compliquer significativement l'extraction
 Couche de protection multi-vecteur contre les captures d'écran :
 - **Touche `PrintScreen` (Windows) :** Interception `keyup` + blackout 3s + pollution du presse-papier avec un message d'avertissement.
 - **Raccourcis Mac natifs (`Cmd+Shift+3/4/5`)** : Blocage `keydown` (preventDefault) + blackout 2s.
-- **Page Visibility API :** Surveillée via `document.addEventListener('visibilitychange')`. Dès que l'onglet passe en arrière-plan (ex: app switcher mobile, screenshot iOS), un écran noir est superposé immédiatement. À la ré-activation, le contenu revient après 300ms.
 - **Filigrane/Watermark dynamique :** Un calque invisible (opacity 4%) contenant `raberbelkacem.com · HH:MM:SS · CONFIDENTIEL` est injecté en JS sur toute la page, tourné aléatoirement et régénéré toutes les 8 secondes. Toute capture sans écran noir contient ce filigrane horodaté compromettant.
 - **Impression / PDF :** `@media print` rend la page entièrement noire.
 
