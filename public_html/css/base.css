@@ -293,6 +293,8 @@ html[dir="rtl"] .title-hero,
 html[dir="rtl"] .title-section,
 html[dir="rtl"] .subtitle {
   letter-spacing: 0 !important;
+  text-align: center !important;
+  width: 100%; /* Force it to take full width of container */
 }
 
 

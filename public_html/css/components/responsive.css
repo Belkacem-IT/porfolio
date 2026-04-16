@@ -63,28 +63,29 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 100px 36px 40px;
-  transform: translateX(100%);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  /* The element stays physically on the right, but is fully visibly clipped to 0 width. */
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.45s;
   z-index: 9050;
   visibility: hidden;
   overflow-y: auto;
 }
 
 .mobile-drawer.open {
-  transform: translateX(0);
+  clip-path: inset(0 0 0 0);
   visibility: visible;
 }
 
-/* RTL Support for Mobile Drawer - Opens from physical left to avoid right overflow */
+/* RTL Support - Slide from left instead of right */
 html[dir="rtl"] .mobile-drawer {
   left: 0;
   right: auto;
-  transform: translateX(-100%);
   border-left: none;
   border-right: 1px solid rgba(99, 102, 241, 0.1);
+  clip-path: inset(0 100% 0 0);
 }
 html[dir="rtl"] .mobile-drawer.open {
-  transform: translateX(0);
+  clip-path: inset(0 0 0 0);
 }
 
 /* Close / back arrow button */
