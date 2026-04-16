@@ -267,7 +267,7 @@
   <!-- ━━━━━ CH1: LE GRAND VIDE (GALAXIE) — HERO ━━━━━ -->
   <section class="section" id="hero">
     <div id="vanta-net" class="webgl-canvas"></div>
-    <img src="assets/nebula.webp" class="hero-nebula-bg" alt="">
+    <img src="assets/nebula.webp" class="hero-nebula-bg" alt="" fetchpriority="high" rel="preload" as="image">
 
     <!-- Black Hole -->
     <div class="black-hole" id="blackHole">
@@ -385,7 +385,7 @@
 
   <!-- ━━━━━ CH2: À PROPOS — TRUST & AUTHORITY ━━━━━ -->
   <section class="section" id="about">
-    <img src="assets/earth.webp" class="about-earth-bg" alt="">
+    <img src="assets/earth.webp" class="about-earth-bg" alt="" loading="lazy" decoding="async">
     <div class="planet-orb p-1 gs-planet-left" style="top: 10%; right: 12%;"></div>
     <div class="planet-orb p-2 gs-planet-right" style="bottom: 5%; left: 3%;"></div>
     <div class="planet-orb p-3 gs-planet-fast" style="top: 55%; right: -3%;"></div>
@@ -430,7 +430,7 @@
             stroke-dasharray="10 20" />
           <circle cx="250" cy="250" r="60" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5" />
         </svg>
-        <img src="assets/astronaut.webp" class="astro-img" alt="Astronaut">
+        <img src="assets/astronaut.webp" class="astro-img" alt="Astronaut" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -528,7 +528,7 @@
             <polygon points="710,400 740,250 770,400" fill="#166534" opacity="0.45" />
             <rect x="0" y="385" width="800" height="15" fill="#0a1f12" />
           </svg>
-          <img src="assets/deer.webp" class="biome-creature biome-creature-deer-ground" alt="">
+          <img src="assets/deer.webp" class="biome-creature biome-creature-deer-ground" alt="" loading="lazy" decoding="async">
           <div class="firefly" style="top:25%; left:55%;"></div>
           <div class="firefly" style="top:45%; left:65%; animation-delay:1.2s;"></div>
           <div class="firefly" style="top:35%; left:40%; animation-delay:2.4s;"></div>
@@ -571,7 +571,7 @@
             <ellipse cx="400" cy="390" rx="300" ry="20" fill="rgba(96,165,250,0.08)" />
             <rect x="0" y="385" width="800" height="15" fill="#0a1a30" />
           </svg>
-          <img src="assets/eagle.webp" class="biome-creature biome-creature-eagle" alt="">
+          <img src="assets/eagle.webp" class="biome-creature biome-creature-eagle" alt="" loading="lazy" decoding="async">
           <div class="snowflake" style="left: 12%; animation-duration: 5s;"></div>
           <div class="snowflake" style="left: 25%; animation-duration: 7s; animation-delay: 0.8s;"></div>
           <div class="snowflake" style="left: 38%; animation-duration: 6s; animation-delay: 1.5s;"></div>
@@ -613,7 +613,7 @@
             <div class="v-smoke vs-3"></div>
 
             <!-- Le petit dragon -->
-            <img src="assets/dragon.webp" class="v-dragon" alt="Dragon" loading="lazy">
+            <img src="assets/dragon.webp" class="v-dragon" alt="Dragon" loading="lazy" decoding="async">
 
             <!-- Corps du volcan SVG -->
             <svg class="volcano-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
@@ -735,7 +735,7 @@
 
   <!-- ━━━━━ CH5: PROJETS — INTERACTIVE CAROUSEL ━━━━━ -->
   <section class="section" id="projects">
-    <img src="assets/bigbang.webp" class="projects-bg-img" alt="">
+    <img src="assets/bigbang.webp" class="projects-bg-img" alt="" loading="lazy" decoding="async">
 
     <div class="projects-header">
       <span class="tag gs-reveal" data-i18n="projects.tag">Réalisations</span>
@@ -750,7 +750,7 @@
 
       <!-- Project 1 -->
       <div class="acc-item active">
-        <div class="acc-bg"><img src="assets/orbit.webp" alt="IA Threats"></div>
+        <div class="acc-bg"><img src="assets/orbit.webp" alt="IA Threats" loading="lazy" decoding="async"></div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p1_type">Data Science & Cyber</span>
@@ -763,7 +763,7 @@
 
       <!-- Project 2 -->
       <div class="acc-item">
-        <div class="acc-bg"><img src="assets/nebula.webp" alt="Cloud Architecture"></div>
+        <div class="acc-bg"><img src="assets/nebula.webp" alt="Cloud Architecture" loading="lazy" decoding="async"></div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p2_type">Cloud & DevOps</span>
@@ -776,7 +776,7 @@
 
       <!-- Project 3 -->
       <div class="acc-item">
-        <div class="acc-bg"><img src="assets/earth.webp" alt="Incident Response"></div>
+        <div class="acc-bg"><img src="assets/earth.webp" alt="Incident Response" loading="lazy" decoding="async"></div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p3_type">Opérations Cybersécurité</span>
@@ -789,7 +789,7 @@
 
       <!-- Project 4 -->
       <div class="acc-item">
-        <div class="acc-bg"><img src="assets/bigbang.webp" alt="Ecosystem SEO"></div>
+        <div class="acc-bg"><img src="assets/bigbang.webp" alt="Ecosystem SEO" loading="lazy" decoding="async"></div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p4_type">Web Development</span>
@@ -802,7 +802,7 @@
 
       <!-- Project 5 -->
       <div class="acc-item">
-        <div class="acc-bg"><img src="assets/nebula.webp" alt="Conformity SSI" style="filter: hue-rotate(90deg);"></div>
+        <div class="acc-bg"><img src="assets/nebula.webp" alt="Conformity SSI" style="filter: hue-rotate(90deg);" loading="lazy" decoding="async"></div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p5_type">Gouvernance SSI</span>
@@ -956,7 +956,7 @@
   <footer>
     <!-- Photo de profil -->
     <div class="footer-profile">
-      <img src="assets/profile/Lui.webp" alt="Belkacem Raber" class="footer-avatar">
+      <img src="assets/profile/Lui.webp" alt="Belkacem Raber" class="footer-avatar" loading="lazy" decoding="async">
       <div class="footer-avatar-glow"></div>
     </div>
 
