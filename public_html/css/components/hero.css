@@ -91,6 +91,9 @@
 .ss-3 { top: 6%;  left: 25%; transform: rotate(-20deg); animation: shoot-3 7s ease-out infinite 3.5s; }
 .ss-4 { top: 20%; left: 45%; transform: rotate(-35deg); animation: shoot-1 9s ease-out infinite 5s; }
 .ss-5 { top: 35%; left: 70%; transform: rotate(-25deg); animation: shoot-2 10s ease-out infinite 7s; }
+.ss-6 { top: 75%; left: 85%; transform: rotate(-30deg); animation: shoot-3 8s ease-out infinite 1.5s; }
+.ss-7 { top: 85%; left: 40%; transform: rotate(-40deg); animation: shoot-1 7s ease-out infinite 4s; }
+.ss-8 { top: 65%; left: 15%; transform: rotate(-20deg); animation: shoot-2 9s ease-out infinite 8s; }
 
 @keyframes shoot-1 {
   0%  { opacity: 0; transform: translateX(0) rotate(-30deg); width: 0; }
