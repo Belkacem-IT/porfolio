@@ -53,18 +53,7 @@
     }
   });
 
-  // c) Page Visibility API : quand l'onglet part en arrière-plan (screenshot iOS, app switchers)
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      document.body.classList.add('anti-capture-mode');
-    } else {
-      // Petit délai pour éviter un flash au retour
-      setTimeout(() => document.body.classList.remove('anti-capture-mode'), 300);
-    }
-  });
-
-  // d) CSS Watermark dynamique — injecte un filigrane gênant dans la page via JS
-  //    Le filigrane tourne et se repositionne toutes les 8s pour ne jamais être identique
+  // c) CSS Watermark dynamique horodaté — toutes les captures contiennent l'heure et le domaine
   function injectWatermark() {
     const existing = document.getElementById('_wm');
     if (existing) existing.remove();
