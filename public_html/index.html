@@ -5,7 +5,7 @@
   <!-- Google tag (gtag.js) & Consent Mode v2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     // EEE countries: denied by default (GDPR requirement)
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
@@ -13,7 +13,7 @@
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'wait_for_update': 500,
-      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB']
+      'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB']
     });
     // Non-EEE: granted by default (no banner needed)
     gtag('consent', 'default', {
@@ -29,7 +29,8 @@
     gtag('config', 'G-ZMN14GLKD4');
   </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 
   <!-- ── SEO Core ── -->
   <title>Belkacem Raber — Architecte de Systèmes IT & Tech Lead Freelance</title>
@@ -41,9 +42,9 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://raberbelkacem.com/">
 
-  <!-- ── Favicon (circular, SVG with clip) ── -->
-  <link rel="icon" href="assets/profile/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/profile/favicon_square.png">
+  <!-- ── Favicon ── -->
+  <link rel="icon" href="assets/profile/Lui.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="assets/profile/Lui.webp">
 
   <!-- ── Open Graph (LinkedIn, Facebook) ── -->
   <meta property="og:type" content="profile">
@@ -109,41 +110,158 @@
   <div id="global-preloader">
     <div class="preloader-content">
       <div class="rocket-wrapper">
-        <svg class="rocket-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="rocket-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-          <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+          <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+          </path>
           <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
           <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
         </svg>
         <div class="rocket-flames"></div>
       </div>
-      <div class="loading-bar"><div class="loading-progress"></div></div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
       <div class="loading-text">Initialisation des Sytèmes...</div>
     </div>
   </div>
   <style>
     #global-preloader {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #020202; z-index: 99999;
-      display: flex; align-items: center; justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #020202;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .preloader-content { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-    .rocket-wrapper { position: relative; animation: hoverRocket 2s ease-in-out infinite alternate; }
-    .rocket-svg { width: 50px; height: 50px; color: #fff; transform: rotate(45deg); drop-shadow: 0 0 15px rgba(255,255,255,0.2); }
-    .rocket-flames { position: absolute; bottom: -20px; left: -10px; width: 20px; height: 30px; background: linear-gradient(to bottom, #f59e0b, #ef4444, transparent); border-radius: 50%; filter: blur(6px); animation: flicker 0.1s infinite alternate; transform: rotate(45deg); opacity: 0.8; }
-    .loading-bar { width: 220px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; position: relative; }
-    .loading-progress { width: 0%; height: 100%; background: #6366f1; border-radius: 4px; animation: loadBar 2s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
-    .loading-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.5); animation: pulseText 1.5s infinite; }
-    
-    @keyframes hoverRocket { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
-    @keyframes flicker { 0% { height: 30px; opacity: 0.8; } 100% { height: 40px; opacity: 1; } }
-    @keyframes loadBar { 0% { width: 0%; } 50% { width: 60%; } 100% { width: 100%; } }
-    @keyframes pulseText { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
-    
-    body.loaded #global-preloader { opacity: 0; transform: translateY(-20px); pointer-events: none; }
-    body.loaded { overflow: visible !important; }
-    body.is-loading { overflow: hidden; }
+
+    .preloader-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .rocket-wrapper {
+      position: relative;
+      animation: hoverRocket 2s ease-in-out infinite alternate;
+    }
+
+    .rocket-svg {
+      width: 50px;
+      height: 50px;
+      color: #fff;
+      transform: rotate(45deg);
+      drop-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .rocket-flames {
+      position: absolute;
+      bottom: -20px;
+      left: -10px;
+      width: 20px;
+      height: 30px;
+      background: linear-gradient(to bottom, #f59e0b, #ef4444, transparent);
+      border-radius: 50%;
+      filter: blur(6px);
+      animation: flicker 0.1s infinite alternate;
+      transform: rotate(45deg);
+      opacity: 0.8;
+    }
+
+    .loading-bar {
+      width: 220px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loading-progress {
+      width: 0%;
+      height: 100%;
+      background: #6366f1;
+      border-radius: 4px;
+      animation: loadBar 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .loading-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.5);
+      animation: pulseText 1.5s infinite;
+    }
+
+    @keyframes hoverRocket {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes flicker {
+      0% {
+        height: 30px;
+        opacity: 0.8;
+      }
+
+      100% {
+        height: 40px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes loadBar {
+      0% {
+        width: 0%;
+      }
+
+      50% {
+        width: 60%;
+      }
+
+      100% {
+        width: 100%;
+      }
+    }
+
+    @keyframes pulseText {
+
+      0%,
+      100% {
+        opacity: 0.4;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    body.loaded #global-preloader {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+
+    body.loaded {
+      overflow: visible !important;
+    }
+
+    body.is-loading {
+      overflow: hidden;
+    }
   </style>
   <script>
     document.body.classList.add('is-loading');
@@ -154,7 +272,7 @@
         document.body.classList.add('loaded');
         setTimeout(() => {
           const p = document.getElementById('global-preloader');
-          if(p) p.style.display = 'none';
+          if (p) p.style.display = 'none';
         }, 800);
       }, 2000);
     });
@@ -167,7 +285,7 @@
     </svg>
   </button>
   <script>
-    (function() {
+    (function () {
       const btn = document.getElementById('scroll-arrow');
       function update() {
         const scrolled = window.scrollY;
@@ -178,7 +296,7 @@
         btn.setAttribute('aria-label', atBottom ? 'Retour en haut' : 'Aller en bas');
       }
       window.addEventListener('scroll', update, { passive: true });
-      btn.addEventListener('click', function() {
+      btn.addEventListener('click', function () {
         const atBottom = btn.classList.contains('at-bottom');
         window.scrollTo({ top: atBottom ? 0 : document.body.scrollHeight, behavior: 'smooth' });
       });
@@ -209,7 +327,10 @@
 
   <!-- Navigation -->
   <nav id="main-nav">
-    <a href="#hero" class="logo" style="text-decoration:none;" dir="ltr">BR.</a>
+    <a href="#hero" class="logo" style="text-decoration:none; display:flex; align-items:center;" dir="ltr">
+      <img src="assets/profile/Lui.webp" alt="Belkacem Raber"
+        style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.1);">
+    </a>
 
     <!-- Burger Button (mobile only) -->
     <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
@@ -270,7 +391,8 @@
 
   <!-- ━━━━━ CH1: LE GRAND VIDE (GALAXIE) — HERO ━━━━━ -->
   <section class="section" id="hero">
-    <!-- Background removed: 3D black hole design only -->
+    <div id="vanta-net" class="webgl-canvas"></div>
+    <img src="assets/nebula.webp" class="hero-nebula-bg" alt="" fetchpriority="high" rel="preload" as="image">
 
     <!-- Black Hole -->
     <div class="black-hole" id="blackHole">
@@ -292,7 +414,7 @@
     <div class="hero-content">
       <span class="tag gs-reveal" data-i18n="hero.tag">Portfolio Interactif — 2026</span>
       <h1 class="title-hero gs-reveal" data-i18n="hero.title">Code as<br>Architecture.</h1>
-      <p class="subtitle gs-reveal" style="text-align:center; max-width:800px;" data-i18n="hero.subtitle">Consultant
+      <p class="subtitle gs-reveal" style="text-align:center;max-width:800px;" data-i18n="hero.subtitle">Consultant
         Expert en Architectures Sécurisées & DevSecOps. <em>La résilience par la conception.</em> Que j'intervienne en
         tant qu'expert autonome ou chef d'orchestre d'une équipe, je transforme vos défis complexes en infrastructures
         fluides, documentées et imprenables.</p>
@@ -390,7 +512,7 @@
   <!-- ━━━━━ CH2: À PROPOS — TRUST & AUTHORITY ━━━━━ -->
   <section class="section" id="about">
     <img src="assets/earth.webp" class="about-earth-bg" alt="" loading="lazy" decoding="async">
-    
+
     <!-- Shooting Stars for About section -->
     <div class="shooting-star ss-1" style="top: 15%;"></div>
     <div class="shooting-star ss-4" style="top: 80%;"></div>
@@ -551,7 +673,8 @@
             <polygon points="710,400 740,250 770,400" fill="#166534" opacity="0.45" />
             <rect x="0" y="385" width="800" height="15" fill="#0a1f12" />
           </svg>
-          <img src="assets/deer.webp" class="biome-creature biome-creature-deer-ground" alt="" loading="lazy" decoding="async">
+          <img src="assets/deer.webp" class="biome-creature biome-creature-deer-ground" alt="" loading="lazy"
+            decoding="async">
           <div class="firefly" style="top:25%; left:55%;"></div>
           <div class="firefly" style="top:45%; left:65%; animation-delay:1.2s;"></div>
           <div class="firefly" style="top:35%; left:40%; animation-delay:2.4s;"></div>
@@ -594,7 +717,8 @@
             <ellipse cx="400" cy="390" rx="300" ry="20" fill="rgba(96,165,250,0.08)" />
             <rect x="0" y="385" width="800" height="15" fill="#0a1a30" />
           </svg>
-          <img src="assets/eagle.webp" class="biome-creature biome-creature-eagle" alt="" loading="lazy" decoding="async">
+          <img src="assets/eagle.webp" class="biome-creature biome-creature-eagle" alt="" loading="lazy"
+            decoding="async">
           <div class="snowflake" style="left: 12%; animation-duration: 5s;"></div>
           <div class="snowflake" style="left: 25%; animation-duration: 7s; animation-delay: 0.8s;"></div>
           <div class="snowflake" style="left: 38%; animation-duration: 6s; animation-delay: 1.5s;"></div>
@@ -786,7 +910,8 @@
 
       <!-- Project 2 -->
       <div class="acc-item">
-        <div class="acc-bg"><img src="assets/nebula.webp" alt="Cloud Architecture" loading="lazy" decoding="async"></div>
+        <div class="acc-bg"><img src="assets/nebula.webp" alt="Cloud Architecture" loading="lazy" decoding="async">
+        </div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p2_type">Cloud & DevOps</span>
@@ -825,7 +950,8 @@
 
       <!-- Project 5 -->
       <div class="acc-item">
-        <div class="acc-bg"><img src="assets/nebula.webp" alt="Conformity SSI" style="filter: hue-rotate(90deg);" loading="lazy" decoding="async"></div>
+        <div class="acc-bg"><img src="assets/nebula.webp" alt="Conformity SSI" style="filter: hue-rotate(90deg);"
+            loading="lazy" decoding="async"></div>
         <div class="acc-overlay"></div>
         <div class="acc-content">
           <span class="acc-type" data-i18n="projects.p5_type">Gouvernance SSI</span>

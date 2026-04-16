@@ -34,17 +34,58 @@
     });
   });
 
-  // 4. Anti-Capture d'Écran (Écran Noir) & Anti-Snipping Tool
-  // Détection spécifique de la touche Impr. Écran (Windows)
+  // 4. Anti-Capture d'Écran — Stratégie Renforcée
+  // a) Touche PrintScreen (Windows) : pollue le presse-papier + écran noir 3s
   document.addEventListener('keyup', (e) => {
     if (e.key === 'PrintScreen') {
-      navigator.clipboard.writeText('Captures d\'écran désactivées par politique de sécurité.');
+      navigator.clipboard.writeText('⛔ Capture désactivée — raberbelkacem.com').catch(() => {});
       document.body.classList.add('anti-capture-mode');
-      setTimeout(() => {
-        document.body.classList.remove('anti-capture-mode');
-      }, 3000);
+      setTimeout(() => document.body.classList.remove('anti-capture-mode'), 3000);
     }
   });
+
+  // b) Raccourcis clavier capture Mac (Cmd+Shift+3 / Cmd+Shift+4 / Cmd+Shift+5)
+  document.addEventListener('keydown', (e) => {
+    if (e.metaKey && e.shiftKey && ['3','4','5','6'].includes(e.key)) {
+      e.preventDefault();
+      document.body.classList.add('anti-capture-mode');
+      setTimeout(() => document.body.classList.remove('anti-capture-mode'), 2000);
+    }
+  });
+
+  // c) Page Visibility API : quand l'onglet part en arrière-plan (screenshot iOS, app switchers)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      document.body.classList.add('anti-capture-mode');
+    } else {
+      // Petit délai pour éviter un flash au retour
+      setTimeout(() => document.body.classList.remove('anti-capture-mode'), 300);
+    }
+  });
+
+  // d) CSS Watermark dynamique — injecte un filigrane gênant dans la page via JS
+  //    Le filigrane tourne et se repositionne toutes les 8s pour ne jamais être identique
+  function injectWatermark() {
+    const existing = document.getElementById('_wm');
+    if (existing) existing.remove();
+    const wm = document.createElement('div');
+    wm.id = '_wm';
+    const angle = Math.floor(Math.random() * 30) - 15;
+    const ts = new Date().toLocaleTimeString('fr-FR');
+    wm.style.cssText = `
+      position:fixed; inset:0; z-index:2147483640; pointer-events:none;
+      display:flex; align-items:center; justify-content:center;
+      transform:rotate(${angle}deg);
+      font-family:'Space Grotesk',monospace;
+      font-size:clamp(12px,2vw,18px); font-weight:700;
+      color:rgba(255,255,255,0.04); user-select:none;
+      white-space:nowrap; letter-spacing:4px; text-transform:uppercase;
+    `;
+    wm.textContent = `raberbelkacem.com · ${ts} · CONFIDENTIEL`;
+    document.body.appendChild(wm);
+  }
+  injectWatermark();
+  setInterval(injectWatermark, 8000);
 
   // 5. Honeypot & Anti-Bot Basique
   function detectBot() {
