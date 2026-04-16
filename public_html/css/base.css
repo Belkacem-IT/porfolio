@@ -289,6 +289,12 @@ html[dir="rtl"] .hero-content,
 html[dir="rtl"] .hero-content .subtitle { text-align: center; }
 html[dir="rtl"] .skills-list li span { float: left; margin-left: 0; }
 
+html[dir="rtl"] .title-hero,
+html[dir="rtl"] .title-section,
+html[dir="rtl"] .subtitle {
+  letter-spacing: 0 !important;
+}
+
 
 .tag {
   font-family: 'Space Grotesk'; font-size: 11px;

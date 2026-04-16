@@ -75,6 +75,18 @@
   visibility: visible;
 }
 
+/* RTL Support for Mobile Drawer - Opens from physical left to avoid right overflow */
+html[dir="rtl"] .mobile-drawer {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+  border-left: none;
+  border-right: 1px solid rgba(99, 102, 241, 0.1);
+}
+html[dir="rtl"] .mobile-drawer.open {
+  transform: translateX(0);
+}
+
 /* Close / back arrow button */
 .mob-close {
   position: absolute;
