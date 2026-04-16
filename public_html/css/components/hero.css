@@ -114,6 +114,42 @@
   100% { opacity: 0; }
 }
 
+/* ── Giant Geometric Stars (Outline) ── */
+.bg-geom-star {
+  position: absolute;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.04);
+  stroke-width: 1.5;
+  z-index: 1;
+  pointer-events: none;
+}
+.bg-star-1 {
+  width: 600px; height: 600px;
+  top: -15%; left: -5%;
+  --rot: -15deg;
+  transform: rotate(var(--rot));
+  animation: slow-spin 120s linear infinite;
+}
+.bg-star-2 {
+  width: 450px; height: 450px;
+  bottom: -5%; right: -10%;
+  --rot: 20deg;
+  transform: rotate(var(--rot));
+  animation: slow-spin 150s linear infinite reverse;
+}
+.bg-star-3 {
+  width: 300px; height: 300px;
+  bottom: 0%; left: 30%;
+  --rot: 45deg;
+  transform: rotate(var(--rot));
+  stroke: rgba(99, 102, 241, 0.05); /* faint accent color */
+  animation: slow-spin 200s linear infinite;
+}
+
+@keyframes slow-spin {
+  100% { transform: rotate(calc(var(--rot, 0deg) + 360deg)); }
+}
+
 /* ── TRUSTED ECOSYSTEMS BAR ── */
 .hero-trusted-bar {
   position: absolute; bottom: 0; left: 0; width: 100%; height: 50px;
