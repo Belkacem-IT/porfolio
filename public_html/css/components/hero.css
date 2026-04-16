@@ -114,40 +114,22 @@
   100% { opacity: 0; }
 }
 
-/* ── Giant Geometric Stars (Outline) ── */
-.bg-geom-star {
+/* ── Elegant Sparkle Stars (4-pointed cross) ── */
+.sparkle-star {
   position: absolute;
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.04);
-  stroke-width: 1.5;
-  z-index: 1;
+  width: 120px; height: 120px;
+  opacity: 0.15;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.4));
   pointer-events: none;
+  z-index: 2;
+  animation: twinkle-pulse 4s ease-in-out infinite alternate;
 }
-.bg-star-1 {
-  width: 600px; height: 600px;
-  top: -15%; left: -5%;
-  --rot: -15deg;
-  transform: rotate(var(--rot));
-  animation: slow-spin 120s linear infinite;
-}
-.bg-star-2 {
-  width: 450px; height: 450px;
-  bottom: -5%; right: -10%;
-  --rot: 20deg;
-  transform: rotate(var(--rot));
-  animation: slow-spin 150s linear infinite reverse;
-}
-.bg-star-3 {
-  width: 300px; height: 300px;
-  bottom: 0%; left: 30%;
-  --rot: 45deg;
-  transform: rotate(var(--rot));
-  stroke: rgba(99, 102, 241, 0.05); /* faint accent color */
-  animation: slow-spin 200s linear infinite;
-}
+.sp-1 { bottom: 8%; left: 10%; transform: rotate(-5deg); animation-delay: 0s; }
+.sp-2 { bottom: 15%; right: 15%; transform: rotate(10deg); width: 80px; height: 80px; opacity: 0.1; animation-delay: 2s; }
 
-@keyframes slow-spin {
-  100% { transform: rotate(calc(var(--rot, 0deg) + 360deg)); }
+@keyframes twinkle-pulse {
+  0%   { transform: scale(0.9) rotate(calc(var(--r, 0deg))); opacity: 0.05; filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2)); }
+  100% { transform: scale(1.1) rotate(calc(var(--r, 0deg) + 5deg)); opacity: 0.3; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6)); }
 }
 
 /* ── TRUSTED ECOSYSTEMS BAR ── */
