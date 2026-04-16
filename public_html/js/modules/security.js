@@ -35,14 +35,6 @@
   });
 
   // 4. Anti-Capture d'Écran (Écran Noir) & Anti-Snipping Tool
-  // Lorsque l'utilisateur ouvre l'outil de capture (Win+Shift+S ou Cmd+Shift+5), le navigateur perd le focus.
-  window.addEventListener('blur', () => {
-    document.body.classList.add('anti-capture-mode');
-  });
-  window.addEventListener('focus', () => {
-    document.body.classList.remove('anti-capture-mode');
-  });
-
   // Détection spécifique de la touche Impr. Écran (Windows)
   document.addEventListener('keyup', (e) => {
     if (e.key === 'PrintScreen') {

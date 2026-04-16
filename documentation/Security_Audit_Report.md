@@ -19,9 +19,8 @@ Le code a été durci (Hardening) pour compliquer significativement l'extraction
   - **Drag-and-Drop Bloqué :** `user-drag: none` en CSS et `preventDefault` sur l'évènement JS `dragstart` interdisent le glisser-déposer sur Desktop.
   - **Fantômisation :** Application de `pointer-events: none` sur les balises `<img/>` et `<svg>`. Les clics "traversent" les médias, rendant toute tentative d'interaction logicielle impossible.
 
-## 2. Protection Anti-Capture d'Écran (Anti-Screenshot & Snipping Tool)
-Une logique d'aveuglement ("Capture Noire") a été mise en place pour décourager les snipers d'écran et la duplication d'écran :
-- **Perte de Focus (Outil Snipping) :** Lorsque les applications natives de type "Outil Capture d'écran" de macOS (`Cmd+Shift+5`) ou Windows (`Win+Shift+S`) sont appelés, le navigateur web perd généralement le focus. Le système intercepte l'évènement `blur` et superpose instantanément un calque noir opaque avec message de prévention : `CAPTURES D'ÉCRAN NON AUTORISÉES`.
+## 2. Protection Anti-Capture d'Écran (Anti-Screenshot)
+Une logique d'aveuglement ("Capture Noire") a été mise en place pour décourager les duplications d'écran basiques :
 - **Touche PrintScreen (Impr. Écran) :** Écoute globale de l'évènement `keyup`. Si l'utilisateur appuie physiquement sur la touche, la page devient noire pendant 3 secondes, et le presse-papier est pollué avec un texte d'avertissement en lieu et place d'une éventuelle image.
 - **Protection par Impression (CSS Print) :** Toute tentative d'impression au format PDF génèrera un document entièrement noir, purgé du DOM.
 
