@@ -393,7 +393,7 @@ html[dir="rtl"] .mobile-drawer.open {
   .black-hole {
     width: 200px;
     height: 200px;
-    right: -60px;
+    right: -10vw; /* Keep visual offset but avoid absolute pixels that break bounds */
     top: 50%;
   }
 
@@ -452,7 +452,9 @@ html[dir="rtl"] .mobile-drawer.open {
   #biomes-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
     height: auto !important;
     /* Fix container height wrapping 3 vertical cards instead of 100vh */
     transform: none !important;
