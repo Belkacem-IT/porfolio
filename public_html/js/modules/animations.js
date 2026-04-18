@@ -18,7 +18,7 @@ export function initAnimations() {
   // ── VANTA.JS BACKGROUNDS ──
   const isMobile = window.innerWidth <= 768;
   try {
-    if (!isMobile && document.getElementById('vanta-net') && typeof VANTA !== 'undefined' && VANTA.NET) {
+    if (document.getElementById('vanta-net') && typeof VANTA !== 'undefined' && VANTA.NET) {
       VANTA.NET({
         el: '#vanta-net', mouseControls: true, touchControls: false,
         minHeight: 200, minWidth: 200, scale: 1,
@@ -29,7 +29,7 @@ export function initAnimations() {
   } catch (e) { console.warn('Vanta NET error:', e); }
 
   try {
-    if (!isMobile && document.getElementById('vanta-clouds') && typeof VANTA !== 'undefined' && VANTA.FOG) {
+    if (document.getElementById('vanta-clouds') && typeof VANTA !== 'undefined' && VANTA.FOG) {
       VANTA.FOG({
         el: '#vanta-clouds', mouseControls: false, touchControls: false,
         minHeight: 200, minWidth: 200,
