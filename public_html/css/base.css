@@ -15,7 +15,7 @@
   --glow: rgba(99, 102, 241, 0.4);
   --green: #4ade80;
   --card-bg: rgba(12, 12, 18, 0.75);
-}
+}   
 
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
@@ -130,11 +130,11 @@ body.anti-capture-mode > *:not(.grain) {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 250px;
-  height: 250px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle at bottom right, rgba(255, 255, 200, 0.7) 0%, rgba(200, 200, 255, 0.2) 60%, transparent 90%);
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 200, 0.3));
+  filter: drop-shadow(0 0 30px rgba(255, 255, 200, 0.4));
   clip-path: polygon(100% 100%, 0 35%, 0 0, 35% 0);
   z-index: 1;
 }
