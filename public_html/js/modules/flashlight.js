@@ -46,6 +46,31 @@ export function initFlashlight() {
     if (flash) flash.style.opacity = '0';
   });
 
+  // Revert to normal cursor when hovering over the light switch
+  if (switchEl) {
+    switchEl.addEventListener('mouseenter', () => {
+      if (!isLit) {
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        const flash = document.getElementById('cursorFlashlight');
+        if (dot) dot.style.opacity = '1';
+        if (ring) ring.style.opacity = '1';
+        if (flash) flash.style.opacity = '0';
+      }
+    });
+
+    switchEl.addEventListener('mouseleave', () => {
+      if (!isLit) {
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        const flash = document.getElementById('cursorFlashlight');
+        if (dot) dot.style.opacity = '0';
+        if (ring) ring.style.opacity = '0';
+        if (flash) flash.style.opacity = '1';
+      }
+    });
+  }
+
   // Light switch toggle
   window.toggleLight = function () {
     isLit = !isLit;
