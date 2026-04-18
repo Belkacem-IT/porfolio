@@ -114,16 +114,10 @@
   <!-- ── GLOBAL PRELOADER ── -->
   <div id="global-preloader">
     <div class="preloader-content">
-      <div class="rocket-wrapper">
-        <svg class="rocket-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-          <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
-          </path>
-          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-        </svg>
-        <div class="rocket-flames"></div>
+      <div class="hypno-loader">
+        <div class="hypno-ring hypno-ring-1"></div>
+        <div class="hypno-ring hypno-ring-2"></div>
+        <div class="hypno-ring hypno-ring-3"></div>
       </div>
       <div class="loading-bar">
         <div class="loading-progress"></div>
@@ -153,31 +147,40 @@
       gap: 30px;
     }
 
-    .rocket-wrapper {
+    .hypno-loader {
       position: relative;
-      animation: hoverRocket 2s ease-in-out infinite alternate;
+      width: 70px;
+      height: 70px;
     }
 
-    .rocket-svg {
-      width: 50px;
-      height: 50px;
-      color: #fff;
-      transform: rotate(45deg);
-      drop-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    }
-
-    .rocket-flames {
+    .hypno-ring {
       position: absolute;
-      bottom: -20px;
-      left: -10px;
-      width: 20px;
-      height: 30px;
-      background: linear-gradient(to bottom, #f59e0b, #ef4444, transparent);
+      inset: 0;
       border-radius: 50%;
-      filter: blur(6px);
-      animation: flicker 0.1s infinite alternate;
-      transform: rotate(45deg);
-      opacity: 0.8;
+      border: 1.5px solid transparent;
+      border-top-color: rgba(99, 102, 241, 0.9);
+      border-right-color: rgba(99, 102, 241, 0.2);
+      filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
+    }
+
+    .hypno-ring-1 {
+      animation: spinHypno 2.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    }
+
+    .hypno-ring-2 {
+      inset: 12px;
+      border-top-color: rgba(255, 255, 255, 0.8);
+      border-right-color: rgba(255, 255, 255, 0.1);
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
+      animation: spinHypno 1.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite reverse;
+    }
+
+    .hypno-ring-3 {
+      inset: 24px;
+      border-top-color: rgba(74, 222, 128, 0.9);
+      border-right-color: transparent;
+      filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.5));
+      animation: spinHypno 1.2s linear infinite;
     }
 
     .loading-bar {
@@ -206,25 +209,12 @@
       animation: pulseText 1.5s infinite;
     }
 
-    @keyframes hoverRocket {
+    @keyframes spinHypno {
       0% {
-        transform: translateY(0);
+        transform: rotate(0deg);
       }
-
       100% {
-        transform: translateY(-10px);
-      }
-    }
-
-    @keyframes flicker {
-      0% {
-        height: 30px;
-        opacity: 0.8;
-      }
-
-      100% {
-        height: 40px;
-        opacity: 1;
+        transform: rotate(360deg);
       }
     }
 
