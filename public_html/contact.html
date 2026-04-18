@@ -431,7 +431,7 @@
             <div class="info-icon">✉</div>
             <div class="info-text">
               <span class="info-label" data-i18n="cpage.sb_email">Email</span>
-              <span class="info-value">contact@raberbelkacem.com</span>
+              <span class="info-value obf-em" data-u="contact" data-d="raberbelkacem" data-t="com">Chargement...</span>
             </div>
           </div>
           <div class="info-row">
@@ -452,7 +452,7 @@
 
         <div class="c-side-card">
           <h4 data-i18n="cpage.sb_links">Liens Rapides</h4>
-          <a href="mailto:contact@raberbelkacem.com" class="q-link">
+          <a href="#" class="q-link obf-email-link" data-u="contact" data-d="raberbelkacem" data-t="com">
             <div class="q-link-icon">📧</div> <span data-i18n="cpage.sb_email_lbl">Email direct</span>
           </a>
           <a href="https://www.linkedin.com/in/raber-belkacem-2811b723b" target="_blank" class="q-link">
@@ -750,7 +750,7 @@
           setTimeout(() => { b.innerHTML = origText; b.style.background = ''; b.style.color = ''; b.disabled = false; }, 3000);
         } else {
           // Fallback: open mailto
-          const email = 'contact@raberbelkacem.com';
+          const email = ['contact', 'raberbelkacem.com'].join('@');
           const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
           const body = encodeURIComponent('Nom: ' + (fd.get('firstName') || '') + ' ' + (fd.get('lastName') || '') + '\nEmail: ' + (fd.get('email') || '') + '\n\nMessage envoyé depuis le formulaire de contact.');
           window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
@@ -758,7 +758,7 @@
         }
       }).catch(() => {
         // Network error fallback: open mailto
-        const email = 'contact@raberbelkacem.com';
+        const email = ['contact', 'raberbelkacem.com'].join('@');
         const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
         window.location.href = 'mailto:' + email + '?subject=' + subject;
         b.innerHTML = origText; b.disabled = false;

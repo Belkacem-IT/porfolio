@@ -110,4 +110,25 @@
 
   // Lancer la détection au chargement
   detectBot();
+
+  // 6. Anti-Spam Email Obfuscation
+  // Scans for elements with classes .obf-em and .obf-email-link and reconstructs the email securely
+  function revealEmails() {
+    document.querySelectorAll('.obf-em, .obf-email-link').forEach(el => {
+      const u = el.getAttribute('data-u');
+      const d = el.getAttribute('data-d');
+      const t = el.getAttribute('data-t');
+      if (u && d && t) {
+        const email = u + '@' + d + '.' + t;
+        if (el.classList.contains('obf-em')) {
+          el.textContent = email;
+        }
+        if (el.classList.contains('obf-email-link') || el.tagName === 'A') {
+          el.setAttribute('href', 'mailto:' + email);
+        }
+      }
+    });
+  }
+  // Delay slightly to bypass simplistic bots doing a snapshot on load
+  setTimeout(revealEmails, 300);
 })();
