@@ -124,6 +124,7 @@ body.anti-capture-mode>*:not(.grain) {
 }
 
 /* ── MAGNETIC CURSOR ── */
+/* Point central blanc qui suit exactement la position de la souris sans inertie */
 #cursorDot {
   position: fixed;
   width: 8px;
@@ -131,11 +132,15 @@ body.anti-capture-mode>*:not(.grain) {
   background: #fff;
   border-radius: 50%;
   pointer-events: none;
+  /* Ne bloque pas les clics sur les éléments en dessous */
   z-index: 10001;
   transform: translate(-50%, -50%);
+  /* Centrage parfait sur la pointe de la souris */
   mix-blend-mode: difference;
+  /* S'inverse selon la couleur du fond pour rester visible */
 }
 
+/* Anneau extérieur qui suit la souris avec un léger effet de retard (inertie mathématique en JS) */
 #cursorRing {
   position: fixed;
   width: 45px;
@@ -148,6 +153,8 @@ body.anti-capture-mode>*:not(.grain) {
   transition: width 0.4s cubic-bezier(.16, 1, .3, 1), height 0.4s cubic-bezier(.16, 1, .3, 1), background 0.4s, border 0.4s;
 }
 
+/* ── FLASHLIGHT CURSOR (Section Souterrain) ── */
+/* Conteneur global invisible de la lampe torche. Réapparaît (opacity: 1) via le JS quand on est dans le souterrain */
 #cursorFlashlight {
   position: fixed;
   pointer-events: none;
@@ -156,32 +163,41 @@ body.anti-capture-mode>*:not(.grain) {
   transition: opacity 0.3s ease;
 }
 
+/* Boîte physique qui contient l'icône SVG de la lampe torche */
 .flashlight-body {
   position: absolute;
   top: -2px;
   left: -2px;
   width: 100px;
+  /* Force la zone de la torche à être carrée pour éviter l'effondrement */
   height: 100px;
   z-index: 2;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6));
 }
 
+/* L'icône (SVG) elle-même dessinée en blanc. */
 .flashlight-body svg {
   width: 30px !important;
+  /* Contrôle la taille de l'image de la torche */
   height: 30px !important;
   max-width: none !important;
+  /* Bloque le max-width: 100% global qui buggait la taille */
 }
 
+/* Faisceau lumineux jaune-bleuté projeté par la torche */
 .flashlight-beam {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 300px;
+  /* Longueur et largeur de projection de la lumière */
   height: 300px;
   background: radial-gradient(circle at bottom right, rgba(255, 255, 200, 0.7) 0%, rgba(200, 200, 255, 0.2) 60%, transparent 90%);
   mix-blend-mode: screen;
+  /* Éclaircit les objets sombres en dessous pour donner l'illusion qu'ils sont illuminés */
   filter: drop-shadow(0 0 15px rgba(255, 255, 200, 0.4));
   clip-path: polygon(100% 100%, 0 35%, 0 0, 35% 0);
+  /* Coupe le rond de lumière pour lui donner une forme de cone / triangle */
   z-index: 1;
 }
 
