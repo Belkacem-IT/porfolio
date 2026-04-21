@@ -1,0 +1,36 @@
+# Plan de Refonte B2B : Le Bâtisseur & La Garantie Absolue
+
+Suite à vos dernières directives, voici le plan validé pour transformer le site. On abandonne l'angle "Audit/Consultant" pour embrasser l'angle **"Builder / Développeur / Architecte qui met la main dans le cambouis"**.
+
+## Stratégie SEO & Positionnement (Google Trends)
+D'après les analyses algorithmiques B2B pour le marché francophone en 2026 :
+- **Mots-clés cibles :** `Tech Lead Freelance`, `Architecte Cloud B2B`, `Développeur SaaS Senior`, `Expert DevSecOps`.
+- Les clients ne cherchent plus juste un "développeur", ils cherchent quelqu'un capable de *gérer la complexité* (Sécurité, Cloud, IA).
+- **L'angle :** On met en avant la **Sécurité "by design"**, **l'intégration de l'IA** et la **Veille Technologique** permanente.
+
+## L'Offre Irrésistible (L'Arme Fatale)
+Pour rassurer immédiatement les DSI et les fondateurs de startups :
+- **Promesse :** *"Je construis vos plateformes de A à Z avec les standards de sécurité les plus stricts et l'Intelligence Artificielle au cœur du moteur."*
+- **La Garantie Inédite (Le déclencheur d'action) :** *"Engagement de Résultat : Système robuste livré dans les temps. Satisfait ou Remboursé."*
+- **Call-to-Action (CTA) :** Adieu "l'audit". Le bouton devient *"Discutons de votre Produit"* ou *"Construire mon Projet"*.
+
+## Changements Techniques Prévus
+
+### 1. Section HERO (L'Accroche)
+- Modification du `tag` : "Architecte Système & Tech Lead Freelance"
+- Sous-titre mis à jour pour refléter l'offre irrésistible de construction et la garantie.
+
+### 2. Section À PROPOS (La Connexion Humaine & Photo)
+- **[NOUVEAU] Intégration de la Photo** : Je vais injecter l'image `assets/profile/Lui.webp` juste au-dessus ou à côté du titre "Belkacem Raber" dans la section `#about`.
+- **Style CSS (Glassmorphism)** : La photo sera encadrée par une bordure translucide (`rgba(255,255,255,0.1)`), avec un flou d'arrière-plan (`backdrop-filter`) et une lueur très subtile pour matcher l'univers Cosmos spatial.
+- **Copywriting :** "Véritable Bâtisseur, je ne fais pas que coder, je conçois des moteurs durables. Passionné par la veille technologique, j'injecte l'IA et la sécurité au cœur de chaque projet."
+
+### 3. Fichiers impactés
+- **Traductions** : Réécriture complète des blocs Hero, About et Contact dans `locales/fr/translation.json`, `en/`, et `ar/` pour propager l'offre.
+- **HTML/CSS** : Modification de `index.html` (insertion `<img>` de la photo) et de `base.css` (clipping mask/glassmorphism de la photo).
+
+## User Review Required
+
+> [!IMPORTANT]
+> Pour que cette refonte soit actée, validez-vous ce plan (notamment la validation de l'offre "Satisfait ou Remboursé" et du Glassmorphism de la photo) ?
+> Si c'est un "GO", j'exécute le code immédiatement en un seul passage poli et parfait !

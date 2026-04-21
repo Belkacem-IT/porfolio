@@ -7,17 +7,17 @@
     "contact": "Contact"
   },
   "hero": {
-    "tag": "Architecte de Systèmes & Tech Lead",
-    "title": "Architect of<br>the Unknown.",
-    "subtitle": "Transformation digitale, architecture de systèmes IT et pilotage de projets d'envergure. Seul ou avec une équipe de freelances experts, je livre des solutions robustes et évolutives.",
-    "btn_project": "Confier un Grand Projet",
+    "tag": "Architecte Système & Développeur Senior",
+    "title": "Build & Scale<br>Robust Systems.",
+    "subtitle": "Je construis vos plateformes SaaS de A à Z. De l'architecture Cloud à la ligne de code, j'intègre l'IA et une sécurité infranchissable. Mon engagement est total : Livraison dans les délais. Satisfait ou Remboursé.",
+    "btn_project": "Discutons de votre projet",
     "btn_discover": "Voir mes Réalisations",
     "scroll": "Scroll"
   },
   "about": {
-    "tag": "Auto-Entrepreneur & Architecte IT",
+    "tag": "Expert Bâtisseur & Veille Tech",
     "title": "Belkacem<br>Raber.",
-    "subtitle": "Fort de plus de 7 ans d'expérience en Architecture de Systèmes complexes, je pilote vos projets IT de A à Z. Mon modèle est simple : j'interviens comme architecte, chef de projet et tech lead. Pour les projets d'envergure, j'active un réseau de développeurs et spécialistes freelances rigoureusement sélectionnés, garantissant la puissance d'une agence avec la précision d'un expert.",
+    "subtitle": "Véritable « Builder », je n'écris pas juste du code : je conçois des moteurs. Fort d'une veille technologique permanente, je mets l'Intelligence Artificielle et la Sécurité au cœur de mes développements. Faire appel à moi, ce n'est pas recruter un prestataire, c'est signer avec un Architecte Technique qui s'engage jusqu'au bout.",
     "trust1_num": "+7 Ans",
     "trust1_label": "D'Expérience Terrain",
     "trust2_num": "+40",
@@ -42,8 +42,8 @@
     "3_desc": "Orchestration d'infrastructures Cloud (AWS, Docker, GitHub Actions) et intégration d'agents d'Intelligence Artificielle pour automatiser l'opérationnel. Du prototype à la production, je m'assure que ça tient."
   },
   "clip": {
-    "title": "UN GRAND PROJET MÉRITE UN ARCHITECTE, PAS UN PRESTATAIRE.",
-    "desc": "La différence entre un projet qui tient sur le long terme et un chantier permanent, c'est l'architecture pensée dès le départ. Je ne livre pas du code, je livre de la fiabilité."
+    "title": "UN BEAU PROJET DEMANDE UN DÉVELOPPEUR. UN PROJET PÉRENNE EXIGE UN ARCHITECTE.",
+    "desc": "La différence entre un simple prototype et un système capable d'encaisser 100 000 requêtes asynchrones, c'est ce qui se passe sous le capot. Intégration IA, Sécurité militaire et Haute Disponibilité : je livre des produits garantis."
   },
   "projects": {
     "tag": "Réalisations",
@@ -73,10 +73,10 @@
     "switch_off": "Éteindre"
   },
   "contact": {
-    "tag": "Un Grand Projet en Tête ?",
-    "title": "Parlons<br>Architecture.",
-    "subtitle": "Que ce soit la conception d'un SaaS, la refonte d'une plateforme existante, ou le déploiement d'une infrastructure cloud critique — je suis disponible pour analyser votre besoin et proposer une feuille de route.",
-    "btn": "Décrire mon Projet",
+    "tag": "Transformons vos idées en code",
+    "title": "Parlons<br>Projet.",
+    "subtitle": "Que ce soit la création d'un SaaS complet, la conception d'un backend propulsé par l'IA ou le déploiement de fondations cloud blindées — je suis prêt à construire ce moteur pour vous.",
+    "btn": "Détailler mon Besoin (Garantie 0 Risque)",
     "lbl_email": "Email",
     "lbl_loc": "Localisation",
     "val_loc": "World 🌍",

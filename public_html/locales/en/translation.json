@@ -7,17 +7,17 @@
     "contact": "Contact"
   },
   "hero": {
-    "tag": "Systems Architect & Tech Lead",
-    "title": "Architect of<br>the Unknown.",
-    "subtitle": "Digital transformation, IT systems architecture and large-scale project management. Solo or with an expert freelance team, I deliver robust and scalable solutions.",
-    "btn_project": "Entrust a Large Project",
-    "btn_discover": "See My Work",
+    "tag": "System Architect & Senior Developer",
+    "title": "Build & Scale<br>Robust Systems.",
+    "subtitle": "I build your SaaS platforms from A to Z. From Cloud architecture to the core codebase, I integrate AI and unbreakable security. My commitment is absolute: On-time delivery. 100% Satisfaction or Money Back.",
+    "btn_project": "Discuss Your Project",
+    "btn_discover": "View My Work",
     "scroll": "Scroll"
   },
   "about": {
-    "tag": "Self-Employed Architect & IT Lead",
+    "tag": "Expert Builder & Tech Watch",
     "title": "Belkacem<br>Raber.",
-    "subtitle": "With 7+ years of expertise in high-level Systems Architecture, I manage complex IT projects from start to finish. My model is straightforward: I step in as architect, project manager, and tech lead. For large-scale projects, I activate a network of rigorously selected specialist freelancers — delivering agency-level power with expert precision.",
+    "subtitle": "A true « Builder », I don't just write code: I engineer core engines. Driven by a relentless technology watch, I place Artificial Intelligence and Security at the heart of my developments. Working with me is not hiring a simple vendor, it's partnering with an Architect fully committed to the end result.",
     "trust1_num": "7+ Years",
     "trust1_label": "Field Experience",
     "trust2_num": "+40",
@@ -42,8 +42,8 @@
     "3_desc": "Cloud infrastructure orchestration (AWS, Docker, GitHub Actions) and integration of generative AI agents to automate operations. From prototype to production, I make sure it holds."
   },
   "clip": {
-    "title": "A GREAT PROJECT DESERVES AN ARCHITECT, NOT A CONTRACTOR.",
-    "desc": "The difference between a project that holds long-term and a permanent construction site is architecture planned from day one. I don't deliver code — I deliver reliability."
+    "title": "A GOOD PROJECT NEEDS A DEVELOPER. A LASTING PROJECT REQUIRES AN ARCHITECT.",
+    "desc": "The difference between a simple prototype and a system built to handle 100,000 asynchronous requests is what happens under the hood. AI integration, Military-grade security, and High Availability: I deliver guaranteed products."
   },
   "projects": {
     "tag": "Delivered Projects",
@@ -73,10 +73,10 @@
     "switch_off": "Turn Off"
   },
   "contact": {
-    "tag": "Have a Large Project in Mind?",
-    "title": "Let's Talk<br>Architecture.",
-    "subtitle": "Whether it's designing a SaaS, rebuilding an existing platform, or deploying critical cloud infrastructure — I'm available to analyze your needs and map out a technical roadmap.",
-    "btn": "Describe My Project",
+    "tag": "Let's turn your ideas into code",
+    "title": "Let's Talk<br>Project.",
+    "subtitle": "Whether building a complete SaaS, designing an AI-powered backend, or deploying rock-solid cloud foundations — I'm ready to build this engine for you.",
+    "btn": "Detail My Needs (Zero Risk Guarantee)",
     "lbl_email": "Email",
     "lbl_loc": "Location",
     "val_loc": "World 🌍",
