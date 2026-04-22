@@ -23,8 +23,8 @@
   AddOutputFilterByType DEFLATE application/xml
   AddOutputFilterByType DEFLATE image/svg+xml
 
-  # Niveau de compression (1 à 9)
-  DeflateCompressionLevel 6
+  # Niveau de compression (1 à 9) - Parfois bloqué en mutualisé
+  # DeflateCompressionLevel 6
 </IfModule>
 
 # ----------------------------------------------------------------------
@@ -71,5 +71,5 @@
   Header set X-Content-Type-Options "nosniff"
 </IfModule>
 
-# Masquer la signature du serveur
-ServerSignature Off
+# Masquer la signature du serveur (bloqué sur certains mutualisés)
+# ServerSignature Off
