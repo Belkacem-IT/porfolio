@@ -66,9 +66,9 @@
     "p5_desc": "My own portfolio: a complete web system (i18n, GSAP animations, immersive design) demonstrating the ability to deliver a premium digital experience from A to Z."
   },
   "souterrain": {
-    "tag": "Under the Hood",
-    "title": "The Technical<br>Arsenal.",
-    "subtitle": "A deep mastery of tools is what separates an architect from a developer. These are the invisible foundations behind every delivered project.",
+    "tag": "Technical Debt",
+    "title": "The Invisible.",
+    "subtitle": "Working code isn't always secure code. The majority of developers leave behind invisible vulnerabilities and technical debt. Use your flashlight to reveal the flaws an architect fixes.",
     "switch": "Turn On",
     "switch_off": "Turn Off"
   },

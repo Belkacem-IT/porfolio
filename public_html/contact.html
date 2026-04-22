@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" class="lenis">
+
 <head>
   <!-- Google tag (gtag.js) & Consent Mode v2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     // EEE countries: denied by default (GDPR requirement)
     gtag('consent', 'default', {
       'analytics_storage': 'denied',
@@ -12,7 +13,7 @@
       'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'wait_for_update': 500,
-      'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB']
+      'region': ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'IS', 'LI', 'NO', 'GB']
     });
     // Non-EEE: granted by default (no banner needed)
     gtag('consent', 'default', {
@@ -30,16 +31,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Belkacem Raber</title>
-  <meta name="description" content="Contactez Belkacem Raber. Architecte de Systèmes IT, DevOps et Tech Lead. Disponible pour vos projets d'envergure.">
+  <meta name="description"
+    content="Contactez Belkacem Raber. Architecte de Systèmes IT, DevOps et Tech Lead. Disponible pour vos projets d'envergure.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://raberbelkacem.com/contact.html">
+  <link rel="canonical" href="https://connectys-siwan.net/contact.html">
 
   <!-- ── Open Graph ── -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Contact — Belkacem Raber">
-  <meta property="og:description" content="Contactez Belkacem Raber pour échanger sur vos architectures cloud ou vos projets d'infrastructure sécurisée.">
-  <meta property="og:url" content="https://raberbelkacem.com/contact.html">
+  <meta property="og:description"
+    content="Contactez Belkacem Raber pour échanger sur vos architectures cloud ou vos projets d'infrastructure sécurisée.">
+  <meta property="og:url" content="https://connectys-siwan.net/contact.html">
   <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="https://connectys-siwan.net/assets/og-preview.png">
+
+  <!-- ── Favicon ── -->
+  <link rel="icon" href="assets/profile/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/profile/favicon_square.png">
 
   <!-- ── JSON-LD Structured Data ── -->
   <script type="application/ld+json">
@@ -55,301 +63,669 @@
   </script>
   <link rel="stylesheet" href="css/main.css">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body { background: #030305; min-height: 100vh; overflow-x: hidden; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #030305;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
     .bg-grid {
-      position: fixed; inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size: 80px 80px; z-index: 0; pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+      z-index: 0;
+      pointer-events: none;
     }
-    .c-orb {
-      position: fixed; border-radius: 50%; filter: blur(120px);
-      pointer-events: none; z-index: 0; mix-blend-mode: screen;
-    }
-    .c-orb-1 { width: 400px; height: 400px; background: rgba(99,102,241,0.06); top: -5%; left: -5%; }
-    .c-orb-2 { width: 300px; height: 300px; background: rgba(74,222,128,0.04); bottom: 5%; right: -3%; }
 
-    /* ── Page Wrapper — single viewport ── */
+    .c-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+    }
+
+    .c-orb-1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(99, 102, 241, 0.06);
+      top: -5%;
+      left: -5%;
+    }
+
+    .c-orb-2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(74, 222, 128, 0.04);
+      bottom: 5%;
+      right: -3%;
+    }
+
+    /* ── Page Wrapper ── */
     .contact-page {
-      min-height: 100vh; display: flex; flex-direction: column;
-      padding: 80px 5vw 30px; position: relative; z-index: 10;
-      max-width: 1300px; margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 5vw 30px;
+      position: relative;
+      z-index: 10;
+      max-width: 1300px;
+      margin: 0 auto;
     }
 
     /* ── Header row ── */
     .c-header {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      margin-bottom: 24px; flex-shrink: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-shrink: 0;
     }
+
     .c-header-left h1 {
-      font-family: 'Space Grotesk'; font-size: clamp(28px, 4vw, 44px);
-      font-weight: 700; letter-spacing: -1.5px; line-height: 1;
+      font-family: 'Space Grotesk';
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1;
     }
+
     .c-header-left p {
-      font-size: 13px; color: rgba(255,255,255,0.35);
-      margin-top: 6px; font-family: 'Space Grotesk';
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: 6px;
+      font-family: 'Space Grotesk';
     }
-    .c-header-right { display: flex; gap: 8px; align-items: center; }
+
+    .c-header-right {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
     .avail-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px; border-radius: 100px;
-      background: rgba(74,222,128,0.08);
-      border: 1px solid rgba(74,222,128,0.15);
-      font-family: 'Space Grotesk'; font-size: 11px;
-      color: #4ade80; letter-spacing: 1.5px; text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: rgba(74, 222, 128, 0.08);
+      border: 1px solid rgba(74, 222, 128, 0.15);
+      font-family: 'Space Grotesk';
+      font-size: 11px;
+      color: #4ade80;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       font-weight: 600;
     }
+
     .avail-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: #4ade80;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
       box-shadow: 0 0 10px #4ade80;
       animation: pulse 2s ease-in-out infinite;
     }
-    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
 
     /* ── Main Grid ── */
     .c-grid {
-      display: grid; grid-template-columns: 260px 1fr;
-      gap: 24px; flex: 1; min-height: 0;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      flex: 1;
+      min-height: 0;
     }
 
     /* ── Sidebar ── */
-    .c-sidebar { display: flex; flex-direction: column; gap: 14px; }
+    .c-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .c-side-card {
-      background: rgba(12,12,18,0.6);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 14px; padding: 18px 16px;
+      background: rgba(12, 12, 18, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 18px 16px;
+      flex-shrink: 0;
     }
+
     .c-side-card h4 {
-      font-family: 'Space Grotesk'; font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 2px;
-      color: rgba(255,255,255,0.3); margin-bottom: 12px;
+      font-family: 'Space Grotesk';
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 12px;
     }
+
     .info-row {
-      display: flex; align-items: center; gap: 10px;
-      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     }
-    .info-row:last-child { border: none; }
+
+    .info-row:last-child {
+      border: none;
+    }
+
     .info-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
     }
-    .info-text { display: flex; flex-direction: column; gap: 1px; }
+
+    .info-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
     .info-label {
-      font-family: 'Space Grotesk'; font-size: 9px;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.25);
+      font-family: 'Space Grotesk';
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255, 255, 255, 0.25);
     }
+
     .info-value {
-      font-family: 'Space Grotesk'; font-size: 12.5px;
-      color: rgba(255,255,255,0.8); font-weight: 500;
+      font-family: 'Space Grotesk';
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
     }
 
     /* Quick links */
     .q-link {
-      display: flex; align-items: center; gap: 10px;
-      padding: 10px 12px; border-radius: 10px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.04);
-      font-family: 'Space Grotesk'; font-size: 12px;
-      color: rgba(255,255,255,0.6); font-weight: 500;
-      transition: 0.3s; cursor: pointer; text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      font-family: 'Space Grotesk';
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 500;
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
       margin-bottom: 6px;
     }
-    .q-link:last-child { margin-bottom: 0; }
+
+    .q-link:last-child {
+      margin-bottom: 0;
+    }
+
     .q-link:hover {
-      background: rgba(99,102,241,0.06);
-      border-color: rgba(99,102,241,0.15); color: #fff;
+      background: rgba(99, 102, 241, 0.06);
+      border-color: rgba(99, 102, 241, 0.15);
+      color: #fff;
     }
+
     .q-link-icon {
-      width: 28px; height: 28px; border-radius: 7px;
-      background: rgba(99,102,241,0.1);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: rgba(99, 102, 241, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
     }
+
     .c-trust {
-      font-size: 11.5px; color: rgba(255,255,255,0.35);
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.35);
       line-height: 1.8;
     }
 
     /* ── Form Card ── */
     .c-form-card {
-      background: rgba(12,12,18,0.65);
-      backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px; padding: 28px 30px;
-      display: flex; flex-direction: column;
+      background: rgba(12, 12, 18, 0.65);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 28px 30px;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Tabs */
     .f-tabs {
-      display: flex; gap: 4px; margin-bottom: 20px;
-      padding: 3px; background: rgba(255,255,255,0.025);
-      border-radius: 10px; border: 1px solid rgba(255,255,255,0.04);
+      display: flex;
+      gap: 4px;
+      margin-bottom: 20px;
+      padding: 3px;
+      background: rgba(255, 255, 255, 0.025);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
     }
-    .f-tab {
-      flex: 1; padding: 10px 14px; border-radius: 8px;
-      font-family: 'Space Grotesk'; font-size: 11px;
-      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      color: rgba(255,255,255,0.3); background: transparent;
-      border: none; cursor: pointer; transition: all 0.25s ease; text-align: center;
-    }
-    .f-tab.active {
-      background: rgba(99,102,241,0.15); color: #818cf8;
-      box-shadow: 0 2px 12px rgba(99,102,241,0.12);
-    }
-    .f-tab:hover:not(.active) { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.03); }
 
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
+    .f-tab {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-family: 'Space Grotesk';
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+
+    .f-tab.active {
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.12);
+    }
+
+    .f-tab:hover:not(.active) {
+      color: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
 
     /* Form Elements */
-    .fg { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .fg-full { grid-column: span 2; }
-    .f-group { display: flex; flex-direction: column; gap: 5px; }
+    .fg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .fg-full {
+      grid-column: span 2;
+    }
+
+    .f-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
     .f-label {
-      font-family: 'Space Grotesk'; font-size: 10px;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.3);
+      font-family: 'Space Grotesk';
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255, 255, 255, 0.3);
     }
-    .f-input, .f-select, .f-textarea {
-      padding: 11px 14px; border-radius: 10px;
-      background: rgba(255,255,255,0.035);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #fff; font-family: 'Plus Jakarta Sans'; font-size: 13px;
-      transition: 0.3s; outline: none;
+
+    .f-input,
+    .f-select,
+    .f-textarea {
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans';
+      font-size: 13px;
+      transition: 0.3s;
+      outline: none;
     }
-    .f-input:focus, .f-select:focus, .f-textarea:focus {
+
+    .f-input:focus,
+    .f-select:focus,
+    .f-textarea:focus {
       border-color: var(--accent);
-      background: rgba(99,102,241,0.04);
-      box-shadow: 0 0 15px rgba(99,102,241,0.06);
+      background: rgba(99, 102, 241, 0.04);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.06);
     }
-    .f-input::placeholder { color: rgba(255,255,255,0.18); }
-    .f-textarea { min-height: 80px; resize: vertical; }
+
+    .f-input::placeholder {
+      color: rgba(255, 255, 255, 0.18);
+    }
+
+    .f-textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
     .f-select {
-      appearance: none; cursor: pointer;
+      appearance: none;
+      cursor: pointer;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(129,140,248,0.6)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
+      background-repeat: no-repeat;
+      background-position: right 14px center;
       padding-right: 38px;
     }
-    .f-select option { background: #0c0c1a; color: #e2e8f0; padding: 8px; }
-    .f-select option:hover { background: #1e1b4b; }
-    .f-select:hover { border-color: rgba(129,140,248,0.3); }
+
+    .f-select option {
+      background: #0c0c1a;
+      color: #e2e8f0;
+      padding: 8px;
+    }
+
+    .f-select option:hover {
+      background: #1e1b4b;
+    }
+
+    .f-select:hover {
+      border-color: rgba(129, 140, 248, 0.3);
+    }
 
     /* Budget & Currencies */
-    .c-pill-group { display: flex; gap: 8px; margin-bottom: 12px; }
-    .c-pill { flex: 1; cursor: pointer; text-align: center; position: relative; }
-    .c-pill input { position: absolute; opacity: 0; pointer-events: none; }
+    .c-pill-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .c-pill {
+      flex: 1;
+      cursor: pointer;
+      text-align: center;
+      position: relative;
+    }
+
+    .c-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .c-pill span {
-      display: block; padding: 10px; border-radius: 8px;
-      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.4); font-family: 'Space Grotesk'; font-size: 11px;
-      font-weight: 600; letter-spacing: 1px; transition: 0.3s;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.4);
+      font-family: 'Space Grotesk';
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: 0.3s;
     }
-    .c-pill:hover span { background: rgba(99,102,241,0.05); border-color: rgba(99,102,241,0.15); }
-    .c-pill input:checked + span {
-      background: rgba(99,102,241,0.15); border-color: rgba(99,102,241,0.4);
-      color: #fff; box-shadow: 0 0 10px rgba(99,102,241,0.1);
+
+    .c-pill:hover span {
+      background: rgba(99, 102, 241, 0.05);
+      border-color: rgba(99, 102, 241, 0.15);
     }
-    
+
+    .c-pill input:checked+span {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
+    }
+
     /* Restore Range Slider */
     .budget-val {
-      font-family: 'Space Grotesk'; font-size: 22px; font-weight: 700;
-      color: var(--accent); text-align: center; margin-bottom: 4px;
+      font-family: 'Space Grotesk';
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 4px;
     }
+
     .budget-range {
-      width: 100%; height: 5px; border-radius: 3px;
-      background: rgba(255,255,255,0.05);
-      appearance: none; outline: none; cursor: pointer;
+      width: 100%;
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.05);
+      appearance: none;
+      outline: none;
+      cursor: pointer;
     }
+
     .budget-range::-webkit-slider-thumb {
-      appearance: none; width: 18px; height: 18px;
-      border-radius: 50%; background: var(--accent);
-      box-shadow: 0 0 12px var(--glow); cursor: pointer;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--glow);
+      cursor: pointer;
     }
+
     .budget-labels {
-      display: flex; justify-content: space-between;
-      font-size: 10px; color: rgba(255,255,255,0.2);
-      font-family: 'Space Grotesk'; margin-top: 3px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.2);
+      font-family: 'Space Grotesk';
+      margin-top: 3px;
     }
 
     /* Checkboxes */
-    .chk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+    .chk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
+    }
+
     .chk {
-      display: flex; align-items: center; gap: 7px;
-      padding: 8px 10px; border-radius: 8px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.04);
-      cursor: pointer; transition: 0.25s;
-      font-size: 11px; color: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      cursor: pointer;
+      transition: 0.25s;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.5);
       font-family: 'Space Grotesk';
     }
-    .chk:hover { background: rgba(99,102,241,0.04); border-color: rgba(99,102,241,0.12); }
-    .chk input { display: none; }
-    .chk.on { background: rgba(99,102,241,0.08); border-color: var(--accent); color: #fff; }
-    .chk-box {
-      width: 15px; height: 15px; border-radius: 4px;
-      border: 1.5px solid rgba(255,255,255,0.12);
-      display: flex; align-items: center; justify-content: center;
-      transition: 0.25s; flex-shrink: 0; font-size: 9px;
+
+    .chk:hover {
+      background: rgba(99, 102, 241, 0.04);
+      border-color: rgba(99, 102, 241, 0.12);
     }
-    .chk.on .chk-box { background: var(--accent); border-color: var(--accent); }
-    .cm { display: none; color: #fff; }
-    .chk.on .cm { display: block; }
+
+    .chk input {
+      display: none;
+    }
+
+    .chk.on {
+      background: rgba(99, 102, 241, 0.08);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .chk-box {
+      width: 15px;
+      height: 15px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.25s;
+      flex-shrink: 0;
+      font-size: 9px;
+    }
+
+    .chk.on .chk-box {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .cm {
+      display: none;
+      color: #fff;
+    }
+
+    .chk.on .cm {
+      display: block;
+    }
 
     /* Submit */
-    .f-submit-row { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
+    .f-submit-row {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .f-submit {
-      display: inline-flex; align-items: center; gap: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       padding: 16px 40px;
-      background: #fff; color: #000;
-      font-family: 'Space Grotesk'; font-size: 12px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      border-radius: 100px; border: none; cursor: pointer;
-      transition: 0.4s cubic-bezier(.16,1,.3,1);
+      background: #fff;
+      color: #000;
+      font-family: 'Space Grotesk';
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: 0.4s cubic-bezier(.16, 1, .3, 1);
     }
+
     .f-submit:hover {
-      background: var(--accent); color: #fff;
-      box-shadow: 0 12px 40px var(--glow); transform: translateY(-2px);
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 12px 40px var(--glow);
+      transform: translateY(-2px);
     }
+
     .f-submit-note {
-      font-size: 11px; color: rgba(255,255,255,0.18);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.18);
       font-family: 'Space Grotesk';
     }
 
     /* Footer */
     .c-footer {
-      text-align: center; padding: 20px 0 10px;
-      font-family: 'Space Grotesk'; font-size: 11px;
-      color: rgba(255,255,255,0.1); flex-shrink: 0;
+      text-align: center;
+      padding: 20px 0 10px;
+      font-family: 'Space Grotesk';
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
     }
-    .c-footer a { color: rgba(255,255,255,0.2); margin: 0 8px; text-decoration: none; transition: 0.3s; }
-    .c-footer a:hover { color: var(--accent); }
+
+    .c-footer a {
+      color: rgba(255, 255, 255, 0.2);
+      margin: 0 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .c-footer a:hover {
+      color: var(--accent);
+    }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
-      .c-grid { grid-template-columns: 1fr; }
-      .c-sidebar { flex-direction: row; flex-wrap: wrap; gap: 10px; }
-      .c-side-card { flex: 1; min-width: 200px; }
-      .fg { grid-template-columns: 1fr; }
-      .fg-full { grid-column: span 1; }
-      .chk-grid { grid-template-columns: 1fr 1fr; }
-      .f-submit-row { flex-direction: column; gap: 10px; text-align: center; }
-      .contact-page { padding: 70px 4vw 20px; }
+      .c-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .c-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .c-side-card {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .fg {
+        grid-template-columns: 1fr;
+      }
+
+      .fg-full {
+        grid-column: span 1;
+      }
+
+      .chk-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .f-submit-row {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .contact-page {
+        padding: 70px 4vw 20px;
+      }
     }
+
     @media (max-width: 600px) {
-      .c-sidebar { flex-direction: column; }
-      .c-side-card { min-width: auto; }
-      .chk-grid { grid-template-columns: 1fr; }
-      .f-tabs { flex-wrap: wrap; }
+      .c-sidebar {
+        flex-direction: column;
+      }
+
+      .c-side-card {
+        min-width: auto;
+      }
+
+      .chk-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .f-tabs {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <div class="grain"></div>
@@ -381,9 +757,12 @@
           <span class="orb-center-flag">🇫🇷</span>
         </div>
         <div class="orb-options">
-          <button class="lang-orb-option active" data-lang="fr" style="--i:0"><span class="orb-flag">🇫🇷</span><span class="orb-label">FR</span></button>
-          <button class="lang-orb-option" data-lang="en" style="--i:1"><span class="orb-flag">🇬🇧</span><span class="orb-label">EN</span></button>
-          <button class="lang-orb-option" data-lang="ar" style="--i:2"><span class="orb-flag">🇸🇦</span><span class="orb-label">AR</span></button>
+          <button class="lang-orb-option active" data-lang="fr" style="--i:0"><span class="orb-flag">🇫🇷</span><span
+              class="orb-label">FR</span></button>
+          <button class="lang-orb-option" data-lang="en" style="--i:1"><span class="orb-flag">🇬🇧</span><span
+              class="orb-label">EN</span></button>
+          <button class="lang-orb-option" data-lang="ar" style="--i:2"><span class="orb-flag">🇸🇦</span><span
+              class="orb-label">AR</span></button>
         </div>
       </div>
     </div>
@@ -425,13 +804,15 @@
 
       <!-- Sidebar -->
       <div class="c-sidebar">
-        <div class="c-side-card">
+        <div class="c-side-card" style="text-align: center;">
+          <img src="assets/profile/Lui.webp" alt="Belkacem Raber"
+            style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); margin-bottom: 20px;">
           <h4 data-i18n="cpage.sb_contact">Contact</h4>
           <div class="info-row">
             <div class="info-icon">✉</div>
             <div class="info-text">
               <span class="info-label" data-i18n="cpage.sb_email">Email</span>
-              <span class="info-value obf-em" data-u="contact" data-d="raberbelkacem" data-t="com">Chargement...</span>
+              <span class="info-value obf-em" data-email-calc="true">Chargement...</span>
             </div>
           </div>
           <div class="info-row">
@@ -452,7 +833,7 @@
 
         <div class="c-side-card">
           <h4 data-i18n="cpage.sb_links">Liens Rapides</h4>
-          <a href="#" class="q-link obf-email-link" data-u="contact" data-d="raberbelkacem" data-t="com">
+          <a href="#" class="q-link obf-email-link" data-email-calc="true">
             <div class="q-link-icon">📧</div> <span data-i18n="cpage.sb_email_lbl">Email direct</span>
           </a>
           <a href="https://www.linkedin.com/in/raber-belkacem-2811b723b" target="_blank" class="q-link">
@@ -476,10 +857,14 @@
       <div class="c-form-card">
 
         <div class="f-tabs">
-          <button class="f-tab active" onclick="switchTab('devis',this)"><span data-i18n="cpage.tab_devis">Devis</span></button>
-          <button class="f-tab" onclick="switchTab('meeting',this)"><span data-i18n="cpage.tab_meet">Meeting</span></button>
-          <button class="f-tab" onclick="switchTab('partner',this)"><span data-i18n="cpage.tab_part">Partenariat</span></button>
-          <button class="f-tab" onclick="switchTab('other',this)"><span data-i18n="cpage.tab_other">Autre</span></button>
+          <button class="f-tab active" onclick="switchTab('devis',this)"><span
+              data-i18n="cpage.tab_devis">Devis</span></button>
+          <button class="f-tab" onclick="switchTab('meeting',this)"><span
+              data-i18n="cpage.tab_meet">Meeting</span></button>
+          <button class="f-tab" onclick="switchTab('partner',this)"><span
+              data-i18n="cpage.tab_part">Partenariat</span></button>
+          <button class="f-tab" onclick="switchTab('other',this)"><span
+              data-i18n="cpage.tab_other">Autre</span></button>
         </div>
 
         <form id="cf" onsubmit="handleSubmit(event)">
@@ -488,11 +873,13 @@
           <div class="fg" style="margin-bottom: 16px;">
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_fn">Prénom *</label>
-              <input type="text" name="firstName" class="f-input" placeholder="John" data-i18n="[placeholder]cpage.ph_fn" required>
+              <input type="text" name="firstName" class="f-input" placeholder="John"
+                data-i18n="[placeholder]cpage.ph_fn" required>
             </div>
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_ln">Nom *</label>
-              <input type="text" name="lastName" class="f-input" placeholder="Doe" data-i18n="[placeholder]cpage.ph_ln" required>
+              <input type="text" name="lastName" class="f-input" placeholder="Doe" data-i18n="[placeholder]cpage.ph_ln"
+                required>
             </div>
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_em">Email *</label>
@@ -500,7 +887,8 @@
             </div>
             <div class="f-group">
               <label class="f-label" data-i18n="cpage.form_comp">Entreprise</label>
-              <input type="text" name="company" class="f-input" placeholder="Nom entreprise" data-i18n="[placeholder]cpage.ph_comp">
+              <input type="text" name="company" class="f-input" placeholder="Nom entreprise"
+                data-i18n="[placeholder]cpage.ph_comp">
             </div>
           </div>
 
@@ -536,12 +924,16 @@
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_budg">Budget Estimé Minimum</label>
                 <div class="c-pill-group">
-                  <label class="c-pill"><input type="radio" name="devise" value="EUR" checked onchange="selectCurrency('EUR')"><span>€ EUR</span></label>
-                  <label class="c-pill"><input type="radio" name="devise" value="USD" onchange="selectCurrency('USD')"><span>$ USD</span></label>
-                  <label class="c-pill"><input type="radio" name="devise" value="DZD" onchange="selectCurrency('DZD')"><span>DA DZD</span></label>
+                  <label class="c-pill"><input type="radio" name="devise" value="EUR" checked
+                      onchange="selectCurrency('EUR')"><span>€ EUR</span></label>
+                  <label class="c-pill"><input type="radio" name="devise" value="USD"
+                      onchange="selectCurrency('USD')"><span>$ USD</span></label>
+                  <label class="c-pill"><input type="radio" name="devise" value="DZD"
+                      onchange="selectCurrency('DZD')"><span>DA DZD</span></label>
                 </div>
                 <div class="budget-val" id="bv">400 €</div>
-                <input type="range" name="budget_estime" id="budgetRange" class="budget-range" min="400" max="50000" value="400" step="100" oninput="updateBudgetDisplay()">
+                <input type="range" name="budget_estime" id="budgetRange" class="budget-range" min="400" max="50000"
+                  value="400" step="100" oninput="updateBudgetDisplay()">
                 <div class="budget-labels">
                   <span id="bMin">400 €</span>
                   <span id="bMax">50 000 €+</span>
@@ -550,17 +942,31 @@
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_serv">Services</label>
                 <div class="chk-grid">
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Dev"><div class="chk-box"><span class="cm">✓</span></div>Dev</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="UX/UI"><div class="chk-box"><span class="cm">✓</span></div>UX/UI</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Sécurité"><div class="chk-box"><span class="cm">✓</span></div>Sécurité</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="DevOps"><div class="chk-box"><span class="cm">✓</span></div>DevOps</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Consulting"><div class="chk-box"><span class="cm">✓</span></div>Consulting</label>
-                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Maintenance"><div class="chk-box"><span class="cm">✓</span></div>Maintenance</label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Dev">
+                    <div class="chk-box"><span class="cm">✓</span></div>Dev
+                  </label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="UX/UI">
+                    <div class="chk-box"><span class="cm">✓</span></div>UX/UI
+                  </label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Sécurité">
+                    <div class="chk-box"><span class="cm">✓</span></div>Sécurité
+                  </label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="DevOps">
+                    <div class="chk-box"><span class="cm">✓</span></div>DevOps
+                  </label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Consulting">
+                    <div class="chk-box"><span class="cm">✓</span></div>Consulting
+                  </label>
+                  <label class="chk" onclick="tgl(this)"><input type="checkbox" name="services[]" value="Maintenance">
+                    <div class="chk-box"><span class="cm">✓</span></div>Maintenance
+                  </label>
                 </div>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.dev_desc">Description</label>
-                <textarea name="description_projet" class="f-textarea" placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..." data-i18n="[placeholder]cpage.dev_desc_ph"></textarea>
+                <textarea name="description_projet" class="f-textarea"
+                  placeholder="Décrivez votre projet, objectifs, fonctionnalités clés..."
+                  data-i18n="[placeholder]cpage.dev_desc_ph"></textarea>
               </div>
             </div>
           </div>
@@ -605,7 +1011,8 @@
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.meet_agenda">Sujet / Agenda</label>
-                <textarea name="sujet_agenda" class="f-textarea" placeholder="Points à discuter..." data-i18n="[placeholder]cpage.meet_agenda_ph"></textarea>
+                <textarea name="sujet_agenda" class="f-textarea" placeholder="Points à discuter..."
+                  data-i18n="[placeholder]cpage.meet_agenda_ph"></textarea>
               </div>
             </div>
           </div>
@@ -638,7 +1045,9 @@
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.part_proj">Votre Projet</label>
-                <textarea name="description_entreprise" class="f-textarea" placeholder="Présentez votre entreprise et la valeur du partenariat..." data-i18n="[placeholder]cpage.part_proj_ph"></textarea>
+                <textarea name="description_entreprise" class="f-textarea"
+                  placeholder="Présentez votre entreprise et la valeur du partenariat..."
+                  data-i18n="[placeholder]cpage.part_proj_ph"></textarea>
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.part_web">Site Web</label>
@@ -663,7 +1072,8 @@
               </div>
               <div class="f-group fg-full">
                 <label class="f-label" data-i18n="cpage.oth_msg">Message</label>
-                <textarea name="message_libre" class="f-textarea" placeholder="Votre message..." style="min-height: 140px;"></textarea>
+                <textarea name="message_libre" class="f-textarea" placeholder="Votre message..."
+                  style="min-height: 140px;"></textarea>
               </div>
             </div>
           </div>
@@ -709,7 +1119,7 @@
       slider.max = cfg.max;
       slider.step = cfg.step;
       slider.value = cfg.default;
-      
+
       document.getElementById('bMin').textContent = new Intl.NumberFormat('fr-FR').format(cfg.min) + ' ' + cfg.unit;
       document.getElementById('bMax').textContent = new Intl.NumberFormat('fr-FR').format(cfg.max) + ' ' + cfg.unit + '+';
       updateBudgetDisplay();
@@ -738,7 +1148,7 @@
       // Add active tab info
       const activeTab = document.querySelector('.tab-panel.active');
       if (activeTab) fd.append('_tab', activeTab.id);
-      
+
       // Send via Custom PHP Mailer
       fetch('mailer.php', {
         method: 'POST',
@@ -749,17 +1159,17 @@
           form.reset();
           setTimeout(() => { b.innerHTML = origText; b.style.background = ''; b.style.color = ''; b.disabled = false; }, 3000);
         } else {
-          // Fallback: open mailto
-          const email = ['contact', 'raberbelkacem.com'].join('@');
-          const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
+          // Fallback: open mailto (reconstructed by calc)
+          const email = [106, 118, 117, 123, 104, 106, 123, 71, 106, 118, 117, 117, 108, 106, 123, 128, 122, 52, 122, 112, 126, 104, 117, 53, 117, 108, 123].map(c => String.fromCharCode(c - 7)).join('');
+          const subject = encodeURIComponent('Contact depuis connectys-siwan.net');
           const body = encodeURIComponent('Nom: ' + (fd.get('firstName') || '') + ' ' + (fd.get('lastName') || '') + '\nEmail: ' + (fd.get('email') || '') + '\n\nMessage envoyé depuis le formulaire de contact.');
           window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
           b.innerHTML = origText; b.disabled = false;
         }
       }).catch(() => {
-        // Network error fallback: open mailto
-        const email = ['contact', 'raberbelkacem.com'].join('@');
-        const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
+        // Network error fallback: open mailto (reconstructed by calc)
+        const email = [106, 118, 117, 123, 104, 106, 123, 71, 106, 118, 117, 117, 108, 106, 123, 128, 122, 52, 122, 112, 126, 104, 117, 53, 117, 108, 123].map(c => String.fromCharCode(c - 7)).join('');
+        const subject = encodeURIComponent('Contact depuis connectys-siwan.net');
         window.location.href = 'mailto:' + email + '?subject=' + subject;
         b.innerHTML = origText; b.disabled = false;
       });
@@ -767,12 +1177,12 @@
 
     // Cursor
     const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
-    let mx=0,my=0,dx=0,dy=0;
-    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    let mx = 0, my = 0, dx = 0, dy = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
     (function ac() {
-      dx+=(mx-dx)*0.15; dy+=(my-dy)*0.15;
-      dot.style.left=mx+'px'; dot.style.top=my+'px';
-      ring.style.left=dx+'px'; ring.style.top=dy+'px';
+      dx += (mx - dx) * 0.15; dy += (my - dy) * 0.15;
+      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+      ring.style.left = dx + 'px'; ring.style.top = dy + 'px';
       requestAnimationFrame(ac);
     })();
     document.querySelectorAll('a,button,.q-link,.chk,.f-submit,.f-tab').forEach(el => {
@@ -798,8 +1208,8 @@
   <!-- Burger Menu Script -->
   <script>
     (function () {
-      const burger  = document.getElementById('burgerBtn');
-      const drawer  = document.getElementById('mobileDrawer');
+      const burger = document.getElementById('burgerBtn');
+      const drawer = document.getElementById('mobileDrawer');
       const overlay = document.getElementById('mobileOverlay');
       const mobClose = document.getElementById('mobClose');
       if (!burger || !drawer || !overlay) return;
@@ -808,7 +1218,7 @@
         burger.classList.add('open');
         drawer.classList.add('open');
         overlay.classList.add('open');
-        burger.setAttribute('aria-expanded','true');
+        burger.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
       }
 
@@ -816,27 +1226,28 @@
         burger.classList.remove('open');
         drawer.classList.remove('open');
         overlay.classList.remove('open');
-        burger.setAttribute('aria-expanded','false');
+        burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
 
-      burger.addEventListener('click', function(e) {
+      burger.addEventListener('click', function (e) {
         e.stopPropagation();
         drawer.classList.contains('open') ? closeMenu() : openMenu();
       });
 
       if (mobClose) mobClose.addEventListener('click', closeMenu);
 
-      drawer.querySelectorAll('.mob-link').forEach(function(l) {
+      drawer.querySelectorAll('.mob-link').forEach(function (l) {
         l.addEventListener('click', closeMenu);
       });
 
       overlay.addEventListener('click', closeMenu);
 
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeMenu();
       });
     })();
   </script>
 </body>
+
 </html>

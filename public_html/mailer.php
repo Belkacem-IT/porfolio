@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
-$to = "contact@raberbelkacem.com";
+$to = "contact@connectys-siwan.net";
 
 // Extract base fields
 $firstName = isset($_POST['firstName']) ? htmlspecialchars(strip_tags(trim($_POST['firstName']))) : 'N/A';
@@ -237,7 +237,7 @@ $htmlContent = "
 
         <!-- Footer -->
         <div style='background: #0f172a; border-radius: 0 0 16px 16px; padding: 20px 32px; text-align:center;'>
-            <div style='font-size: 11px; color: #475569;'>Notification automatisée · raberbelkacem.com</div>
+            <div style='font-size: 11px; color: #475569;'>Notification automatisée · connectys-siwan.net</div>
         </div>
 
     </div>
@@ -247,11 +247,11 @@ $htmlContent = "
 
 $headers  = "MIME-Version: 1.0\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8\r\n";
-$headers .= "From: Portfolio BR <noreply@raberbelkacem.com>\r\n";
+$headers .= "From: Portfolio BR <noreply@connectys-siwan.net>\r\n";
 $headers .= "Reply-To: {$email}\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion() . "\r\n";
 
-if (mail($to, $subject, $htmlContent, $headers)) {
+if (mail($to, $subject, $htmlContent, $headers, "-f noreply@connectys-siwan.net")) {
     echo json_encode(["status" => "success", "message" => "Email sent successfully."]);
 } else {
     http_response_code(500);

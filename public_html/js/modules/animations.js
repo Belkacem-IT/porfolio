@@ -181,6 +181,24 @@ export function initAnimations() {
     });
   }
 
+  // ── PROFILE CARD 3D SCROLL EFFECT ──
+  const profileCard = document.getElementById('profile-card');
+  if (profileCard && typeof ScrollTrigger !== 'undefined') {
+    gsap.fromTo(profileCard,
+      { rotateX: 20, rotateY: -15, z: -50 },
+      { 
+        rotateX: -10, rotateY: 15, z: 50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".astro-wrapper",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1
+        }
+      }
+    );
+  }
+
   // ── NAV ACTIVE STATE ──
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');

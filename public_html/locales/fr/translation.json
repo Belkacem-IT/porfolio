@@ -66,9 +66,9 @@
     "p5_desc": "Mon propre portfolio : un système web complet (i18n, animations GSAP, design immersif) qui démontre la capacité à livrer une expérience digitale premium de A à Z."
   },
   "souterrain": {
-    "tag": "Sous le Capot",
-    "title": "L'Arsenal<br>Technique.",
-    "subtitle": "Une maîtrise profonde des outils est ce qui distingue un architecte d'un développeur. Voici les fondations invisibles de chaque projet livré.",
+    "tag": "Dette Technique",
+    "title": "L'Invisible.",
+    "subtitle": "Un code qui fonctionne n'est pas toujours un code sécurisé. La majorité des développeurs laissent des failles et des oublis invisibles. Utilisez la lampe torche pour révéler la dette technique qu'un architecte corrige.",
     "switch": "Allumer",
     "switch_off": "Éteindre"
   },

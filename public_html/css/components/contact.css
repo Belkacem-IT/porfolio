@@ -231,6 +231,66 @@ footer {
   transform: rotate(180deg);
 }
 
+/* ── Floating Contact Button ── */
+#floating-contact {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  z-index: 9990;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#floating-contact.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#floating-contact:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 4px 30px rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px) scale(1.02);
+}
+
+#floating-contact svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  #floating-contact {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px;
+  }
+  #floating-contact .fc-text {
+    display: none;
+  }
+  #scroll-arrow {
+    left: 20px;
+    bottom: 20px;
+  }
+}
+
 /* ── Footer bottom bar ── */
 .footer-bottom {
   margin-top: 50px;

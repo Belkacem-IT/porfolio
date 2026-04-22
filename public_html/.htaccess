@@ -1,0 +1,75 @@
+# ----------------------------------------------------------------------
+# 1. Redirection HTTP vers HTTPS
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 2. Compression GZIP / Deflate
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  # Compression des fichiers textes
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+
+  # Niveau de compression (1 à 9)
+  DeflateCompressionLevel 6
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 3. Mise en cache navigateur (Browser Caching)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Fichiers par défaut
+  ExpiresDefault "access plus 1 month"
+
+  # Images et médias (Gros gains de performances)
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+
+  # CSS et Javascript
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+
+  # Polices
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+
+  # Jamais de cache pour les documents HTML (pour voir les mises à jour directes)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 4. Sécurité basique
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  # Empêche le chargement du site dans une iframe externe (Protection Clickjacking)
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Désactive le sniffing de type MIME (Protection faille XSS)
+  Header set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# Masquer la signature du serveur
+ServerSignature Off
