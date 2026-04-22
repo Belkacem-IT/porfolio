@@ -34,16 +34,16 @@
   <meta name="description"
     content="Contactez Belkacem Raber. Architecte de Systèmes IT, DevOps et Tech Lead. Disponible pour vos projets d'envergure.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://connectys-siwan.net/contact.html">
+  <link rel="canonical" href="https://raberbelkacem.com/contact.html">
 
   <!-- ── Open Graph ── -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Contact — Belkacem Raber">
   <meta property="og:description"
     content="Contactez Belkacem Raber pour échanger sur vos architectures cloud ou vos projets d'infrastructure sécurisée.">
-  <meta property="og:url" content="https://connectys-siwan.net/contact.html">
+  <meta property="og:url" content="https://raberbelkacem.com/contact.html">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:image" content="https://connectys-siwan.net/assets/og-preview.png">
+  <meta property="og:image" content="https://raberbelkacem.com/assets/og-preview.png">
 
   <!-- ── Favicon ── -->
   <link rel="icon" href="assets/profile/favicon.svg" type="image/svg+xml">
@@ -1160,16 +1160,16 @@
           setTimeout(() => { b.innerHTML = origText; b.style.background = ''; b.style.color = ''; b.disabled = false; }, 3000);
         } else {
           // Fallback: open mailto (reconstructed by calc)
-          const email = [106, 118, 117, 123, 104, 106, 123, 71, 106, 118, 117, 117, 108, 106, 123, 128, 122, 52, 122, 112, 126, 104, 117, 53, 117, 108, 123].map(c => String.fromCharCode(c - 7)).join('');
-          const subject = encodeURIComponent('Contact depuis connectys-siwan.net');
+          const email = [106, 118, 117, 123, 104, 106, 123, 71, 121, 104, 105, 108, 121, 105, 108, 115, 114, 104, 106, 108, 116, 53, 106, 118, 116].map(c => String.fromCharCode(c - 7)).join('');
+          const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
           const body = encodeURIComponent('Nom: ' + (fd.get('firstName') || '') + ' ' + (fd.get('lastName') || '') + '\nEmail: ' + (fd.get('email') || '') + '\n\nMessage envoyé depuis le formulaire de contact.');
           window.location.href = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
           b.innerHTML = origText; b.disabled = false;
         }
       }).catch(() => {
         // Network error fallback: open mailto (reconstructed by calc)
-        const email = [106, 118, 117, 123, 104, 106, 123, 71, 106, 118, 117, 117, 108, 106, 123, 128, 122, 52, 122, 112, 126, 104, 117, 53, 117, 108, 123].map(c => String.fromCharCode(c - 7)).join('');
-        const subject = encodeURIComponent('Contact depuis connectys-siwan.net');
+        const email = [106, 118, 117, 123, 104, 106, 123, 71, 121, 104, 105, 108, 121, 105, 108, 115, 114, 104, 106, 108, 116, 53, 106, 118, 116].map(c => String.fromCharCode(c - 7)).join('');
+        const subject = encodeURIComponent('Contact depuis raberbelkacem.com');
         window.location.href = 'mailto:' + email + '?subject=' + subject;
         b.innerHTML = origText; b.disabled = false;
       });

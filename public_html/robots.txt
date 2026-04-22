@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://connectys-siwan.net/sitemap.xml
+Sitemap: https://raberbelkacem.com/sitemap.xml

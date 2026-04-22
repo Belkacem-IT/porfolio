@@ -101,7 +101,7 @@
   // a) PrintScreen (Windows)
   document.addEventListener('keyup', (e) => {
     if (e.key === 'PrintScreen') {
-      navigator.clipboard.writeText('⛔ Capture désactivée — connectys-siwan.net').catch(() => {});
+      navigator.clipboard.writeText('⛔ Capture désactivée — raberbelkacem.com').catch(() => {});
       document.body.classList.add('anti-capture-mode');
       setTimeout(() => document.body.classList.remove('anti-capture-mode'), 3000);
     }
@@ -193,7 +193,7 @@
         'font-size: 40px; font-weight: bold; color: #ef4444; text-shadow: 2px 2px #000;'
       );
       console.log(
-        '%cL\'inspection de ce site est surveillée et interdite.\n© Belkacem Raber — connectys-siwan.net',
+        '%cL\'inspection de ce site est surveillée et interdite.\n© Belkacem Raber — raberbelkacem.com',
         'font-size: 14px; color: #6366f1; font-family: monospace;'
       );
     }
@@ -218,7 +218,7 @@
    *  .=46+7=53
    *  n=117, e=108, t=123
    */
-  const _eK = [106,118,117,123,104,106,123,71,106,118,117,117,108,106,123,128,122,52,122,112,126,104,117,53,117,108,123];
+  const _eK = [106,118,117,123,104,106,123,71,121,104,105,108,121,105,108,115,114,104,106,108,116,53,106,118,116];
   const _eS = 7; // Décalage
 
   function _decodeEmail() {
@@ -268,7 +268,7 @@
   // Les bots qui scrapent le HTML vont récolter ce piège.
   const honeypot = document.createElement('a');
   honeypot.href = 'mailto:trap-bot-do-not-use@fakemail.invalid';
-  honeypot.textContent = 'admin@connectys-siwan.net';
+  honeypot.textContent = 'admin@raberbelkacem.com';
   honeypot.style.cssText = 'position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;';
   honeypot.setAttribute('tabindex', '-1');
   honeypot.setAttribute('aria-hidden', 'true');
