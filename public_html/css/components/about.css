@@ -9,6 +9,12 @@
   pointer-events: none; z-index: 0;
   border-radius: 50%;
   filter: blur(1px);
+  animation: earth-spin 150s linear infinite;
+}
+
+@keyframes earth-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8vw; align-items: center; }

@@ -149,8 +149,9 @@ export function initAnimations() {
             const scrollWidth = container.scrollWidth;
             const viewportWidth = window.innerWidth;
             const maxScroll = scrollWidth - viewportWidth;
+            const isRTL = document.documentElement.dir === 'rtl';
             gsap.set(container, {
-              x: -(self.progress * maxScroll)
+              x: isRTL ? (self.progress * maxScroll) : -(self.progress * maxScroll)
             });
           }
         });
