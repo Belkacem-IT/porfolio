@@ -14,21 +14,18 @@ jobs:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
 
-      - name: 🚀 Deploy to Octenium FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftps
-          security: strict
-          local-dir: ./public_html/
-          server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            README.md
-            .DS_Store
-            **/.DS_Store
+      - name: 🚀 Deploy to Octenium via lftp
+        env:
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          FTP_HOST: ${{ secrets.FTP_SERVER }}
+        run: |
+          sudo apt-get update -y && sudo apt-get install -y lftp
+          lftp -c "
+          set ftp:ssl-allow yes;
+          set ftp:ssl-force true;
+          set ftp:ssl-protect-data true;
+          set ssl:verify-certificate no;
+          open -u \"$FTP_USER\",\"$FTP_PASS\" $FTP_HOST;
+          mirror -R ./public_html/ /public_html/ --ignore-time --parallel=10 --exclude-glob .git* --exclude-glob node_modules --exclude-glob .github
+          "
