@@ -571,6 +571,62 @@ html[dir="rtl"] .social-links {
   flex-direction: row-reverse;
 }
 
+/* Biomes RTL Fixes */
+html[dir="rtl"] .panel-visuals {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .bg-number {
+  right: auto;
+  left: 8%;
+}
+
+html[dir="rtl"] .b1-orb,
+html[dir="rtl"] .b2-orb,
+html[dir="rtl"] .b3-orb,
+html[dir="rtl"] .biome-creature {
+  right: auto;
+}
+
+html[dir="rtl"] .b1-orb { left: 5%; }
+html[dir="rtl"] .b2-orb { left: 0; }
+html[dir="rtl"] .b3-orb { left: 10%; }
+
+html[dir="rtl"] .biome-creature-deer-ground {
+  left: 22%;
+  transform: scaleX(-1);
+}
+html[dir="rtl"] .biome-creature-eagle {
+  left: 20%;
+  transform: scaleX(-1);
+}
+html[dir="rtl"] .biome-creature-dragon {
+  left: 12%;
+  transform: scaleX(-1);
+}
+
+/* Reverse creature animations for RTL since we scaled X by -1 */
+@keyframes deer-idle-rtl {
+  0% { transform: translateY(0) scaleX(-1); }
+  50% { transform: translateY(-5px) scaleX(-1); }
+  100% { transform: translateY(0) scaleX(-1); }
+}
+@keyframes eagle-soar-rtl {
+  0% { transform: translate(0, 0) rotate(3deg) scaleX(-1); }
+  50% { transform: translate(-30px, -20px) rotate(-3deg) scaleX(-1); }
+  100% { transform: translate(20px, 10px) rotate(2deg) scaleX(-1); }
+}
+@keyframes dragon-fly-rtl {
+  0% { transform: translate(0, 0) rotate(5deg) scaleX(-1); }
+  50% { transform: translate(15px, -25px) rotate(-3deg) scale(-1.05, 1.05); }
+  100% { transform: translate(-10px, -10px) rotate(2deg) scale(-0.98, 0.98); }
+}
+
+html[dir="rtl"] .biome-creature-deer-ground { animation-name: deer-idle-rtl; }
+html[dir="rtl"] .biome-creature-eagle { animation-name: eagle-soar-rtl; }
+html[dir="rtl"] .biome-creature-dragon { animation-name: dragon-fly-rtl; }
+
 
 .tag {
   font-family: 'Space Grotesk';
