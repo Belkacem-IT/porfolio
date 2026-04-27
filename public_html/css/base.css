@@ -954,45 +954,43 @@ img.emoji {
   pointer-events: none;
 }
 
-/* Smooth Text Reveal Animation */
+/* Smooth Text Tracking Animation (Apple Style) */
 .scatter-text {
   opacity: 0;
 }
 
 .scatter-text.is-animated {
-  animation: scatter-in 1.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
+  animation: tracking-in-expand 2.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
 }
 
-@keyframes scatter-in {
+@keyframes tracking-in-expand {
   0% {
-    letter-spacing: 0.15em;
-    filter: blur(10px);
+    letter-spacing: 1.5em;
     opacity: 0;
-    transform: translateY(20px) scale(1.02);
+  }
+  40% {
+    opacity: 0.8;
   }
   100% {
     letter-spacing: normal;
-    filter: blur(0);
     opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 
 html[dir="rtl"] .scatter-text.is-animated {
-  animation-name: scatter-in-rtl;
+  animation-name: tracking-in-expand-rtl;
 }
 
-@keyframes scatter-in-rtl {
+@keyframes tracking-in-expand-rtl {
   0% {
-    letter-spacing: 0.15em;
-    filter: blur(10px);
+    letter-spacing: 1.5em;
     opacity: 0;
-    transform: translateY(20px) scale(1.02);
+  }
+  40% {
+    opacity: 0.8;
   }
   100% {
     letter-spacing: normal;
-    filter: blur(0);
     opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
