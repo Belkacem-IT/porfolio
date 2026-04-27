@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage: High Priority, Frequent updates -->
   <url>
     <loc>https://raberbelkacem.com/</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- Contact Page: Important but less frequent changes -->
   <url>
     <loc>https://raberbelkacem.com/contact.html</loc>
-    <lastmod>2026-04-13</lastmod>
+    <lastmod>2026-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Legal Pages: Low priority, rare changes -->
+  <url>
+    <loc>https://raberbelkacem.com/legal/mentions.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://raberbelkacem.com/legal/privacy.html</loc>
+    <lastmod>2026-04-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

@@ -1,0 +1,60 @@
+# About Belkacem Raber
+
+Belkacem Raber is a freelance IT Systems Architect, Tech Lead, and DevSecOps Consultant based in France, with over 6 years of expertise in digital transformation, cloud architecture, and cybersecurity. Operating as an independent auto-entrepreneur, he leads large-scale IT projects, either working autonomously or orchestrating teams of expert freelancers. His core philosophy is "Security by Design" and "Code as Architecture," building highly resilient, scalable, and fully documented infrastructures.
+
+# Services and Pricing
+
+Belkacem offers premium IT and Cloud architecture services. Below are estimated baseline pricing and structures (subject to precise scoping):
+
+- **Custom Web & Mobile App Creation:** End-to-end development of entirely bespoke web and mobile applications starting at €5,000.
+- **AI Agents & LLM Integration:** Embedding intelligent AI agents (OpenAI, Gemini, custom RAG) directly into your custom applications, starting at €4,000.
+- **Cloud Architecture & Deployment:** Highly scalable backend and cloud infrastructure (AWS, Azure, Kubernetes) starting at ~€600/day (TJM).
+- **"Security by Design" Integration:** Cybersecurity is not sold as a standalone prospecting service; it is natively built into every project. Every app and infrastructure delivered includes complete security hardening, DevSecOps pipelines, and compliance by default.
+
+*(Note: Precise quotes require an initial consultation to evaluate the complexity of the app, AI features, and infrastructure volume.)*
+
+# Locations and Service Area
+
+- **Global Reach:** 100% Remote worldwide for consulting, architecture design, and code/infrastructure reviews.
+- **Hybrid / On-site:** Available for travel across France and internationally (including Algeria) depending on the project's volume and strategic requirements.
+
+# Contact
+
+- **Email:** belkacemraber@proton.me
+- **Website:** https://raberbelkacem.com
+- **LinkedIn:** https://www.linkedin.com/in/belkacem-raber
+
+# Key Facts & Credentials
+
+- 6+ Years of IT Architecture and Consulting experience.
+- 95% AI/Cybersecurity precision rate.
+- 100% Technical Documentation delivery (DAT).
+- Core Technologies: AWS, Azure, OVH, Kubernetes, Docker, Terraform, Ansible, Java Spring, Python, React, PostgreSQL, Wazuh, Fortinet.
+- Methodologies: Agile, DevSecOps, ISO 27001 Compliance, RGPD Compliant.
+
+# What Makes Us Different
+
+Unlike traditional agencies, Belkacem Raber offers a highly specialized, hybrid expertise bridging Development, Systems Administration, and Cybersecurity. Every architecture delivered is documented flawlessly and built with "Security by Design." Clients gain direct access to a senior architect without the overhead of an agency, while still possessing the capability to scale up via his network of expert freelancers for massive projects.
+
+# FAQ
+
+1. **Faites-vous du développement d'applications 100% sur mesure ?**
+   Oui, je crée des applications web et mobiles totalement personnalisées (de l'architecture backend au frontend interactif), pensées pour être performantes et scalables dès le premier jour. Budget minimum typique : ~5 000€.
+
+2. **Comment intégrez-vous l'IA dans vos applications ?**
+   J'intègre des agents IA intelligents (OpenAI, Gemini, ou RAG sur mesure) directement au cœur de vos processus pour automatiser des tâches ou créer des assistants virtuels. Le déploiement d'un agent IA prend en moyenne 3 à 4 semaines.
+
+3. **Proposez-vous des prestations de cybersécurité indépendantes (audits purs) ?**
+   Non, je ne fais pas de prospection "cyber" classique. En revanche, la cybersécurité est la fondation absolue de tous mes projets. Chaque application web ou mobile que je crée intègre la sécurité totale à la source ("Security by Design") : durcissement, DevSecOps et conformité RGPD de facto.
+
+4. **Quelle est votre pile technologique de prédilection ?**
+   Pour le développement sur mesure : React/Next.js, Python, Java Spring et intégrations d'API d'Intelligence Artificielle. Pour l'infrastructure : AWS et Azure orchestrés via Kubernetes et Terraform.
+
+5. **Acceptez-vous des missions 100% en distanciel ?**
+   Oui, 100% de la création d'application et de l'architecture peuvent être réalisés en remote (monde entier). Des déplacements sur site sont possibles pour le cadrage stratégique de très gros projets (hybride).
+
+# Markdown Mirrors
+- /index.md
+- /contact.md
+- /legal/privacy.md
+- /legal/mentions.md

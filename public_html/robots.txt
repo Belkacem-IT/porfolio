@@ -1,4 +1,18 @@
 User-agent: *
 Allow: /
 
+# Explicitement autoriser les agents IA (GEO Strategy)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Lien vers le sitemap
 Sitemap: https://raberbelkacem.com/sitemap.xml
