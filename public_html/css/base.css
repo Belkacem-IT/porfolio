@@ -954,27 +954,27 @@ img.emoji {
   pointer-events: none;
 }
 
-/* Scattered Text Reveal Animation */
+/* Smooth Text Reveal Animation */
 .scatter-text {
   opacity: 0;
 }
 
 .scatter-text.is-animated {
-  animation: scatter-in 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: scatter-in 1.8s cubic-bezier(0.25, 1, 0.3, 1) forwards;
 }
 
 @keyframes scatter-in {
   0% {
-    letter-spacing: 0.8em;
-    filter: blur(12px);
+    letter-spacing: 0.15em;
+    filter: blur(10px);
     opacity: 0;
-    transform: scale(1.05);
+    transform: translateY(20px) scale(1.02);
   }
   100% {
     letter-spacing: normal;
     filter: blur(0);
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -984,15 +984,15 @@ html[dir="rtl"] .scatter-text.is-animated {
 
 @keyframes scatter-in-rtl {
   0% {
-    letter-spacing: 0.8em;
-    filter: blur(12px);
+    letter-spacing: 0.15em;
+    filter: blur(10px);
     opacity: 0;
-    transform: scale(1.05);
+    transform: translateY(20px) scale(1.02);
   }
   100% {
     letter-spacing: normal;
     filter: blur(0);
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
