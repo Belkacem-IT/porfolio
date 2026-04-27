@@ -50,6 +50,15 @@ export function initAnimations() {
     });
   });
 
+  // ── SCATTER TEXT ANIMATIONS ──
+  gsap.utils.toArray('.scatter-text').forEach(el => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => el.classList.add('is-animated')
+    });
+  });
+
   // ── BLACK HOLE PARALLAX ──
   const bh = document.getElementById('blackHole');
   if (bh) {
