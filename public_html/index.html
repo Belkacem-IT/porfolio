@@ -332,6 +332,17 @@
       setTimeout(() => {
         document.body.classList.remove('is-loading');
         document.body.classList.add('loaded');
+        
+        // Spring / Overshoot animation on mount
+        if (typeof gsap !== 'undefined') {
+          gsap.from("#main-nav, #hero", {
+            y: -50,
+            duration: 1.5,
+            ease: "elastic.out(1.2, 0.5)",
+            clearProps: "all"
+          });
+        }
+
         setTimeout(() => {
           const p = document.getElementById('global-preloader');
           if (p) p.style.display = 'none';
