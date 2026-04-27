@@ -963,6 +963,10 @@ img.emoji {
   animation: tracking-in-expand 2.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
 }
 
+.title-hero.scatter-text.is-animated {
+  animation-delay: 1.8s; /* Wait for preloader */
+}
+
 @keyframes tracking-in-expand {
   0% {
     letter-spacing: 1.5em;
