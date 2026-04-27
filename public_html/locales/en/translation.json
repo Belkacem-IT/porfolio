@@ -9,7 +9,7 @@
   "hero": {
     "tag": "System Architect & Senior Developer",
     "title": "Build & Scale<br>Robust Systems.",
-    "subtitle": "I build your SaaS platforms from A to Z. From Cloud architecture to the core codebase, I integrate AI and unbreakable security. My commitment is absolute: On-time delivery. 100% Satisfaction or Money Back.",
+    "subtitle": "I build your web and mobile applications 100% custom. From cloud architecture to the interactive frontend, I integrate advanced AI agents while ensuring unbreakable security (Security by Design).",
     "btn_project": "Discuss Your Project",
     "btn_discover": "View My Work",
     "scroll": "Scroll"
@@ -30,20 +30,20 @@
     "skill4": "Cloud, DevOps & Security <span>04</span>"
   },
   "biomes": {
-    "title": "How I Operate",
-    "1_tag": "Design & Technical Blueprint",
-    "1_title": "Systems<br>Architecture",
-    "1_desc": "From UML modeling to tech stack selection, I design robust software foundations built to scale. Whether a SaaS, a B2B platform or a critical backend — every component is engineered to last.",
-    "2_tag": "Governance & Quality",
-    "2_title": "Technical<br>Leadership",
-    "2_desc": "I oversee end-to-end technical execution: team management, code reviews, security by design (Keycloak, CI/CD Hardening) and ISO 27001 compliance for sensitive projects.",
-    "3_tag": "Deployment & Scalability",
-    "3_title": "Cloud &<br>AI Delivery",
-    "3_desc": "Cloud infrastructure orchestration (AWS, Docker, GitHub Actions) and integration of generative AI agents to automate operations. From prototype to production, I make sure it holds."
+    "title": "What I Build",
+    "1_tag": "Custom Development",
+    "1_title": "Web & Mobile<br>Apps",
+    "1_desc": "I develop entirely bespoke web and mobile applications (React, Next.js, Flutter). From a robust backend to an interactive frontend, every system is designed to be highly performant and scalable from day one.",
+    "2_tag": "Intelligent Automation",
+    "2_title": "AI<br>Agents",
+    "2_desc": "I integrate intelligent AI agents (OpenAI, Gemini, custom RAG) directly into your core processes. The goal: automate complex tasks and empower your apps with true virtual assistants.",
+    "3_tag": "Security & DevOps",
+    "3_title": "Security<br>by Design",
+    "3_desc": "I don't sell pure security audits: security is the absolute foundation of all my developments. Every delivered app includes total hardening, a DevSecOps pipeline, and GDPR compliance by default."
   },
   "clip": {
     "title": "A GOOD PROJECT NEEDS A DEVELOPER. A LASTING PROJECT REQUIRES AN ARCHITECT.",
-    "desc": "The difference between a simple prototype and a system built to handle 100,000 asynchronous requests is what happens under the hood. AI integration, Military-grade security, and High Availability: I deliver guaranteed products."
+    "desc": "The difference between a simple prototype and an app built to handle thousands of users is what happens under the hood. AI agent integration, absolute security from the design phase, and High Availability."
   },
   "projects": {
     "tag": "Delivered Projects",

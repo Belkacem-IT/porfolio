@@ -512,6 +512,18 @@ h4 {
 /* RTL (Arabe) Support */
 html[dir="rtl"] body {
   text-align: right;
+  direction: rtl;
+  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] .tag,
+html[dir="rtl"] .cyber-btn {
+  font-family: 'Cairo', 'Space Grotesk', sans-serif;
+  font-weight: 700;
 }
 
 html[dir="rtl"] .hero-content,
@@ -522,6 +534,7 @@ html[dir="rtl"] .hero-content .subtitle {
 html[dir="rtl"] .skills-list li span {
   float: left;
   margin-left: 0;
+  margin-right: auto;
 }
 
 html[dir="rtl"] .title-hero,
@@ -530,7 +543,32 @@ html[dir="rtl"] .subtitle {
   letter-spacing: 0 !important;
   text-align: center !important;
   width: 100%;
-  /* Force it to take full width of container */
+}
+
+html[dir="rtl"] .tag {
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .nav-links {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .project-card-content,
+html[dir="rtl"] .biome-card {
+  text-align: right;
+}
+
+html[dir="rtl"] .lang-orbit {
+  margin-left: 0;
+  margin-right: 24px;
+}
+
+html[dir="rtl"] .footer-huge {
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .social-links {
+  flex-direction: row-reverse;
 }
 
 

@@ -362,3 +362,48 @@ footer {
   .hero-cta-row .cyber-btn { width: 100%; text-align: center; justify-content: center; }
   .contact-actions .cyber-btn { width: 100%; text-align: center; justify-content: center; }
 }
+
+/* ── RTL SUPPORT FOR CONTACT PAGE ── */
+html[dir="rtl"] .contact-info-grid {
+  flex-direction: row-reverse;
+}
+
+html[dir="rtl"] .availability-dot {
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+html[dir="rtl"] .availability-dot::before {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .cyber-btn {
+  flex-direction: row-reverse;
+  letter-spacing: 0;
+}
+
+html[dir="rtl"] .form-group input,
+html[dir="rtl"] .form-group select,
+html[dir="rtl"] .form-group textarea {
+  text-align: right;
+}
+
+html[dir="rtl"] .form-group label {
+  left: auto;
+  right: 15px;
+}
+
+html[dir="rtl"] .contact-sidebar {
+  text-align: right;
+}
+
+html[dir="rtl"] .c-trust-list li {
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+html[dir="rtl"] .c-trust-list li::before {
+  left: auto;
+  right: 0;
+}

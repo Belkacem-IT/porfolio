@@ -9,7 +9,7 @@
   "hero": {
     "tag": "Architecte Système & Développeur Senior",
     "title": "Build & Scale<br>Robust Systems.",
-    "subtitle": "Je construis vos plateformes SaaS de A à Z. De l'architecture Cloud à la ligne de code, j'intègre l'IA et une sécurité infranchissable. Mon engagement est total : Livraison dans les délais. Satisfait ou Remboursé.",
+    "subtitle": "Je crée vos applications web et mobiles 100% sur-mesure. De l'architecture Cloud au frontend interactif, j'intègre des agents d'IA avancés tout en assurant une sécurité infranchissable (Security by Design).",
     "btn_project": "Discutons de votre projet",
     "btn_discover": "Voir mes Réalisations",
     "scroll": "Scroll"
@@ -31,19 +31,19 @@
   },
   "biomes": {
     "title": "Ce que je pilote",
-    "1_tag": "Conception & Plan Directeur",
-    "1_title": "Architecture<br>de Systèmes",
-    "1_desc": "De la modélisation UML au choix de la stack technique, je conçois des socles logiciels robustes capables de monter en charge. Que ce soit un SaaS, une plateforme B2B ou un backend critique, chaque brique est pensée pour durer.",
-    "2_tag": "Gouvernance & Qualité",
-    "2_title": "Pilotage &<br>Sécurité",
-    "2_desc": "Je supervise l'exécution technique de bout en bout : gestion d'équipe, revues de code, sécurité by design (Keycloak, CI/CD Hardening) et respect des normes ISO 27001 pour les projets sensibles.",
-    "3_tag": "Déploiement & Scalabilité",
-    "3_title": "Livraison<br>Cloud & IA",
-    "3_desc": "Orchestration d'infrastructures Cloud (AWS, Docker, GitHub Actions) et intégration d'agents d'Intelligence Artificielle pour automatiser l'opérationnel. Du prototype à la production, je m'assure que ça tient."
+    "1_tag": "Création Sur-Mesure",
+    "1_title": "Apps Web<br>& Mobiles",
+    "1_desc": "Je développe des applications web et mobiles totalement personnalisées (React, Next.js, Flutter). De l'architecture backend robuste au frontend interactif, chaque système est pensé pour être performant et scalable dès le premier jour.",
+    "2_tag": "Automatisation Intelligente",
+    "2_title": "Agents<br>d'IA",
+    "2_desc": "J'intègre des agents IA intelligents (OpenAI, Gemini, RAG sur mesure) directement au cœur de vos processus. L'objectif : automatiser vos tâches complexes et doter vos applications de véritables assistants virtuels.",
+    "3_tag": "Sécurité & DevOps",
+    "3_title": "Security<br>by Design",
+    "3_desc": "Je ne vends pas d'audits purs : la sécurité est la fondation de tous mes développements. Chaque application livrée intègre un durcissement total, une chaîne DevSecOps et une conformité RGPD de facto."
   },
   "clip": {
     "title": "UN BEAU PROJET DEMANDE UN DÉVELOPPEUR. UN PROJET PÉRENNE EXIGE UN ARCHITECTE.",
-    "desc": "La différence entre un simple prototype et un système capable d'encaisser 100 000 requêtes asynchrones, c'est ce qui se passe sous le capot. Intégration IA, Sécurité militaire et Haute Disponibilité : je livre des produits garantis."
+    "desc": "La différence entre un simple prototype et une application capable d'encaisser des milliers d'utilisateurs, c'est ce qui se passe sous le capot. Intégration d'agents IA, Sécurité absolue dès la conception et Haute Disponibilité."
   },
   "projects": {
     "tag": "Réalisations",
