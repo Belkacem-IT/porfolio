@@ -998,3 +998,49 @@ html[dir="rtl"] .scatter-text.is-animated {
     opacity: 1;
   }
 }
+
+/* ── STICKY MASCOT ── */
+.scroll-mascot {
+  position: fixed;
+  right: 2vw;
+  top: 15vh; /* Upper right side */
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none; /* purely decorative */
+  transform: translateX(100px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-mascot.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mascot-inner {
+  font-size: 28px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mascot-inner.animating {
+  transform: scale(0.5) rotate(-20deg);
+  opacity: 0;
+}
+
+html[dir="rtl"] .scroll-mascot {
+  right: auto;
+  left: 2vw;
+  transform: translateX(-100px);
+}
+html[dir="rtl"] .scroll-mascot.visible {
+  transform: translateX(0);
+}

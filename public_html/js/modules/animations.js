@@ -224,4 +224,68 @@ export function initAnimations() {
       });
     });
   }
+
+  // ── STICKY MASCOT OBSERVER ──
+  const mascot = document.getElementById('scroll-mascot');
+  if (mascot) {
+    const mascotInner = mascot.querySelector('.mascot-inner');
+    const mascotEmoji = mascot.querySelector('.mascot-emoji');
+
+    const states = {
+      'hero': '👋',
+      'about': '🤔',
+      'biomes-wrapper': '💻',
+      'projects': '🚀',
+      'contact-section': '✉️'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const newEmoji = states[id];
+          
+          if (newEmoji && mascotEmoji.innerText !== newEmoji) {
+            // Animate transition
+            mascotInner.classList.add('animating');
+            
+            setTimeout(() => {
+              mascotEmoji.innerText = newEmoji;
+              
+              // Re-parse Twemoji if available
+              if (typeof twemoji !== 'undefined') {
+                twemoji.parse(mascotInner, { folder: 'svg', ext: '.svg', base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
+              }
+              
+              mascotInner.classList.remove('animating');
+            }, 300); // Wait for shrink animation to finish
+          }
+        }
+      });
+    }, {
+      threshold: 0.4 // Trigger when 40% of the section is visible
+    });
+
+    // Observe all major sections
+    ['hero', 'about', 'biomes-wrapper', 'projects', 'contact-section'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // Show mascot when scrolled past 100px
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        mascot.classList.add('visible');
+      } else {
+        mascot.classList.remove('visible');
+        // Reset to default state
+        if (mascotEmoji.innerText !== states['hero']) {
+          mascotEmoji.innerText = states['hero'];
+          if (typeof twemoji !== 'undefined') {
+            twemoji.parse(mascotInner, { folder: 'svg', ext: '.svg', base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
+          }
+        }
+      }
+    }, { passive: true });
+  }
 }
