@@ -232,11 +232,11 @@ export function initAnimations() {
     const mascotEmoji = mascot.querySelector('.mascot-emoji');
 
     const states = {
-      'hero': '👋',
-      'about': '🤔',
-      'biomes-wrapper': '💻',
-      'projects': '🚀',
-      'contact-section': '✉️'
+      'hero': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>',
+      'about': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+      'biomes-wrapper': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+      'projects': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
+      'contact-section': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -245,18 +245,12 @@ export function initAnimations() {
           const id = entry.target.id;
           const newEmoji = states[id];
           
-          if (newEmoji && mascotEmoji.innerText !== newEmoji) {
+          if (newEmoji && mascotEmoji.innerHTML !== newEmoji) {
             // Animate transition
             mascotInner.classList.add('animating');
             
             setTimeout(() => {
-              mascotEmoji.innerText = newEmoji;
-              
-              // Re-parse Twemoji if available
-              if (typeof twemoji !== 'undefined') {
-                twemoji.parse(mascotInner, { folder: 'svg', ext: '.svg', base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
-              }
-              
+              mascotEmoji.innerHTML = newEmoji;
               mascotInner.classList.remove('animating');
             }, 300); // Wait for shrink animation to finish
           }
@@ -279,11 +273,8 @@ export function initAnimations() {
       } else {
         mascot.classList.remove('visible');
         // Reset to default state
-        if (mascotEmoji.innerText !== states['hero']) {
-          mascotEmoji.innerText = states['hero'];
-          if (typeof twemoji !== 'undefined') {
-            twemoji.parse(mascotInner, { folder: 'svg', ext: '.svg', base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
-          }
+        if (mascotEmoji.innerHTML !== states['hero']) {
+          mascotEmoji.innerHTML = states['hero'];
         }
       }
     }, { passive: true });
